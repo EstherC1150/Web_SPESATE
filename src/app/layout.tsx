@@ -2,15 +2,13 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import StyledComponentsRegistry from "./_lib/registry";
 import "./styles.css";
+import Header from "./_components/common/Header";
+import { QuestionIcon } from "./_components/common/QuestionIcon";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+// 나눔 스퀘어 네오 폰트 설정
+const nanumSquareNeo = localFont({
+  src: "./fonts/PretendardVariable.woff2",
+  variable: "--font-nanum-square-neo",
   weight: "100 900",
 });
 
@@ -26,8 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      <body className={`${nanumSquareNeo.className}`}>
+        <StyledComponentsRegistry>
+          <Header />
+          <QuestionIcon />
+          {children}
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

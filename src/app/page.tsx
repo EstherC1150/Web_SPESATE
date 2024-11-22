@@ -2,6 +2,9 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
+import ContentContainer from "./_components/common/ContentContainer";
+import PageNavigation from "./_components/common/PageNavigation";
+import Introduce from "./_components/home/Introduce";
 
 export default function Home() {
   const controls = useAnimation();
@@ -28,17 +31,16 @@ export default function Home() {
     }, 800);
   };
 
+  const onClickPageNav = (page: number) => {
+    setCurrentPage(page);
+  };
+
   // 페이지 전환 애니메이션
   useEffect(() => {
     console.log("현재 페이지 : " + currentPage);
 
     controls.start({
       y: -currentPage * window.innerHeight,
-      // transition: {
-      //   duration: 0.8,
-      //   type: "tween",
-      //   ease: "easeOut",
-      // },
       transition: {
         type: "tween",
         duration: 0.8,
@@ -57,37 +59,11 @@ export default function Home() {
         }}
         onWheel={handleWheel} // 마우스 휠 이벤트 등록
       >
-        <div
-          style={{
-            position: "fixed", // 항상 화면에 고정
-            left: "12px",
-            top: "50%",
-            transform: "translateY(-50%)", // 중앙 정렬
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            zIndex: 10, // 페이지 컨텐츠 위에 표시
-          }}
-        >
-          {Array(totalPages)
-            .fill(0)
-            .map((_, index) => (
-              <div
-                key={index}
-                style={{
-                  height: "4px",
-                  width: "4px",
-                  margin: "4px 0",
-                  borderRadius: "50%",
-                  backgroundColor: currentPage === index ? "#4dd9ff" : "gray",
-                  cursor: "pointer",
-                }}
-                onClick={() => setCurrentPage(index)}
-              />
-            ))}
-        </div>
-
+        <PageNavigation
+          size={totalPages}
+          currentPage={currentPage}
+          onClickPageNav={onClickPageNav}
+        />
         <motion.div
           animate={controls}
           initial={{ y: 0 }}
@@ -99,38 +75,17 @@ export default function Home() {
           }}
         >
           {/* Page 1 */}
-          <div
-            style={{
-              height: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <h1>Page 1</h1>
-          </div>
+          <ContentContainer>
+            <Introduce />
+          </ContentContainer>
           {/* Page 2 */}
-          <div
-            style={{
-              height: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <ContentContainer>
             <h1>Page 2</h1>
-          </div>
+          </ContentContainer>
           {/* Page 3 */}
-          <div
-            style={{
-              height: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <ContentContainer>
             <h1>Page 3</h1>
-          </div>
+          </ContentContainer>
         </motion.div>
       </div>
     </>
