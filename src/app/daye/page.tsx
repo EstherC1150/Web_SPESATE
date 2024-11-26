@@ -1,34 +1,42 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import { useState } from "react";
+import Link from "next/link";
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #191922; /* 원하는 배경색 */
+    /* font-family: 'Arial', sans-serif; 폰트도 설정 가능 */
+  }
+`;
 const HeaderContainer = styled.header`
   width: 100%;
-  background-color: #2f2f45;
   color: white;
   position: relative;
 `;
 
 const Inner = styled.div`
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 30px;
-
-  &:hover > div {
-    display: block; /* 전체 서브메뉴 표시 */
-  }
+  gap: 4px;
+  padding: 15px 20px;
+  flex: 10;
+  align-items: center;
+  justify-content: center;
 `;
 
 const NavItem = styled.div`
-  position: relative;
+  width: 150px;
+  text-align: center;
 `;
 
 const NavLink = styled.a`
@@ -38,51 +46,78 @@ const NavLink = styled.a`
   font-weight: bold;
 
   &:hover {
-    color: #ff7f50;
+    color: #4dd9ff;
   }
 `;
 
-const SubMenuWrapper = styled.div`
-  display: none; /* 기본적으로 숨김 */
+const SubMenuWrapper = styled.div<{ $isVisible: boolean }>`
+  display: ${({ $isVisible }) => ($isVisible ? "flex" : "none")};
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%; /* HeaderContainer의 너비와 동일 */
-  background-color: white;
+  right: 0; /* HeaderContainer 전체 너비로 확장 */
+  background-color: #ffffff45;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
   z-index: 999;
 `;
 
-const SubMenu = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4개의 열로 정렬 */
-  gap: 10px;
+const LeftContent = styled.div`
+  display: flex;
+  flex: 1;
+  margin-left: 20px;
 `;
 
-const SubMenuItem = styled.a`
+const RightContent = styled.div`
+  display: flex;
+  flex: 1;
+`;
+
+const SubMenu = styled.div`
+  display: flex;
+  flex: 10;
+  justify-content: center;
+  gap: 4px;
+  padding: 15px 20px;
+`;
+
+const SubMenuColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const SubMenuItem = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 0.9rem;
   padding: 5px 10px;
-  border-radius: 5px;
+  text-align: center;
+  width: 150px;
+  text-align: center;
 
   &:hover {
-    background-color: #f0f0f0;
-    color: #ff7f50;
+    color: #4dd9ff;
   }
 `;
 
 const HeaderRight = styled.div`
   display: flex;
   gap: 15px;
+  flex: 1;
 `;
 
-const RightLink = styled.a`
+const HeaderLeft = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+`;
+
+const RightLink = styled(Link)`
   text-decoration: none;
-  color: #ff7f50;
+  color: #ffffff;
   font-size: 0.9rem;
 
   &:hover {
@@ -90,62 +125,107 @@ const RightLink = styled.a`
   }
 `;
 
-// 메뉴 데이터
-const menuItems = {
-  회사소개: [
-    { label: "트위니", href: "#" },
-    { label: "트위니 CI", href: "#" },
-  ],
-  솔루션: [
-    { label: "물류센터", href: "#" },
-    { label: "오더피킹", href: "#" },
-    { label: "공장", href: "#" },
-    { label: "관제 시스템", href: "#" },
-  ],
-  제품: [
-    { label: "AMR", href: "#" },
-    { label: "대화형 AI", href: "#" },
-    { label: "자율주행 S/W", href: "#" },
-    { label: "AGV", href: "#" },
-    { label: "대상추종", href: "#" },
-    { label: "플랫폼", href: "#" },
-  ],
-  홍보센터: [
-    { label: "언론보도", href: "#" },
-    { label: "인재채용", href: "#" },
-    { label: "공지사항", href: "#" },
-  ],
+type MenuItems = {
+  [key: string]: { label: string; href: string }[];
+};
+
+const menuItems: THeader[] = [
+  {
+    title: "회사소개",
+    subTitle: [
+      { label: "트위니", href: "#" },
+      { label: "트위니 CI", href: "#" },
+    ],
+  },
+  {
+    title: "솔루션",
+    subTitle: [
+      { label: "물류센터", href: "#" },
+      { label: "오더피킹", href: "#" },
+      { label: "공장", href: "#" },
+      { label: "관제 시스템", href: "#" },
+    ],
+  },
+  {
+    title: "제품",
+    subTitle: [
+      { label: "AMR", href: "#" },
+      { label: "대화형 AI", href: "#" },
+      { label: "자율주행 S/W", href: "#" },
+      { label: "AGV", href: "#" },
+      { label: "대상추종", href: "#" },
+      { label: "플랫폼", href: "#" },
+    ],
+  },
+  {
+    title: "홍보센터",
+    subTitle: [
+      { label: "언론보도", href: "#" },
+      { label: "인재채용", href: "#" },
+      { label: "공지사항", href: "#" },
+    ],
+  },
+];
+
+type THeader = {
+  title: string;
+  subTitle: { label: string; href: string }[];
 };
 
 export default function Header() {
+  const [isSubMenuVisible, setSubMenuVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setSubMenuVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setSubMenuVisible(false);
+  };
+
   return (
     <HeaderContainer>
+      <GlobalStyle />
       <Inner>
-        <div>Logo</div>
-        <Nav>
-          {Object.keys(menuItems).map((menu, index) => (
-            <NavItem key={index}>
-              <NavLink href="#">{menu}</NavLink>
+        <HeaderLeft>Logo</HeaderLeft>
+        <Nav
+          onMouseEnter={handleMouseEnter} // Nav에 마우스 올리면 서브메뉴가 보이도록
+          onMouseLeave={handleMouseLeave} // Nav에서 마우스 떠나면 서브메뉴가 사라지도록
+        >
+          {menuItems.map((menu) => (
+            <NavItem key={menu.title}>
+              <NavLink href="#">{menu.title}</NavLink>
             </NavItem>
           ))}
-          <SubMenuWrapper>
+          <SubMenuWrapper $isVisible={isSubMenuVisible}>
+            <LeftContent />
             <SubMenu>
-              {Object.entries(menuItems).map(([key, items], index) => (
-                <div key={index}>
-                  <strong>{key}</strong> {/* 메뉴 제목 */}
+              {menuItems.map((menu) => (
+                <SubMenuColumn key={menu.title}>
+                  {menu.subTitle.map((item) => (
+                    <SubMenuItem key={item.label} href={item.href}>
+                      {item.label}
+                    </SubMenuItem>
+                  ))}
+                </SubMenuColumn>
+              ))}
+              {/* {Object.entries(menuItems).map(([key, items], index) => (
+                <SubMenuColumn key={index}>
+                  <strong>{key}</strong>
                   {items.map((item, subIndex) => (
                     <SubMenuItem key={subIndex} href={item.href}>
                       {item.label}
                     </SubMenuItem>
                   ))}
-                </div>
-              ))}
+                </SubMenuColumn>
+              ))} */}
             </SubMenu>
+            <RightContent />
           </SubMenuWrapper>
         </Nav>
         <HeaderRight>
-          <RightLink href="#">문의하기</RightLink>
-          <RightLink href="#">EN</RightLink>
+          {/* <RightLink href="#">문의하기</RightLink>
+          <RightLink href="#">EN</RightLink> */}
         </HeaderRight>
       </Inner>
     </HeaderContainer>
