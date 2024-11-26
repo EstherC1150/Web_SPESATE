@@ -94,7 +94,6 @@ const SubMenuItem = styled(Link)`
   padding: 5px 10px;
   text-align: center;
   width: 150px;
-  text-align: center;
 
   &:hover {
     color: #4dd9ff;
