@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import ContentContainer from "./_components/common/ContentContainer";
 import PageNavigation from "./_components/common/PageNavigation";
 import Introduce from "./_components/home/Introduce";
+import BusinessIntroduce from "./_components/home/BusinessIntroduce";
 
 export default function Home() {
   const controls = useAnimation();
@@ -80,7 +81,7 @@ export default function Home() {
           </ContentContainer>
           {/* Page 2 */}
           <ContentContainer>
-            <h1>Page 2</h1>
+            <BusinessIntroduce />
           </ContentContainer>
           {/* Page 3 */}
           <ContentContainer>

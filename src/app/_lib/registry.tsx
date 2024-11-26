@@ -17,6 +17,19 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  // 이미지 드래그 방지
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+
   /* Button 기본 스타일 제거 */
   button {
     all: unset; /* 모든 기본 스타일 초기화 */
