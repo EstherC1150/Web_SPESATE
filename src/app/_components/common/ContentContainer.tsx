@@ -6,6 +6,7 @@ type Props = {
 };
 
 const SContainer = styled.div`
+  min-width: 1200px;
   height: 100vh;
   display: flex;
   justify-content: center;
