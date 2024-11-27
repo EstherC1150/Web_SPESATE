@@ -1,8 +1,11 @@
+"use client";
+
 import colors from "@/app/_constants/colors";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Section = styled.section`
   height: 100vh;
@@ -94,24 +97,62 @@ const NextText = styled(Link)`
 const Title = styled.h2`
   font-size: 42px;
   font-weight: 700;
+  margin-left: 4px;
 `;
 
 const SubTitleBox = styled.div`
   display: flex;
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  gap: 60px;
+  font-weight: 700;
 `;
 
+const Category = styled.div`
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+`;
+
+const AnimatedBorder = styled(motion.div)`
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: ${colors.primary.main};
+  transform-origin: center; // 중앙에서 애니메이션 시작
+`;
+
+const businessCategories = [
+  "정기 관리 컨설팅",
+  "정부 과제 컨설팅",
+  "기타 관리 컨설팅",
+];
+
 const BusinessIntroduce = () => {
+  const [seletedBusinessIndex, setSeletedBusinessIndex] = useState(0);
+
   return (
     <Section>
       <TopLine>
         <Title>비즈니스 소개</Title>
-        <SubTitleBox></SubTitleBox>
+        <SubTitleBox>
+          {businessCategories.map((category, index) => (
+            <Category
+              key={category}
+              onClick={() => setSeletedBusinessIndex(index)}
+            >
+              {category}
+              <AnimatedBorder
+                initial={{ scaleX: 0 }} // 초기 상태: 너비 없음
+                animate={{ scaleX: index === seletedBusinessIndex ? 1 : 0 }} // 선택 시 너비 전체로 확장
+                transition={{ duration: 0.2, ease: "easeInOut" }} // 애니메이션 속도와 이징 설정
+              />
+            </Category>
+          ))}
+        </SubTitleBox>
       </TopLine>
       <ContentBox>
         <BusinessItemBox>
