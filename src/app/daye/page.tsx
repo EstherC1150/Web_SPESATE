@@ -16,7 +16,9 @@ const GlobalStyle = createGlobalStyle`
 const HeaderContainer = styled.header`
   width: 100%;
   color: #fff;
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 `;
 
 const Inner = styled.div<{ $isVisible: boolean }>`
