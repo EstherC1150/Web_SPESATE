@@ -3,6 +3,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,15 +15,17 @@ const GlobalStyle = createGlobalStyle`
 `;
 const HeaderContainer = styled.header`
   width: 100%;
-  color: white;
+  color: #fff;
   position: relative;
 `;
 
-const Inner = styled.div`
+const Inner = styled.div<{ $isVisible: boolean }>`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: ${({ $isVisible }) =>
+    $isVisible ? "#FFF" : "transparent"};
 `;
 
 const Nav = styled.nav`
@@ -32,6 +35,7 @@ const Nav = styled.nav`
   flex: 10;
   align-items: center;
   justify-content: center;
+  height: 90px;
 `;
 
 const NavItem = styled.div`
@@ -39,10 +43,10 @@ const NavItem = styled.div`
   text-align: center;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)<{ $isVisible: boolean }>`
   text-decoration: none;
-  color: white;
-  font-size: 1rem;
+  color: ${({ $isVisible }) => ($isVisible ? "#221e1f" : "#fff")};
+  font-size: 18px;
   font-weight: bold;
 
   &:hover {
@@ -56,15 +60,16 @@ const SubMenuWrapper = styled.div<{ $isVisible: boolean }>`
   top: 100%;
   left: 0;
   right: 0; /* HeaderContainer 전체 너비로 확장 */
-  background-color: #ffffff45;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: white;
+  /* background-color: #ffffff45; */
+  background-color: #fff;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  color: #221e1f;
   z-index: 999;
 `;
 
 const LeftContent = styled.div`
   display: flex;
-  flex: 1;
+  width: 180px;
   margin-left: 20px;
 `;
 
@@ -84,13 +89,14 @@ const SubMenu = styled.div`
 const SubMenuColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 12px;
+  padding: 10px 0;
 `;
 
 const SubMenuItem = styled(Link)`
   text-decoration: none;
-  color: white;
-  font-size: 0.9rem;
+  color: #221e1f;
+  font-size: 16px;
   padding: 5px 10px;
   text-align: center;
   width: 150px;
@@ -107,7 +113,7 @@ const HeaderRight = styled.div`
 `;
 
 const HeaderLeft = styled.div`
-  flex: 1;
+  width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +128,12 @@ const RightLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+`;
+
+const ImageBox = styled.div`
+  width: 180px;
+  height: 49px;
+  position: relative;
 `;
 
 type MenuItems = {
@@ -185,15 +197,31 @@ export default function Header() {
   return (
     <HeaderContainer>
       <GlobalStyle />
-      <Inner>
-        <HeaderLeft>Logo</HeaderLeft>
+      <Inner $isVisible={isSubMenuVisible}>
+        <HeaderLeft>
+          {/* Logo */}
+          <ImageBox>
+            <Image
+              src={
+                isSubMenuVisible
+                  ? "/images/logo-black.png"
+                  : "/images/logo-white.png"
+              }
+              alt="Logo"
+              fill
+              priority // 중요 이미지 로드 우선 처리
+            />
+          </ImageBox>
+        </HeaderLeft>
         <Nav
           onMouseEnter={handleMouseEnter} // Nav에 마우스 올리면 서브메뉴가 보이도록
           onMouseLeave={handleMouseLeave} // Nav에서 마우스 떠나면 서브메뉴가 사라지도록
         >
           {menuItems.map((menu) => (
             <NavItem key={menu.title}>
-              <NavLink href="#">{menu.title}</NavLink>
+              <NavLink $isVisible={isSubMenuVisible} href="#">
+                {menu.title}
+              </NavLink>
             </NavItem>
           ))}
           <SubMenuWrapper $isVisible={isSubMenuVisible}>
