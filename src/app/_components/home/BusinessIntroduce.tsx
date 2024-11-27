@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { TBusiness } from "@/app/_types/home/home.types";
 
 const Section = styled.section`
   height: 100vh;
@@ -38,16 +39,17 @@ const BusinessItemBox = styled.div`
   height: 560px;
   min-width: 400px;
   padding: 100px 60px;
-  background-color: #00004b;
 `;
 
-const BusinessImageBox = styled.div`
+const BusinessImageBox = styled(motion.div)`
   width: 100%;
   height: 100%;
   position: absolute;
+  z-index: -1;
   top: 0;
   left: 0;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3); /* X, Y, Blur, Color */
+  background-color: #124a63;
 `;
 
 const BusinessImage = styled(Image)`
@@ -56,22 +58,23 @@ const BusinessImage = styled(Image)`
   opacity: 20%;
 `;
 
-const BusinessName = styled.p`
+const BusinessName = styled(motion.p)`
   font-size: 36px;
   font-weight: 700;
   color: ${colors.white};
 `;
 
-const BusinessContent = styled.p`
+const BusinessContent = styled(motion.p)`
   font-size: 20px;
   font-weight: 500;
   color: ${colors.white};
   white-space: pre-wrap;
   margin-top: 40px;
   line-height: 1.4;
+  width: 560px;
 `;
 
-const BusinessSomenailBox = styled.div`
+const BusinessSomenailBox = styled(motion.div)`
   display: flex;
   width: 100%;
   margin: 50px 0;
@@ -84,13 +87,16 @@ const BusinessSomenail = styled(Image)`
   height: 100%;
 `;
 
+const NextBox = styled(motion.div)`
+  margin-top: 40px;
+  cursor: pointer;
+  z-index: 1;
+`;
+
 const NextText = styled(Link)`
   font-size: 20px;
   font-weight: 500;
   color: ${colors.white};
-  margin-top: 40px;
-  cursor: pointer;
-  z-index: 1;
   text-decoration: none;
 `;
 
@@ -125,10 +131,34 @@ const AnimatedBorder = styled(motion.div)`
   transform-origin: center; // 중앙에서 애니메이션 시작
 `;
 
-const businessCategories = [
-  "정기 관리 컨설팅",
-  "정부 과제 컨설팅",
-  "기타 관리 컨설팅",
+const businesses: TBusiness[] = [
+  {
+    name: "정기 관리 컨설팅",
+    content: `기업 맞춤형 정보 제공 시스템을 통해 
+중소기업이 필요로 하는 정보를 
+정확하고 신속하게 제공합니다.`,
+    backgroundImage1: "/images/testimage3.jpg",
+    backgrpundImage2: "/images/testimage2.png",
+    link: "",
+  },
+  {
+    name: "정부 과제 컨설팅",
+    content: `정부과제 수주 확률 증대 및 성공적인 
+사업수행 서비스를 제공합니다.
+기술 개발 및 사업화 성공률
+향상에 대한 자문을 제공합니다`,
+    backgroundImage1: "/images/testimage4.jpg",
+    backgrpundImage2: "/images/testimage1.png",
+    link: "",
+  },
+  {
+    name: "기타 관리 컨설팅",
+    content: `중소기업에게 맞춤형 인증
+취득에 필요한 서비스를 제공합니다.`,
+    backgroundImage1: "/images/testimage6.jpg",
+    backgrpundImage2: "/images/testimage5.jpg",
+    link: "",
+  },
 ];
 
 const BusinessIntroduce = () => {
@@ -139,12 +169,12 @@ const BusinessIntroduce = () => {
       <TopLine>
         <Title>비즈니스 소개</Title>
         <SubTitleBox>
-          {businessCategories.map((category, index) => (
+          {businesses.map((category, index) => (
             <Category
-              key={category}
+              key={category.name}
               onClick={() => setSeletedBusinessIndex(index)}
             >
-              {category}
+              {category.name}
               <AnimatedBorder
                 initial={{ scaleX: 0 }} // 초기 상태: 너비 없음
                 animate={{ scaleX: index === seletedBusinessIndex ? 1 : 0 }} // 선택 시 너비 전체로 확장
@@ -154,27 +184,75 @@ const BusinessIntroduce = () => {
           ))}
         </SubTitleBox>
       </TopLine>
-      <ContentBox>
-        <BusinessItemBox>
-          <BusinessImageBox>
-            <BusinessImage alt="" src={"/images/testimage1.png"} fill />
-          </BusinessImageBox>
-          <BusinessName>정기 관리 컨설팅</BusinessName>
-          <BusinessContent>{`컨설팅 업체의
-새로운 시작점으로
-소개소개하는 글입니다아
-융합 솔루션을 제공합니다.`}</BusinessContent>
-          <NextText href={"#"}>{`바로가기 >`}</NextText>
-        </BusinessItemBox>
-        <BusinessSomenailBox>
-          <BusinessSomenail
-            alt=""
-            src={"/images/testimage2.png"}
-            fill
-            objectFit="cover"
-          />
-        </BusinessSomenailBox>
-      </ContentBox>
+      <AnimatePresence mode="wait">
+        <ContentBox>
+          {businesses.map((business, index) => {
+            if (index === seletedBusinessIndex) {
+              return (
+                <div key={index} style={{ display: "flex", flex: "1" }}>
+                  <BusinessItemBox key={business.name}>
+                    <BusinessImageBox
+                      key={business.backgroundImage1}
+                      initial={{ opacity: 0.2 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0.2 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                      <BusinessImage
+                        alt=""
+                        src={business.backgroundImage1}
+                        fill
+                        objectFit="cover"
+                      />
+                    </BusinessImageBox>
+                    <BusinessName
+                      key={business.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                      {business.name}
+                    </BusinessName>
+                    <BusinessContent
+                      key={business.content}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                      {business.content}
+                    </BusinessContent>
+                    <NextBox
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                      <NextText href={business.link}>{`바로가기 >`}</NextText>
+                    </NextBox>
+                  </BusinessItemBox>
+                  <BusinessSomenailBox
+                    key={business.backgrpundImage2}
+                    initial={{ x: 70, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -70, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    <BusinessSomenail
+                      alt=""
+                      src={business.backgrpundImage2}
+                      fill
+                      objectFit="cover"
+                    />
+                  </BusinessSomenailBox>
+                </div>
+              );
+            }
+          })}
+        </ContentBox>
+      </AnimatePresence>
     </Section>
   );
 };

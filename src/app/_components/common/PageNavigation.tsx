@@ -1,3 +1,4 @@
+import colors from "@/app/_constants/colors";
 import React from "react";
 import styled from "styled-components";
 
@@ -32,7 +33,8 @@ const PageNavigation = ({ size, currentPage, onClickPageNav }: Props) => {
               width: "12px",
               margin: "10px 12px",
               borderRadius: "50%",
-              backgroundColor: currentPage === index ? "#4dd9ff" : "gray",
+              backgroundColor:
+                currentPage === index ? `${colors.primary.main}` : "gray",
               cursor: "pointer",
             }}
             onClick={() => onClickPageNav(index)}

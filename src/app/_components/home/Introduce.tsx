@@ -1,3 +1,4 @@
+import colors from "@/app/_constants/colors";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -45,7 +46,7 @@ const STitle = styled.h1`
   position: relative;
 
   span {
-    color: #4dd9ff; /* 텍스트 기본 색상 */
+    color: ${colors.primary.main}; /* 텍스트 기본 색상 */
   }
 
   &::before {

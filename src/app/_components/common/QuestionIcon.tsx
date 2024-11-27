@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import QuestionForm from "./QuestionForm";
+import colors from "@/app/_constants/colors";
 
 const SContioner = styled.button`
   position: fixed;
@@ -12,7 +13,7 @@ const SContioner = styled.button`
   right: 40px;
   width: 60px;
   height: 60px;
-  background-color: #4dd9ff;
+  background-color: ${colors.primary.main};
   border-radius: 50%;
   display: flex;
   align-items: center;

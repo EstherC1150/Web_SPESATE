@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
+import colors from "@/app/_constants/colors";
 
 const SQuestionForm = styled(motion.div)`
   display: flex;
@@ -104,7 +105,7 @@ const OptionItem = styled(motion.li)`
 `;
 
 const SendButton = styled.button`
-  background-color: #4dd9ff; /* 기본 배경색 */
+  background-color: ${colors.primary.main}; /* 기본 배경색 */
   color: white; /* 기본 텍스트 색 */
   padding: 10px 20px;
   border: none;
@@ -129,9 +130,9 @@ const SendButton = styled.button`
 const PrevButton = styled.button`
   margin: -1px;
   background-color: white; /* 기본 배경색 */
-  color: #4dd9ff; /* 기본 텍스트 색 */
+  color: ${colors.primary.main}; /* 기본 텍스트 색 */
   padding: 10px 20px;
-  border: 1px solid #4dd9ff;
+  border: 1px solid ${colors.primary.main};
   border-radius: 5px;
   font-size: 16px;
   text-align: center;
