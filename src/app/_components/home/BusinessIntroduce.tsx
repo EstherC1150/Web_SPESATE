@@ -160,8 +160,8 @@ const businesses: TBusiness[] = [
   {
     name: "기타 관리 컨설팅",
     content: `중소기업에게 맞춤형 인증 취득에 필요한 서비스를 제공합니다.`,
-    backgroundImage1: "/images/testimage6.jpg",
-    backgrpundImage2: "/images/testimage5.jpg",
+    backgroundImage1: "/images/testimage5.jpg",
+    backgrpundImage2: "/images/testimage6.jpg",
     link: "",
   },
 ];
