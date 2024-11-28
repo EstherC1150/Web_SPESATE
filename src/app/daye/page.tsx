@@ -52,7 +52,7 @@ const NavLink = styled(Link)<{ $isVisible: boolean }>`
   font-weight: bold;
 
   &:hover {
-    color: #4dd9ff;
+    color: #28aae2;
   }
 `;
 
@@ -104,7 +104,7 @@ const SubMenuItem = styled(Link)`
   width: 150px;
 
   &:hover {
-    color: #4dd9ff;
+    color: #28aae2;
   }
 `;
 
