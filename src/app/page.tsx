@@ -7,12 +7,15 @@ import PageNavigation from "./_components/common/PageNavigation";
 import Introduce from "./_components/home/Introduce";
 import BusinessIntroduce from "./_components/home/BusinessIntroduce";
 import Outline from "./_components/home/Outline";
+import useSettingStore from "./_store/settingStore";
 
 export default function Home() {
   const controls = useAnimation();
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지
+  const [delay, setDelay] = useState(600);
   const totalPages = 3; // 총 페이지 수
   const isScrolling = useRef(false); // 스크롤 제한 플래그
+  const { handleHeaderType } = useSettingStore();
 
   const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     if (isScrolling.current) return; // 이미 스크롤 중이면 동작하지 않음
@@ -22,9 +25,11 @@ export default function Home() {
     if (event.deltaY > 0 && currentPage < totalPages - 1) {
       // 아래로 스크롤
       setCurrentPage((prev) => prev + 1);
+      setDelay(600);
     } else if (event.deltaY < 0 && currentPage > 0) {
       // 위로 스크롤
       setCurrentPage((prev) => prev - 1);
+      setDelay(100);
     }
 
     // 800ms 후 스크롤 제한 해제
@@ -50,6 +55,18 @@ export default function Home() {
       },
     });
   }, [currentPage, controls]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      // 짝수인 경우 블랙모드
+      if (currentPage % 2 === 0) {
+        handleHeaderType("black");
+      } else {
+        handleHeaderType("white");
+      }
+    }, delay); // 0.7초(700ms) 뒤에 상태 변환
+    return () => clearTimeout(timeout);
+  }, [currentPage, delay, handleHeaderType]);
 
   return (
     <>

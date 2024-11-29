@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import colors from "../_constants/colors";
+import useSettingStore from "../_store/settingStore";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -27,8 +28,7 @@ const Inner = styled.div<{ $isVisible: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ $isVisible }) =>
-    $isVisible ? "#FFF" : "transparent"};
+  background-color: ${({ $isVisible }) => ($isVisible ? "#FFF" : "#191922")};
 `;
 
 const Nav = styled.nav`
@@ -173,6 +173,7 @@ type THeader = {
 };
 
 export default function Header() {
+  const { headerType } = useSettingStore();
   const [isSubMenuVisible, setSubMenuVisible] = useState(false);
 
   const handleMouseEnter = () => {
@@ -186,13 +187,14 @@ export default function Header() {
   return (
     <HeaderContainer>
       <GlobalStyle />
-      <Inner $isVisible={isSubMenuVisible}>
+      <Inner $isVisible={headerType === "white" ? true : isSubMenuVisible}>
         <HeaderLeft>
-          {/* Logo */}
           <ImageBox>
             <Image
               src={
-                isSubMenuVisible
+                headerType === "white"
+                  ? "/images/logo-black.png"
+                  : isSubMenuVisible
                   ? "/images/logo-black.png"
                   : "/images/logo-white.png"
               }
@@ -208,7 +210,10 @@ export default function Header() {
         >
           {menuItems.map((menu) => (
             <NavItem key={menu.title}>
-              <NavLink $isVisible={isSubMenuVisible} href="#">
+              <NavLink
+                $isVisible={headerType === "white" ? true : isSubMenuVisible}
+                href="#"
+              >
                 {menu.title}
               </NavLink>
             </NavItem>
@@ -225,24 +230,11 @@ export default function Header() {
                   ))}
                 </SubMenuColumn>
               ))}
-              {/* {Object.entries(menuItems).map(([key, items], index) => (
-                <SubMenuColumn key={index}>
-                  <strong>{key}</strong>
-                  {items.map((item, subIndex) => (
-                    <SubMenuItem key={subIndex} href={item.href}>
-                      {item.label}
-                    </SubMenuItem>
-                  ))}
-                </SubMenuColumn>
-              ))} */}
             </SubMenu>
             <RightContent />
           </SubMenuWrapper>
         </Nav>
-        <HeaderRight>
-          {/* <RightLink href="#">문의하기</RightLink>
-          <RightLink href="#">EN</RightLink> */}
-        </HeaderRight>
+        <HeaderRight></HeaderRight>
       </Inner>
     </HeaderContainer>
   );
