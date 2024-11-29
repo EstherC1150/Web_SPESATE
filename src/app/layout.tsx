@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import StyledComponentsRegistry from "./_lib/registry";
 import "./styles.css";
-import { QuestionIcon } from "./_components/common/QuestionIcon";
 import Header from "./_components/common/Header";
 
 // 나눔 스퀘어 네오 폰트 설정
@@ -27,7 +26,7 @@ export default function RootLayout({
       <body className={`${nanumSquareNeo.className}`}>
         <StyledComponentsRegistry>
           <Header />
-          <QuestionIcon />
+
           {children}
         </StyledComponentsRegistry>
       </body>
