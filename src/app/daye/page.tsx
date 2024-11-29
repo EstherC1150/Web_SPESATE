@@ -123,25 +123,11 @@ const HeaderLeft = styled.div`
   margin-left: 20px;
 `;
 
-const RightLink = styled(Link)`
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 0.9rem;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 const ImageBox = styled.div`
   width: 180px;
   height: 49px;
   position: relative;
 `;
-
-type MenuItems = {
-  [key: string]: { label: string; href: string }[];
-};
 
 const menuItems: THeader[] = [
   {

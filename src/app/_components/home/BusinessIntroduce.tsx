@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import { TBusiness } from "@/app/_types/home/home.types";
 
 const Section = styled.section`
@@ -82,19 +82,6 @@ const BusinessContent = styled(motion.p)`
   margin-bottom: 40px;
 `;
 
-const BusinessSomenailBox = styled(motion.div)`
-  display: flex;
-  width: 100%;
-  margin: 50px 0;
-  z-index: 1;
-  position: relative;
-`;
-
-const BusinessSomenail = styled(Image)`
-  width: 100%;
-  height: 100%;
-`;
-
 const NextBox = styled(motion.div)`
   margin-top: 40px;
   cursor: pointer;
@@ -109,7 +96,7 @@ const NextText = styled(Link)`
   text-decoration: none;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   font-size: 40px;
   font-weight: 700;
   margin-left: 4px;
@@ -172,7 +159,14 @@ const BusinessIntroduce = () => {
   return (
     <Section>
       <TopLine>
-        <Title>비즈니스 소개</Title>
+        <Title
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
+          viewport={{ once: true }}
+        >
+          비즈니스 소개
+        </Title>
         <SubTitleBox>
           {businesses.map((category, index) => (
             <Category
