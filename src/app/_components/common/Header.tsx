@@ -65,7 +65,7 @@ const SubMenuWrapper = styled.div<{ $isVisible: boolean }>`
   right: 0; /* HeaderContainer 전체 너비로 확장 */
   /* background-color: #ffffff45; */
   background-color: #fff;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   color: #221e1f;
   z-index: 999;
 `;

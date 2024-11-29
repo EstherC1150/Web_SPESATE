@@ -9,6 +9,7 @@ import BusinessIntroduce from "./_components/home/BusinessIntroduce";
 import Outline from "./_components/home/Outline";
 import useSettingStore from "./_store/settingStore";
 import { QuestionIcon } from "./_components/common/QuestionIcon";
+import Footer from "./_components/home/Footer";
 
 export default function Home() {
   const controls = useAnimation();
@@ -108,6 +109,9 @@ export default function Home() {
           {/* Page 3 */}
           <ContentContainer>
             <Outline />
+          </ContentContainer>
+          <ContentContainer>
+            <Footer />
           </ContentContainer>
         </motion.div>
       </div>
