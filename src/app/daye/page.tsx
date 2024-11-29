@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import colors from "../_constants/colors";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -52,7 +53,7 @@ const NavLink = styled(Link)<{ $isVisible: boolean }>`
   font-weight: bold;
 
   &:hover {
-    color: #4dd9ff;
+    color: ${colors.primary.main};
   }
 `;
 
@@ -104,7 +105,7 @@ const SubMenuItem = styled(Link)`
   width: 150px;
 
   &:hover {
-    color: #4dd9ff;
+    color: ${colors.primary.main};
   }
 `;
 
@@ -122,25 +123,11 @@ const HeaderLeft = styled.div`
   margin-left: 20px;
 `;
 
-const RightLink = styled(Link)`
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 0.9rem;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 const ImageBox = styled.div`
   width: 180px;
   height: 49px;
   position: relative;
 `;
-
-type MenuItems = {
-  [key: string]: { label: string; href: string }[];
-};
 
 const menuItems: THeader[] = [
   {
