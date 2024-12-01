@@ -10,6 +10,7 @@ const Background = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top: 90px;
 `;
 
 const ContentWrapper = styled.div`

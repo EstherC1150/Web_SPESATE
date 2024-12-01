@@ -13,7 +13,7 @@ const SQuestionForm = styled(motion.div)`
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 999;
+  z-index: 2000;
   overflow: hidden;
   display: flex;
   flex-direction: column;

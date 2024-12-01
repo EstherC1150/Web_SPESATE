@@ -8,14 +8,16 @@ import Introduce from "./_components/home/Introduce";
 import BusinessIntroduce from "./_components/home/BusinessIntroduce";
 import Outline from "./_components/home/Outline";
 import useSettingStore from "./_store/settingStore";
+import { QuestionIcon } from "./_components/common/QuestionIcon";
 
 export default function Home() {
   const controls = useAnimation();
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지
   const [delay, setDelay] = useState(600);
-  const totalPages = 3; // 총 페이지 수
+  const totalPages = 4; // 총 페이지 수
   const isScrolling = useRef(false); // 스크롤 제한 플래그
   const { handleHeaderType } = useSettingStore();
+  const isLastPage = currentPage === totalPages - 1;
 
   const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
     if (isScrolling.current) return; // 이미 스크롤 중이면 동작하지 않음
@@ -46,14 +48,28 @@ export default function Home() {
   useEffect(() => {
     console.log("현재 페이지 : " + currentPage);
 
-    controls.start({
-      y: -currentPage * window.innerHeight,
-      transition: {
-        type: "tween",
-        duration: 0.8,
-        ease: [0.25, 0, 0.55, 1], // cubic-bezier curve
-      },
-    });
+    const updateAnimation = () => {
+      controls.start({
+        y: -currentPage * window.innerHeight,
+        transition: {
+          type: "tween",
+          duration: 0.8,
+          ease: [0.25, 0, 0.55, 1], // cubic-bezier curve
+        },
+      });
+    };
+
+    updateAnimation();
+
+    // 화면 크기 변경 시 다시 계산
+    const handleResize = () => {
+      updateAnimation();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [currentPage, controls]);
 
   useEffect(() => {
@@ -78,11 +94,13 @@ export default function Home() {
         }}
         onWheel={handleWheel} // 마우스 휠 이벤트 등록
       >
-        <PageNavigation
-          size={totalPages}
-          currentPage={currentPage}
-          onClickPageNav={onClickPageNav}
-        />
+        {!isLastPage && (
+          <PageNavigation
+            size={totalPages - 1}
+            currentPage={currentPage}
+            onClickPageNav={onClickPageNav}
+          />
+        )}
         <motion.div
           animate={controls}
           initial={{ y: 0 }}
@@ -107,6 +125,7 @@ export default function Home() {
           </ContentContainer>
         </motion.div>
       </div>
+      {!isLastPage && <QuestionIcon />}
     </>
   );
 }
