@@ -48,14 +48,28 @@ export default function Home() {
   useEffect(() => {
     console.log("현재 페이지 : " + currentPage);
 
-    controls.start({
-      y: -currentPage * window.innerHeight,
-      transition: {
-        type: "tween",
-        duration: 0.8,
-        ease: [0.25, 0, 0.55, 1], // cubic-bezier curve
-      },
-    });
+    const updateAnimation = () => {
+      controls.start({
+        y: -currentPage * window.innerHeight,
+        transition: {
+          type: "tween",
+          duration: 0.8,
+          ease: [0.25, 0, 0.55, 1], // cubic-bezier curve
+        },
+      });
+    };
+
+    updateAnimation();
+
+    // 화면 크기 변경 시 다시 계산
+    const handleResize = () => {
+      updateAnimation();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [currentPage, controls]);
 
   useEffect(() => {
