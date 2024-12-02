@@ -11,10 +11,16 @@ import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+
+  html, body {
+    overflow: auto; /* 스크롤 활성화 */
+  }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
   }
 
   // 이미지 드래그 방지

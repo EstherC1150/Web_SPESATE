@@ -159,7 +159,7 @@ const slideVariants = {
   visible: { x: 0, opacity: 1 }, // 화면에 보이는 상태
 };
 
-const options = ["정기관리", "정부과제 프로젝트", "인증", "특허 및 디자인"];
+const options = ["정기관리", "정부과제", "기업 인증", "특허 및 디자인", "기타"];
 
 const QuestionForm = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -268,7 +268,7 @@ const QuestionForm = () => {
                 <Content placeholder="홍길동" />
               </ColLine>
               <ColLine>
-                <SubTitle>직책</SubTitle>
+                <SubTitle>직책 / 직급</SubTitle>
                 <Content placeholder="대리" />
               </ColLine>
               <ColLine>

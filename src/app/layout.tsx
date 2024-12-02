@@ -26,7 +26,6 @@ export default function RootLayout({
       <body className={`${nanumSquareNeo.className}`}>
         <StyledComponentsRegistry>
           <Header />
-
           {children}
         </StyledComponentsRegistry>
       </body>

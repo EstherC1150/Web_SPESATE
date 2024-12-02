@@ -16,7 +16,7 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 90px;
+  padding-top: 120px;
 `;
 
 const TopLine = styled.div`
@@ -99,7 +99,7 @@ const NextText = styled(Link)`
 `;
 
 const Title = styled(motion.h2)`
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   margin-left: 4px;
 `;
@@ -123,7 +123,7 @@ const AnimatedBorder = styled(motion.div)`
   position: absolute;
   bottom: -4px;
   left: 0;
-  height: 3px;
+  height: 2px;
   width: 100%;
   background-color: ${colors.primary.main};
   transform-origin: center; // 중앙에서 애니메이션 시작
