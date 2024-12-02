@@ -16,27 +16,29 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 20px 0px;
+  padding-top: 90px;
 `;
 
 const TopLine = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-top: 30px;
 `;
 
 const ContentBox = styled.div`
   display: flex;
   width: 100%;
-  height: 560px;
+  flex: 1;
   margin-top: 40px;
+  margin-bottom: 40px;
 `;
 
 const BusinessItemBox = styled.div`
   position: relative;
   display: flex;
-  height: 560px;
   width: 100%;
+  height: 100%;
   /* min-width: 400px; */
   padding: 0px 60px;
   margin-top: 20px;
