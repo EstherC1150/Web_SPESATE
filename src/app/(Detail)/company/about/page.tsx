@@ -103,6 +103,27 @@ const ColorDescription = styled.p`
   margin-top: 8px;
 `;
 
+const ValueContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 140px;
+`;
+
+const ValueBox = styled.div`
+  width: 48%;
+  margin-bottom: 100px;
+`;
+
+const ValueTitle = styled.p`
+  font-size: 24px;
+  font-weight: 600;
+`;
+
+const ValueContent = styled.p`
+  font-size: 20px;
+  font-weight: 400;
+`;
+
 const CompanyAboutPage = () => {
   return (
     <Container>
@@ -198,6 +219,173 @@ const CompanyAboutPage = () => {
             </ColorBox>
           </ColorContainer>
         </ContentBox>
+        <SubTitle style={{ marginTop: "200px" }}>핵심가치</SubTitle>
+        <ValueContainer>
+          <ValueBox>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  width: "28px",
+                  height: "28px",
+                  marginRight: "8px",
+                }}
+              >
+                <Image
+                  src={"/images/company/ic-brainstorm-skill.png"}
+                  alt=""
+                  fill
+                />
+              </div>
+              <ValueTitle>문제 해결 능력</ValueTitle>
+            </div>
+            <ValueContent>
+              복잡한 문제를 분석하고 최적의 해결책을 제시한다.
+            </ValueContent>
+          </ValueBox>
+          <ValueBox>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  width: "28px",
+                  height: "28px",
+                  marginRight: "8px",
+                }}
+              >
+                <Image src={"/images/company/ic-morale.png"} alt="" fill />
+              </div>
+              <ValueTitle>객관성</ValueTitle>
+            </div>
+            <ValueContent>
+              객관적인 분석을 통해 의사결정을 지원한다.
+            </ValueContent>
+          </ValueBox>
+          <ValueBox>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  width: "28px",
+                  height: "28px",
+                  marginRight: "8px",
+                }}
+              >
+                <Image
+                  src={"/images/company/ic-brainstorm-skill.png"}
+                  alt=""
+                  fill
+                />
+              </div>
+              <ValueTitle>신뢰성</ValueTitle>
+            </div>
+            <ValueContent>
+              투명한 커뮤니케이션을 통한 신뢰를 구축한다.
+            </ValueContent>
+          </ValueBox>
+          <ValueBox>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  width: "28px",
+                  height: "28px",
+                  marginRight: "8px",
+                }}
+              >
+                <Image
+                  src={"/images/company/ic-performance-macbook.png"}
+                  alt=""
+                  fill
+                />
+              </div>
+              <ValueTitle>효율성</ValueTitle>
+            </div>
+            <ValueContent>빠르고 정확하게 문제를 해결한다.</ValueContent>
+          </ValueBox>
+          <ValueBox>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  width: "28px",
+                  height: "28px",
+                  marginRight: "8px",
+                }}
+              >
+                <Image src={"/images/company/ic-rocket.png"} alt="" fill />
+              </div>
+              <ValueTitle>미래지향성</ValueTitle>
+            </div>
+            <ValueContent>
+              변화하는 환경에 적응하고 새로운 가치를 창출한다.
+            </ValueContent>
+          </ValueBox>
+          <ValueBox>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  position: "relative",
+                  width: "28px",
+                  height: "28px",
+                  marginRight: "8px",
+                }}
+              >
+                <Image
+                  src={"/images/company/ic-purposeful-man.png"}
+                  alt=""
+                  fill
+                />
+              </div>
+              <ValueTitle>고객중심</ValueTitle>
+            </div>
+            <ValueContent>
+              고객과 함께 성장하는 파트너십을 구축한다.
+            </ValueContent>
+          </ValueBox>
+        </ValueContainer>
       </ContentContainer>
     </Container>
   );

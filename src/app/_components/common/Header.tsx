@@ -1,6 +1,7 @@
 "use client";
 
 import colors from "@/app/_constants/colors";
+import { menuItems } from "@/app/_constants/menu";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -123,37 +124,6 @@ const ImageBox = styled(Link)`
   position: relative;
 `;
 
-const menuItems: THeader[] = [
-  {
-    title: "회사소개",
-    subTitle: [
-      { label: "회사 개요", href: "/company/about" },
-      { label: "연혁", href: "/company/history" },
-      { label: "찾아오시는 길", href: "/company/location" },
-    ],
-  },
-  {
-    title: "비즈니스",
-    subTitle: [
-      { label: "정기 관리 컨설팅", href: "/business/subscription" },
-      { label: "정부 과제 컨설팅", href: "/business/goverment" },
-      { label: "기타 과제 컨설팅", href: "/business/etc" },
-    ],
-  },
-  {
-    title: "소식",
-    subTitle: [{ label: "뉴스", href: "/news/article" }],
-  },
-  {
-    title: "인재채용",
-    subTitle: [{ label: "채용", href: "/talent/recruit" }],
-  },
-];
-
-type THeader = {
-  title: string;
-  subTitle: { label: string; href: string }[];
-};
 const Header = () => {
   const [isSubMenuVisible, setSubMenuVisible] = useState(false);
   const [hasShadow, setHasShadow] = useState(false);
