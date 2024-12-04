@@ -24,19 +24,34 @@ const MTitle = styled.h2`
 const TextContent = styled.div`
   display: flex;
   justify-content: space-between;
+  height: 100%;
+  margin-bottom: 160px;
 `;
-const LeftInfo = styled.div``;
-const TopInfo = styled.div``;
+const LeftInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+const TopInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+`;
 const ComName = styled.h3`
   font-size: 32px;
   font-weight: 500;
 `;
-const ComAddress = styled.p``;
+const ComAddress = styled.p`
+  font-size: 18px;
+  font-weight: 500;
+`;
 const BottomInfo = styled.div`
+  font-size: 18px;
+  /* margin: auto; */
   display: flex;
   flex-wrap: wrap; /* 여러 줄로 감싸기 */
   column-gap: 10px; /* 칼럼 간 간격 */
-  row-gap: 10px; /* 행 간 간격 */
+  row-gap: 60px; /* 행 간 간격 */
 
   /* 자식 요소들이 칼럼당 2개씩 배치되도록 크기 조정 */
   & > * {
@@ -44,8 +59,14 @@ const BottomInfo = styled.div`
     box-sizing: border-box; /* 패딩과 보더 포함한 크기 계산 */
   }
 `;
-const InfoWrap = styled.div``;
-const InfoSub = styled.p``;
+const InfoWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+const InfoSub = styled.p`
+  font-weight: 500;
+`;
 const InfoText = styled.p``;
 const RightImg = styled.div`
   width: 450px;
