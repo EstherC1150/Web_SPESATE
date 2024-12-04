@@ -31,7 +31,7 @@ const ContentBox = styled.div`
   width: 100%;
   flex: 1;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 `;
 
 const BusinessItemBox = styled.div`

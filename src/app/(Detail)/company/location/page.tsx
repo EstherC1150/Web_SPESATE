@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { CustomOverlayMap, Map, MapMarker } from "react-kakao-maps-sdk";
 
 const Container = styled.div`
   width: 100%;
@@ -73,9 +74,14 @@ const RightImg = styled.div`
   height: 450px;
   position: relative;
 `;
-const MapContent = styled.div``;
+const MapContent = styled.div`
+  width: 100%;
+  height: 700px;
+`;
 
-const location = () => {
+const Location = () => {
+  const position = { lat: 37.4868314347245, lng: 127.120453991896 };
+
   return (
     <Container>
       <MapWrapper>
@@ -113,9 +119,18 @@ const location = () => {
           </RightImg>
         </TextContent>
       </MapWrapper>
-      <MapContent>카카오맵</MapContent>
+      <MapContent>
+        <Map center={position} id="map" draggable>
+          <MapMarker position={position}></MapMarker>
+          <CustomOverlayMap position={position} yAnchor={3}>
+            <div style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}>
+              <span>서울 송파구 법원로 128</span>
+            </div>
+          </CustomOverlayMap>
+        </Map>
+      </MapContent>
     </Container>
   );
 };
 
-export default location;
+export default Location;

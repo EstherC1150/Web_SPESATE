@@ -10,6 +10,7 @@ import Outline from "./_components/home/Outline";
 import useSettingStore from "./_store/settingStore";
 import { QuestionIcon } from "./_components/common/QuestionIcon";
 import Footer from "./_components/home/Footer";
+import HomeHeader from "./_components/common/HomeHeader";
 
 export default function Home() {
   const controls = useAnimation();
@@ -87,6 +88,7 @@ export default function Home() {
 
   return (
     <>
+      <HomeHeader />
       <div
         style={{
           overflow: "hidden",
