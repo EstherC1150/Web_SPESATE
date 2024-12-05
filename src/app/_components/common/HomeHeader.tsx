@@ -2,20 +2,26 @@
 
 import colors from "@/app/_constants/colors";
 import { menuItems } from "@/app/_constants/menu";
+import useSettingStore from "@/app/_store/settingStore";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { createGlobalStyle } from "styled-components";
 
-const HeaderContainer = styled.header<{ $hasShadow: boolean }>`
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #191922; /* 원하는 배경색 */
+    /* font-family: 'Arial', sans-serif; 폰트도 설정 가능 */
+  }
+`;
+const HeaderContainer = styled.header`
   width: 100%;
   color: #fff;
   position: fixed;
   top: 0;
   z-index: 1000;
-  box-shadow: ${({ $hasShadow }) =>
-    $hasShadow ? "0px 4px 6px rgba(0, 0, 0, 0.1)" : "none"};
-  transition: box-shadow 0.3s ease-in-out;
 `;
 
 const Inner = styled.div<{ $isVisible: boolean }>`
@@ -23,7 +29,7 @@ const Inner = styled.div<{ $isVisible: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  background-color: ${({ $isVisible }) => ($isVisible ? "#FFF" : "#191922")};
 `;
 
 const Nav = styled.nav`
@@ -43,7 +49,7 @@ const NavItem = styled.div`
 
 const NavLink = styled(Link)<{ $isVisible: boolean }>`
   text-decoration: none;
-  color: #221e1f;
+  color: ${({ $isVisible }) => ($isVisible ? "#221e1f" : "#fff")};
   font-size: 18px;
   font-weight: bold;
 
@@ -124,9 +130,9 @@ const ImageBox = styled(Link)`
   position: relative;
 `;
 
-const Header = () => {
+const HomeHeader = () => {
+  const { headerType } = useSettingStore();
   const [isSubMenuVisible, setSubMenuVisible] = useState(false);
-  const [hasShadow, setHasShadow] = useState(false);
 
   const handleMouseEnter = () => {
     setSubMenuVisible(true);
@@ -136,24 +142,20 @@ const Header = () => {
     setSubMenuVisible(false);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setHasShadow(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <HeaderContainer $hasShadow={hasShadow}>
-      <Inner $isVisible={isSubMenuVisible}>
+    <HeaderContainer>
+      <GlobalStyle />
+      <Inner $isVisible={headerType === "white" ? true : isSubMenuVisible}>
         <HeaderLeft>
           <ImageBox href={"/"}>
             <Image
-              src={"/images/logo-black.png"}
+              src={
+                headerType === "white"
+                  ? "/images/logo-black.png"
+                  : isSubMenuVisible
+                  ? "/images/logo-black.png"
+                  : "/images/logo-white.png"
+              }
               alt="Logo"
               fill
               priority // 중요 이미지 로드 우선 처리
@@ -167,7 +169,7 @@ const Header = () => {
           {menuItems.map((menu) => (
             <NavItem key={menu.title}>
               <NavLink
-                $isVisible={isSubMenuVisible}
+                $isVisible={headerType === "white" ? true : isSubMenuVisible}
                 href={menu.subTitle[0].href}
               >
                 {menu.title}
@@ -196,4 +198,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HomeHeader;

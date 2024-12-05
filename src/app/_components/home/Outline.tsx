@@ -31,8 +31,8 @@ const ContentBox = styled.div`
   justify-content: space-between;
 `;
 const LeftMap = styled.div`
-  width: 363px;
-  height: 523px;
+  width: 351px;
+  height: 505px;
   position: relative;
 `;
 const RightContent = styled.div``;

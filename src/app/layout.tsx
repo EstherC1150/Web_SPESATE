@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import StyledComponentsRegistry from "./_lib/registry";
 import "./styles.css";
-import Header from "./_components/common/Header";
+import Script from "next/script";
 
 // 나눔 스퀘어 네오 폰트 설정
 const nanumSquareNeo = localFont({
@@ -24,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nanumSquareNeo.className}`}>
-        <StyledComponentsRegistry>
-          <Header />
-
-          {children}
-        </StyledComponentsRegistry>
+        <Script
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=343acd45a03376f09966f0ec83342f0e&autoload=false"
+          strategy="beforeInteractive"
+        />
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
