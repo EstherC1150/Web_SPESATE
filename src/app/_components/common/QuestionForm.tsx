@@ -9,7 +9,8 @@ const SQuestionForm = styled(motion.div)`
   bottom: 120px;
   right: 40px;
   width: 370px;
-  height: 660px;
+  height: 664px;
+  max-height: 80vh; /* 화면 높이의 최대 90% */
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -18,6 +19,12 @@ const SQuestionForm = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 30px 26px;
+  overflow-y: auto; /* 내부 스크롤 활성화 */
+  scrollbar-width: none; /* Firefox에서 스크롤바 숨기기 */
+
+  &::-webkit-scrollbar {
+    display: none; /* Webkit 기반 브라우저에서 스크롤바 숨기기 */
+  }
 `;
 
 const Title = styled.p`
