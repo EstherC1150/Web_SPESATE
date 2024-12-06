@@ -1,7 +1,6 @@
 "use client";
 
 import Vision from "@/app/sg/page";
-import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
@@ -30,33 +29,6 @@ const Title = styled.p`
   font-size: 44px;
   font-weight: 600;
   margin-bottom: 120px;
-`;
-
-const ImageBox = styled.div`
-  width: 100%;
-  height: 340px;
-  margin-bottom: 140px;
-  position: relative;
-  border-radius: 32px;
-  overflow: hidden;
-  margin-top: 120px;
-`;
-
-const ImageText = styled.p`
-  font-size: 40px;
-  font-weight: 500;
-  color: #ffffff;
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-`;
-
-const Test = styled.div`
-  height: 500px;
-  width: 100%;
-  background-color: red;
 `;
 
 const page = () => {
