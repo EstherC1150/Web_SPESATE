@@ -1,217 +1,244 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import styled from "styled-components";
+import { easeInOut, motion } from "framer-motion";
 
-interface CircleData {
-  text: string;
-  description: string;
-  color: string;
-}
+const Timeline = () => {
+  const milestones = [
+    { year: "2024", text: "회사설립\n고객사 1개 유지" },
+    {
+      year: "2025",
+      text: "고객사 10개 유지\n고객사 과제 총 사업비 합산 20억\n성능시험 전문기관 연계\n벤처기업등록",
+    },
+    {
+      year: "2026",
+      text: "고객사 25개 유지\n고객사 과제 총 사업비 합산 60억\n인증 전문인력 확보\n사업 전문가 컨설팅 기업 등록",
+    },
+    {
+      year: "2027",
+      text: "고객사 50개 유지\n고객사 과제 총 사업비 합산 120억\n특허 사무소 연계\n고객사 컨소시움 구성",
+    },
+    {
+      year: "2028",
+      text: "고객사 100개 유지\n고객사 과제 총 사업비 합산 300억\n기업부설 연구소 등록\n평가기관 심사위원 등록",
+    },
+  ];
 
-const circles: CircleData[] = [
-  {
-    text: "고객 성공 파트너",
-    description:
-      "단순한 컨설팅을 넘어, 고객의 비즈니스 성장을 위한 최고의 파트너",
-    color: "#221E1f",
-  },
-  {
-    text: "미래를 선도하는 기업",
-    description: "미래 지향성을 바탕으로 끊임없이 새로운 지식 습득",
-    color: "#D1D3D5",
-  },
-  {
-    text: "지속 가능한 성장",
-    description:
-      "단순히 이익 추구를 넘어, 고객 중심의 가치창출을 통해 지속 가능한 성장",
-    color: "#28AAE2",
-  },
-];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
 
-const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1200px;
-  margin: 0 auto;
-  position: relative;
-`;
+  const itemVariants = (index: number) => ({
+    hidden: { opacity: 0 }, // 아래에서 시작
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: index * 0.3, easeInOut }, // 딜레이 추가
+    },
+  });
 
-const CircleContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 2rem;
-  position: relative;
-`;
+  const textVariants = (index: number) => ({
+    hidden: { opacity: 0, x: "-50%", y: index % 2 === 0 ? 50 : -50 }, // 아래에서 시작
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: "-50%",
+      transition: { duration: 0.5, delay: index * 0.3, easeInOut }, // 딜레이 추가
+    },
+  });
 
-const CircleWrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex: 1;
-`;
+  const lineVariants = (index: number) => ({
+    hidden: { opacity: 0, x: "-50%", y: index % 2 === 0 ? 50 : -50 }, // 아래에서 시작
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: "-50%",
+      transition: { duration: 0.5, delay: index * 0.3, easeInOut }, // 딜레이 추가
+    },
+  });
 
-const CircleSVG = styled.svg`
-  width: 240px;
-  height: 240px;
-`;
-
-const TextBox = styled(motion.div)<{ color?: string }>`
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 30px 24px;
-  width: 90%;
-  margin-top: 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-  h3 {
-    font-size: 1.2rem;
-    margin: 0 0 0.5rem 0;
-    color: ${(props) => props.color || "#000"};
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-
-  p {
-    font-size: 1rem;
-    margin: 0;
-    line-height: 1.2;
-    font-weight: 400;
-  }
-`;
-
-const PlusBoxOne = styled(motion.div)`
-  position: absolute;
-  top: 30%;
-  left: 33.2%;
-  transform: translateX(-33.2%) translateY(-30%);
-  font-size: 32px;
-  color: #575757;
-`;
-
-const PlusBoxTwo = styled(motion.div)`
-  position: absolute;
-  top: 30%;
-  left: 67%;
-  transform: translateX(-67%) translateY(-30%);
-  font-size: 32px;
-  color: #575757;
-`;
-
-const imageUrl = [
-  "/images/company/ic-partner.png",
-  "/images/company/ic-company.png",
-  "/images/company/ic-growth.png",
-];
-
-const text = ["고객 성공 파트너", "미래를 선도하는 기업", "지속 가능한 성장"];
-
-const Vision = () => {
   return (
-    <Layout>
-      <PlusBoxOne
-        initial={{ opacity: 0, y: 50, x: "-33.2%" }}
-        animate={{ opacity: 1, y: "-30%", x: "-33.2%" }}
-        transition={{
-          delay: 0.3,
-          duration: 0.5,
-          ease: "easeInOut",
-        }}
+    <div
+      style={{
+        overflow: "hidden",
+        padding: "300px 20px",
+        backgroundColor: "#f4f4f4",
+        height: "700px",
+        width: "1200px",
+      }}
+    >
+      <motion.div
+        className="timeline"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        style={{ display: "flex", alignItems: "center", position: "relative" }}
       >
-        +
-      </PlusBoxOne>
-      <PlusBoxTwo
-        initial={{ opacity: 0, y: 50, x: "-67%" }}
-        animate={{ opacity: 1, y: "-30%", x: "-67%" }}
-        transition={{
-          delay: 1,
-          duration: 0.5,
-          ease: "easeInOut",
-        }}
-      >
-        +
-      </PlusBoxTwo>
-      {/* 원과 텍스트를 함께 배치 */}
-      <CircleContainer>
-        {circles.map((circle, index) => (
-          <CircleWrapper key={index}>
-            {/* 원 애니메이션 */}
-            <CircleSVG viewBox="0 0 100 100">
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="45"
-                fill="#FFFFFF"
-                stroke={circle.color}
-                strokeWidth="7"
-                strokeDasharray="283" // 2 * π * r
-                strokeDashoffset="283"
-                initial={{ strokeDashoffset: 283 }}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{
-                  delay: index * 0.5,
-                  duration: 1,
-                  ease: "easeInOut",
-                }}
-                style={{
-                  transformOrigin: "center",
-                  transform: "rotate(135deg)",
-                }}
-              />
-              <motion.image
-                href={imageUrl[index]} // 아이콘 경로
-                x={35}
-                y={27}
-                width="32" // 아이콘 크기
-                height="32"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  delay: index * 0.5 + 0.5,
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.text
-                x="50"
-                y="68"
-                fill="#2e2e2e"
-                textAnchor="middle"
-                alignmentBaseline="central"
-                fontSize="7px"
-                fontWeight="700"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  delay: index * 0.5 + 0.5,
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-              >
-                {text[index]}
-              </motion.text>
-            </CircleSVG>
-
-            {/* 텍스트 애니메이션 */}
-            <TextBox
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.5 + 0.5, duration: 0.5 }}
-              color={circle.color === "#D1D3D5" ? "#6e6e6e" : circle.color}
+        {/* SVG로 선과 화살표를 나타냄 */}
+        <svg
+          style={{
+            width: "100%",
+            height: "50px",
+            position: "absolute",
+            top: "50%",
+            left: "0",
+            transform: "translateY(-50%)",
+          }}
+        >
+          {/* SVG Marker 정의 */}
+          <defs>
+            <marker
+              id="arrow"
+              viewBox="7 0 11 10"
+              markerWidth="6"
+              markerHeight="6"
+              refX="7" /* 삼각형 끝을 선 끝과 맞추기 위해 조정 */
+              refY="5"
+              orient="auto"
             >
-              <h3>{circle.text}</h3>
-              <p>{circle.description}</p>
-            </TextBox>
-          </CircleWrapper>
+              <motion.path
+                d="M 0 0 L 10 5 L 0 10 Z"
+                fill="#ccc"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  delay: 1.3, // 0.3초 후에 나타남
+                  duration: 0.25, // 0.5초 동안 애니메이션
+                  ease: "easeInOut",
+                }}
+              />
+            </marker>
+          </defs>
+
+          {/* 선 애니메이션 */}
+          <motion.line
+            x1="0"
+            y1="25"
+            x2="calc(100% - 50px)" /* 끝에서 30px 멈춤 */
+            y2="25"
+            stroke="#ccc"
+            strokeWidth="30"
+            markerEnd="url(#arrow)"
+            initial={{ strokeDasharray: "0, 10000" }}
+            animate={{ strokeDasharray: "10000, 0" }}
+            transition={{ duration: 8, ease: "linear" }}
+          />
+        </svg>
+
+        {milestones.map((milestone, index) => (
+          <motion.div
+            className="milestone"
+            key={index}
+            style={{
+              position: "relative",
+              marginLeft: index === 0 ? "100px" : "18%",
+              textAlign: "center",
+            }}
+          >
+            <motion.div
+              style={{
+                width: "16px",
+                height: "16px",
+                borderRadius: "50%",
+                background: "#007BFF",
+                margin: "0 auto",
+              }}
+              custom={index} // Framer Motion의 variants를 동적 적용
+              variants={itemVariants(index)}
+            ></motion.div>
+
+            {/* 연도와 텍스트 박스를 연결하는 선 추가 */}
+            <motion.svg
+              style={{
+                position: "absolute",
+                top: "-100px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "2px",
+                height: "200px", // 전체 길이를 100%로 설정하여 화면에 꽉 채우기
+              }}
+              custom={index}
+              // variants={lineVariants(index)}
+            >
+              {/* 아래쪽 선 */}
+              {index % 2 === 0 ? (
+                <motion.line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="40" // 길이 조절
+                  stroke="black" // 선 색을 검은색으로 설정
+                  strokeWidth="2"
+                  initial={{ strokeDasharray: "0, 100" }}
+                  animate={{ strokeDasharray: "100, 0" }}
+                  transition={{ duration: 1, ease: "linear" }}
+                />
+              ) : (
+                <motion.line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="-40" // 길이 조절
+                  stroke="black" // 선 색을 검은색으로 설정
+                  strokeWidth="2"
+                  initial={{ strokeDasharray: "0, 100" }}
+                  animate={{ strokeDasharray: "100, 0" }}
+                  transition={{ duration: 1, ease: "linear" }}
+                />
+              )}
+            </motion.svg>
+
+            {/* 연도를 표시하는 부분 추가 */}
+            <motion.div
+              className="year-text"
+              style={{
+                position: "absolute",
+                top: index % 2 === 0 ? "35px" : "-35px", // 점과 텍스트 박스 사이에 위치
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontSize: "18px",
+                fontWeight: "bold",
+                color: "#007BFF",
+                opacity: 0,
+              }}
+              custom={index}
+              variants={textVariants(index)}
+            >
+              {milestone.year}
+            </motion.div>
+
+            <motion.div
+              className="milestone-box"
+              style={{
+                marginTop: "10px",
+                backgroundColor: "#fff",
+                padding: "10px",
+                borderRadius: "8px",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                whiteSpace: "pre-line",
+                position: "absolute",
+                top: index % 2 === 0 ? "100px" : "-220px", // 순차적으로 아래/위에 배치
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "200px",
+                height: "120px",
+              }}
+              custom={index}
+              variants={textVariants(index)}
+            >
+              <p>{milestone.text}</p>
+            </motion.div>
+          </motion.div>
         ))}
-      </CircleContainer>
-    </Layout>
+      </motion.div>
+    </div>
   );
 };
 
-export default Vision;
+export default Timeline;
