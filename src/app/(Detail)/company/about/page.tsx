@@ -1,10 +1,12 @@
 "use client";
 
-import CollaborationDiagram from "@/app/sg/page";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 import { easeInOut, motion } from "framer-motion";
+import NetworkDiagram from "@/app/_components/about/NetworkDiagram";
+import { mainColors } from "@/app/_constants/company/about/about";
+import ColorPrevBox from "@/app/_components/about/ColorPrevBox";
 
 const Container = styled.div`
   display: flex;
@@ -28,18 +30,18 @@ const ContentContainer = styled.div`
   flex-direction: column;
 `;
 
-const Title = styled.p`
+const Title = styled(motion.p)`
   font-size: 32px;
   font-weight: 600;
 `;
 
-const CompanyName = styled.p`
+const CompanyName = styled(motion.p)`
   margin-top: 80px;
   font-size: 40px;
   font-weight: 700;
 `;
 
-const ContentBox = styled.div`
+const ContentBox = styled(motion.div)`
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -53,7 +55,7 @@ const ContentBox = styled.div`
   }
 `;
 
-const ImageBox = styled.div`
+const ImageBox = styled(motion.div)`
   width: 100%;
   height: 360px;
   position: relative;
@@ -73,40 +75,11 @@ const ColorContainer = styled(motion.div)`
   display: flex;
 `;
 
-const ColorBox = styled.div`
-  flex: 1;
-  padding: 30px 24px 50px 24px;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-`;
-
-const ColorPrev = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-`;
-
-const ColorText = styled.p`
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 16px;
-  margin-bottom: 24px;
-`;
-
-const ColorDescription = styled.p`
-  font-size: 14px;
-  color: #161616;
-  font-weight: 400;
-  margin-top: 8px;
-`;
-
 const ValueContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 140px;
+  justify-content: space-between;
 `;
 
 const ValueBox = styled.div`
@@ -128,16 +101,40 @@ const CompanyAboutPage = () => {
   return (
     <Container>
       <ContentContainer>
-        <Title>회사개요</Title>
-        <CompanyName>SPESATE</CompanyName>
-        <ContentBox>
+        <Title
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0, ease: easeInOut }}
+          viewport={{ once: true }}
+        >
+          회사개요
+        </Title>
+        <CompanyName
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.07, ease: easeInOut }}
+          viewport={{ once: true }}
+        >
+          SPESATE
+        </CompanyName>
+        <ContentBox
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.14, ease: easeInOut }}
+          viewport={{ once: true }}
+        >
           <p>{`중소·중견기업 간의 올바른 협력을 통해 긍정적인 시너지를 창출하고, 
 상호 성장을 위한 협력 생태계를 구축 하는 것을 목표로  2024년 10월 10일에 설립 되었습니다.
 `}</p>
           <p>{`고객만의 맞춤형 서비스를 통하여 고객의 바램을 충족시키는 기업으로 거듭 나기 위하여 
 항상 최선을 다하는 기업이 되겠습니다.`}</p>
         </ContentBox>
-        <ImageBox>
+        <ImageBox
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.21, ease: easeInOut }}
+          viewport={{ once: true }}
+        >
           <Image src={"/images/bg-about.png"} alt="" fill objectFit="cover" />
         </ImageBox>
         <SubTitle>
@@ -145,7 +142,7 @@ const CompanyAboutPage = () => {
         </SubTitle>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ width: "60%" }}>
-            <CollaborationDiagram />
+            <NetworkDiagram />
           </div>
           <motion.div
             style={{
@@ -189,34 +186,15 @@ const CompanyAboutPage = () => {
             />
           </div>
           <ColorContainer>
-            <ColorBox style={{ backgroundColor: "#ebebeb" }}>
-              <ColorPrev style={{ backgroundColor: "#28aae2" }} />
-              <ColorText style={{ color: "#28aae2" }}>Blue</ColorText>
-              <ColorDescription>R 40/ G 170/ B 180</ColorDescription>
-              <ColorDescription>C 82/ M 25/ Y 0/ K 11</ColorDescription>
-              <ColorDescription>#28AAE2</ColorDescription>
-              <ColorDescription>Pantone 298C</ColorDescription>
-            </ColorBox>
-            <ColorBox
-              style={{ backgroundColor: "#1f86b3", marginLeft: "-10px" }}
-            >
-              <ColorPrev style={{ backgroundColor: "#d1d3d5" }} />
-              <ColorText style={{ color: "#d1d3d5" }}>GREY</ColorText>
-              <ColorDescription>R 209/ G 211/ B 213</ColorDescription>
-              <ColorDescription>C 2/ M 1/ Y 0/ K 16</ColorDescription>
-              <ColorDescription>#FFFFFF</ColorDescription>
-              <ColorDescription>Pantone 427C</ColorDescription>
-            </ColorBox>
-            <ColorBox
-              style={{ backgroundColor: "#ffffff", marginLeft: "-10px" }}
-            >
-              <ColorPrev style={{ backgroundColor: "#221e1f" }} />
-              <ColorText style={{ color: "#221e1f" }}>BLACK</ColorText>
-              <ColorDescription>R 34/ G 30/ B 31</ColorDescription>
-              <ColorDescription>C 0/ M 12 Y 9/ K 87</ColorDescription>
-              <ColorDescription>#221E1F</ColorDescription>
-              <ColorDescription>Pantone 419C</ColorDescription>
-            </ColorBox>
+            {mainColors.map((color, index) => {
+              return (
+                <ColorPrevBox
+                  key={color.color}
+                  colorPalette={color}
+                  style={{ marginLeft: index !== 0 ? "-10px" : "0" }}
+                />
+              );
+            })}
           </ColorContainer>
         </ContentBox>
         <SubTitle style={{ marginTop: "200px" }}>핵심가치</SubTitle>
@@ -292,11 +270,7 @@ const CompanyAboutPage = () => {
                   marginRight: "8px",
                 }}
               >
-                <Image
-                  src={"/images/company/ic-brainstorm-skill.png"}
-                  alt=""
-                  fill
-                />
+                <Image src={"/images/company/ic-handshake.png"} alt="" fill />
               </div>
               <ValueTitle>신뢰성</ValueTitle>
             </div>

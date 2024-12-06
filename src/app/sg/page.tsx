@@ -1,230 +1,217 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 760px;
-  background-color: #fff;
-`;
+interface CircleData {
+  text: string;
+  description: string;
+  color: string;
+}
 
-const SVGContainer = styled.div`
-  width: 100%;
-  height: 700px; /* 높이를 충분히 확보 */
+const circles: CircleData[] = [
+  {
+    text: "고객 성공 파트너",
+    description:
+      "단순한 컨설팅을 넘어, 고객의 비즈니스 성장을 위한 최고의 파트너",
+    color: "#221E1f",
+  },
+  {
+    text: "미래를 선도하는 기업",
+    description: "미래 지향성을 바탕으로 끊임없이 새로운 지식 습득",
+    color: "#D1D3D5",
+  },
+  {
+    text: "지속 가능한 성장",
+    description:
+      "단순히 이익 추구를 넘어, 고객 중심의 가치창출을 통해 지속 가능한 성장",
+    color: "#28AAE2",
+  },
+];
+
+const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
   position: relative;
 `;
 
-const labels = [
-  { id: "고객" },
-  { id: "지자체 기관" },
-  { id: "시험 기관" },
-  { id: "특허 사무소" },
-  { id: "기업인증" },
-  { id: "컨설팅" },
+const CircleContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+`;
+
+const CircleWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+`;
+
+const CircleSVG = styled.svg`
+  width: 240px;
+  height: 240px;
+`;
+
+const TextBox = styled(motion.div)<{ color?: string }>`
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px 24px;
+  width: 90%;
+  margin-top: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    color: ${(props) => props.color || "#000"};
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+`;
+
+const PlusBoxOne = styled(motion.div)`
+  position: absolute;
+  top: 30%;
+  left: 33.2%;
+  transform: translateX(-33.2%) translateY(-30%);
+  font-size: 32px;
+  color: #575757;
+`;
+
+const PlusBoxTwo = styled(motion.div)`
+  position: absolute;
+  top: 30%;
+  left: 67%;
+  transform: translateX(-67%) translateY(-30%);
+  font-size: 32px;
+  color: #575757;
+`;
+
+const imageUrl = [
+  "/images/company/ic-partner.png",
+  "/images/company/ic-company.png",
+  "/images/company/ic-growth.png",
 ];
 
-const icons = [
-  "/images/company/ic-people.svg",
-  "/images/company/ic-reichstag.svg",
-  "/images/company/ic-museum.svg",
-  "/images/company/ic-office.svg",
-  "/images/company/ic-diploma.svg",
-];
+const text = ["고객 성공 파트너", "미래를 선도하는 기업", "지속 가능한 성장"];
 
-const CollaborationDiagram = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true });
-
-  const centerX = 300; // 중앙 X 좌표
-  const centerY = 300; // 중앙 Y 좌표
-  const radius = 200; // 바깥 원들의 반경 (중앙에서의 거리)
-
-  // 각도 기반으로 좌표 계산
-  const positionedLabels = labels.map((label, index) => {
-    const angle = (index / labels.length) * 2 * Math.PI + Math.PI / 6; // 45도 회전 추가
-    const x = centerX + radius * Math.cos(angle); // X 좌표
-    const y = centerY + radius * Math.sin(angle); // Y 좌표
-    return { ...label, x, y };
-  });
-
+const Vision = () => {
   return (
-    <Container>
-      <SVGContainer ref={containerRef}>
-        <svg width="100%" height="100%" viewBox="0 0 600 600">
-          {/* 모든 선을 먼저 렌더링 */}
-          {positionedLabels.map((label, index) => {
-            if (index === labels.length - 1) return;
-
-            return (
-              <motion.line
-                key={`line-${index}`}
-                x1="300"
-                y1="300"
-                x2={label.x}
-                y2={label.y}
-                stroke="#aaaaaa"
-                strokeWidth="2"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+    <Layout>
+      <PlusBoxOne
+        initial={{ opacity: 0, y: 50, x: "-33.2%" }}
+        animate={{ opacity: 1, y: "-30%", x: "-33.2%" }}
+        transition={{
+          delay: 0.3,
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+      >
+        +
+      </PlusBoxOne>
+      <PlusBoxTwo
+        initial={{ opacity: 0, y: 50, x: "-67%" }}
+        animate={{ opacity: 1, y: "-30%", x: "-67%" }}
+        transition={{
+          delay: 1,
+          duration: 0.5,
+          ease: "easeInOut",
+        }}
+      >
+        +
+      </PlusBoxTwo>
+      {/* 원과 텍스트를 함께 배치 */}
+      <CircleContainer>
+        {circles.map((circle, index) => (
+          <CircleWrapper key={index}>
+            {/* 원 애니메이션 */}
+            <CircleSVG viewBox="0 0 100 100">
+              <motion.circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="#FFFFFF"
+                stroke={circle.color}
+                strokeWidth="7"
+                strokeDasharray="283" // 2 * π * r
+                strokeDashoffset="283"
+                initial={{ strokeDashoffset: 283 }}
+                animate={{ strokeDashoffset: 0 }}
+                transition={{
+                  delay: index * 0.5,
+                  duration: 1,
+                  ease: "easeInOut",
+                }}
+                style={{
+                  transformOrigin: "center",
+                  transform: "rotate(135deg)",
+                }}
               />
-            );
-          })}
-
-          {
-            <motion.line
-              x1="300"
-              y1="300"
-              x2={positionedLabels[positionedLabels.length - 1].x}
-              y2={positionedLabels[positionedLabels.length - 1].y}
-              stroke="#28AAE2"
-              strokeWidth="2"
-              initial={{ pathLength: 0 }}
-              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-            />
-          }
-
-          {/* 중앙 원 */}
-          <motion.circle
-            cx="300"
-            cy="300"
-            r="80"
-            fill="#ffffff"
-            stroke="#28AAE2"
-            strokeWidth="3"
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : { scale: 0 }}
-            transition={{ duration: 0.5 }}
-          />
-          {/* 아이콘 */}
-          <motion.image
-            href="/images/company/ic-meeting.svg" // 아이콘 경로
-            x={260} // 아이콘 X 좌표
-            y={250} // 아이콘 Y 좌표 (텍스트 위에 위치)
-            width="80" // 아이콘 크기
-            height="80"
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : { scale: 0 }}
-            transition={{ duration: 0.5 }}
-          />
-          <motion.text
-            x="300"
-            y="350"
-            fill="#28AAE2"
-            textAnchor="middle"
-            alignmentBaseline="central"
-            fontSize="16px"
-            fontWeight="700"
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : { scale: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            협력 생태계
-          </motion.text>
-
-          {/* 바깥 원과 텍스트 */}
-          {positionedLabels.map((label, index) => {
-            if (index === positionedLabels.length - 1) return;
-
-            return (
-              <React.Fragment key={`circle-${index}`}>
-                {/* 바깥 원 */}
-                <motion.circle
-                  cx={label.x}
-                  cy={label.y}
-                  r="50"
-                  fill="#ffffff"
-                  stroke="#aaaaaa"
-                  strokeWidth="2"
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                />
-
-                {/* 아이콘 */}
-                <motion.image
-                  href={icons[index]} // 아이콘 경로
-                  x={label.x - 30} // 아이콘 X 좌표
-                  y={label.y - 40} // 아이콘 Y 좌표 (텍스트 위에 위치)
-                  width="60" // 아이콘 크기
-                  height="60"
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                />
-
-                {/* 텍스트 */}
-                <motion.text
-                  x={label.x}
-                  y={label.y + 25}
-                  fill="#aaaaaa"
-                  textAnchor="middle"
-                  alignmentBaseline="central"
-                  fontSize="16px"
-                  fontWeight={600}
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                  {label.id}
-                </motion.text>
-              </React.Fragment>
-            );
-          })}
-
-          <React.Fragment>
-            {/* 바깥 원 */}
-            <motion.circle
-              cx={positionedLabels[positionedLabels.length - 1].x}
-              cy={positionedLabels[positionedLabels.length - 1].y}
-              r="50"
-              fill="#ffffff"
-              stroke="#28AAE2"
-              strokeWidth="3"
-              initial={{ scale: 0 }}
-              animate={isInView ? { scale: 1 } : { scale: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-            />
-
-            <React.Fragment>
-              {/* 아이콘 */}
               <motion.image
-                href="/images/company/logo.svg" // 아이콘 경로
-                x={positionedLabels[positionedLabels.length - 1].x - 40} // 아이콘 X 좌표
-                y={positionedLabels[positionedLabels.length - 1].y - 35} // 아이콘 Y 좌표 (텍스트 위에 위치)
-                width="80" // 아이콘 크기
-                height="60"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
+                href={imageUrl[index]} // 아이콘 경로
+                x={35}
+                y={27}
+                width="32" // 아이콘 크기
+                height="32"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: index * 0.5 + 0.5,
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
               />
-
-              {/* 텍스트 */}
               <motion.text
-                x={positionedLabels[positionedLabels.length - 1].x}
-                y={positionedLabels[positionedLabels.length - 1].y + 25}
-                fill="#28AAE2"
+                x="50"
+                y="68"
+                fill="#2e2e2e"
                 textAnchor="middle"
                 alignmentBaseline="central"
-                fontSize="16px"
-                fontWeight={700}
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
+                fontSize="7px"
+                fontWeight="700"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: index * 0.5 + 0.5,
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
               >
-                {labels[labels.length - 1].id}
+                {text[index]}
               </motion.text>
-            </React.Fragment>
-          </React.Fragment>
-        </svg>
-      </SVGContainer>
-    </Container>
+            </CircleSVG>
+
+            {/* 텍스트 애니메이션 */}
+            <TextBox
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.5 + 0.5, duration: 0.5 }}
+              color={circle.color === "#D1D3D5" ? "#6e6e6e" : circle.color}
+            >
+              <h3>{circle.text}</h3>
+              <p>{circle.description}</p>
+            </TextBox>
+          </CircleWrapper>
+        ))}
+      </CircleContainer>
+    </Layout>
   );
 };
 
-export default CollaborationDiagram;
+export default Vision;
