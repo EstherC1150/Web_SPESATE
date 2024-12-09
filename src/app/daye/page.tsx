@@ -1,241 +1,128 @@
+// pages/index.tsx
 "use client";
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import styled, { createGlobalStyle } from "styled-components";
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import colors from "../_constants/colors";
-import useSettingStore from "../_store/settingStore";
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #191922; /* 원하는 배경색 */
-    /* font-family: 'Arial', sans-serif; 폰트도 설정 가능 */
+// 애니메이션 정의
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 `;
-const HeaderContainer = styled.header`
-  width: 100%;
-  color: #fff;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-`;
 
-const Inner = styled.div<{ $isVisible: boolean }>`
+const Container = styled.div`
+  width: 1200px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${({ $isVisible }) => ($isVisible ? "#FFF" : "#191922")};
+`;
+const Title = styled.h2`
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 70px;
 `;
 
-const Nav = styled.nav`
-  display: flex;
-  gap: 4px;
-  padding: 15px 20px;
-  flex: 10;
-  align-items: center;
-  justify-content: center;
-  height: 90px;
-`;
-
-const NavItem = styled.div`
-  width: 150px;
-  text-align: center;
-`;
-
-const NavLink = styled(Link)<{ $isVisible: boolean }>`
-  text-decoration: none;
-  color: ${({ $isVisible }) => ($isVisible ? "#221e1f" : "#fff")};
-  font-size: 18px;
-  font-weight: bold;
-
-  &:hover {
-    color: ${colors.primary.main};
-  }
-`;
-
-const SubMenuWrapper = styled.div<{ $isVisible: boolean }>`
-  display: ${({ $isVisible }) => ($isVisible ? "flex" : "none")};
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0; /* HeaderContainer 전체 너비로 확장 */
-  /* background-color: #ffffff45; */
-  background-color: #fff;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-  color: #221e1f;
-  z-index: 999;
-`;
-
-const LeftContent = styled.div`
-  display: flex;
-  width: 180px;
-  margin-left: 20px;
-`;
-
-const RightContent = styled.div`
-  display: flex;
-  flex: 1;
-`;
-
-const SubMenu = styled.div`
-  display: flex;
-  flex: 10;
-  justify-content: center;
-  gap: 4px;
-  padding: 15px 20px;
-`;
-
-const SubMenuColumn = styled.div`
+// 메시지 컨테이너 스타일
+const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 10px 0;
+  gap: 15px; /* 각 메시지 간 기본 간격 */
+  width: 600px;
+  margin: 0 auto;
 `;
 
-const SubMenuItem = styled(Link)`
-  text-decoration: none;
-  color: #221e1f;
-  font-size: 16px;
-  padding: 5px 10px;
-  text-align: center;
-  width: 150px;
+// 메시지 박스 스타일
+const MessageWrapper = styled.div<{ align: "left" | "right" }>`
+  display: flex;
+  justify-content: ${(props) =>
+    props.align === "left" ? "flex-start" : "flex-end"};
+  margin-bottom: 30px; /* 왼쪽-오른쪽 메시지 간 추가 간격 */
+`;
 
-  &:hover {
-    color: ${colors.primary.main};
+const Message = styled.div<{ align: "left" | "right"; delay: number }>`
+  background-color: ${(props) =>
+    props.align === "left" ? "#d1d3d5" : "#28aae2"};
+  color: #221e1f;
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 400px;
+  position: relative;
+  animation: ${fadeIn} 0.5s ease-out forwards;
+  animation-delay: ${(props) => props.delay}s;
+  opacity: 0;
+  transform: translateY(20px);
+  line-height: 1.2;
+
+  // 말풍선 꼬리 추가
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    ${(props) =>
+      props.align === "left"
+        ? `left: -6px; border: 8px solid transparent; border-top-color: #d1d3d5;`
+        : `right: -6px; border: 8px solid transparent; border-top-color: #28aae2;`}
   }
 `;
 
-const HeaderRight = styled.div`
-  display: flex;
-  gap: 15px;
-  flex: 1;
-`;
-
-const HeaderLeft = styled.div`
-  width: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 20px;
-`;
-
-const ImageBox = styled.div`
-  width: 180px;
-  height: 49px;
-  position: relative;
-`;
-
-const menuItems: THeader[] = [
-  {
-    title: "회사소개",
-    subTitle: [
-      { label: "트위니", href: "#" },
-      { label: "트위니 CI", href: "#" },
-    ],
-  },
-  {
-    title: "솔루션",
-    subTitle: [
-      { label: "물류센터", href: "#" },
-      { label: "오더피킹", href: "#" },
-      { label: "공장", href: "#" },
-      { label: "관제 시스템", href: "#" },
-    ],
-  },
-  {
-    title: "제품",
-    subTitle: [
-      { label: "AMR", href: "#" },
-      { label: "대화형 AI", href: "#" },
-      { label: "자율주행 S/W", href: "#" },
-      { label: "AGV", href: "#" },
-      { label: "대상추종", href: "#" },
-      { label: "플랫폼", href: "#" },
-    ],
-  },
-  {
-    title: "홍보센터",
-    subTitle: [
-      { label: "언론보도", href: "#" },
-      { label: "인재채용", href: "#" },
-      { label: "공지사항", href: "#" },
-    ],
-  },
-];
-
-type THeader = {
-  title: string;
-  subTitle: { label: string; href: string }[];
-};
-
-export default function Header() {
-  const { headerType } = useSettingStore();
-  const [isSubMenuVisible, setSubMenuVisible] = useState(false);
-
-  const handleMouseEnter = () => {
-    setSubMenuVisible(true);
-  };
-
-  const handleMouseLeave = () => {
-    setSubMenuVisible(false);
-  };
+// 메시지 버블 컴포넌트
+function MessageBubble() {
+  const messages = [
+    {
+      text: "최근 정부 지원사업이 많이 늘었는데, 공고 내용이 너무 복잡하고, 평가 기준이나 신청 절차도 이해하기 어려워요. 이런 상황에서 어떻게 해야 할까요?",
+      align: "left",
+      delay: 0,
+    } as const,
+    {
+      text: "그렇습니다. 그렇기 때문에 기업들이 필요한 정보를 빠르게 얻기가 어렵습니다. 이로 인해 많은 중소기업들이 지원사업을 선택하는 데 어려움을 겪고 있습니다. 그 결과, 적합한 사업을 찾고 성공적으로 수행하는 데 큰 걸림돌이 되고 있죠.",
+      align: "right",
+      delay: 0.4,
+    } as const,
+    {
+      text: "그렇군요. 그럼 이런 문제를 해결할 수 있는 방법이 있을까요?",
+      align: "left",
+      delay: 0.8,
+    } as const,
+    {
+      text: "네, 바로 맞춤형 정보 제공 솔루션이 필요합니다. 저희 솔루션은 기업의 상태와 필요에 맞는 지원사업을 자동으로 추천해주고, 복잡한 절차를 간소화하여 쉽게 이해하고 빠르게 신청할 수 있도록 도와줍니다. 이를 통해 기업들은 적합한 지원사업을 신속하게 찾아서, 더욱 효과적으로 활용할 수 있습니다.",
+      align: "right",
+      delay: 1.2,
+    } as const,
+  ];
 
   return (
-    <HeaderContainer>
-      <GlobalStyle />
-      <Inner $isVisible={headerType === "white" ? true : isSubMenuVisible}>
-        <HeaderLeft>
-          <ImageBox>
-            <Image
-              src={
-                headerType === "white"
-                  ? "/images/logo-black.png"
-                  : isSubMenuVisible
-                  ? "/images/logo-black.png"
-                  : "/images/logo-white.png"
-              }
-              alt="Logo"
-              fill
-              priority // 중요 이미지 로드 우선 처리
-            />
-          </ImageBox>
-        </HeaderLeft>
-        <Nav
-          onMouseEnter={handleMouseEnter} // Nav에 마우스 올리면 서브메뉴가 보이도록
-          onMouseLeave={handleMouseLeave} // Nav에서 마우스 떠나면 서브메뉴가 사라지도록
-        >
-          {menuItems.map((menu) => (
-            <NavItem key={menu.title}>
-              <NavLink
-                $isVisible={headerType === "white" ? true : isSubMenuVisible}
-                href="#"
-              >
-                {menu.title}
-              </NavLink>
-            </NavItem>
-          ))}
-          <SubMenuWrapper $isVisible={isSubMenuVisible}>
-            <LeftContent />
-            <SubMenu>
-              {menuItems.map((menu) => (
-                <SubMenuColumn key={menu.title}>
-                  {menu.subTitle.map((item) => (
-                    <SubMenuItem key={item.label} href={item.href}>
-                      {item.label}
-                    </SubMenuItem>
-                  ))}
-                </SubMenuColumn>
-              ))}
-            </SubMenu>
-            <RightContent />
-          </SubMenuWrapper>
-        </Nav>
-        <HeaderRight></HeaderRight>
-      </Inner>
-    </HeaderContainer>
+    <Container>
+      <Title>정기 지원 컨설팅의 필요성</Title>
+      <MessageContainer>
+        {messages.map((msg, index) => (
+          <MessageWrapper key={index} align={msg.align}>
+            <Message align={msg.align} delay={msg.delay}>
+              {msg.text}
+            </Message>
+          </MessageWrapper>
+        ))}
+      </MessageContainer>
+    </Container>
+  );
+}
+
+// 페이지 컴포넌트
+export default function Home() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundColor: "#ffffff",
+      }}
+    >
+      <MessageBubble />
+    </div>
   );
 }

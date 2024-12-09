@@ -53,16 +53,6 @@ const Timeline = () => {
     },
   });
 
-  const lineVariants = (index: number) => ({
-    hidden: { opacity: 0, x: "-50%", y: index % 2 === 0 ? 50 : -50 }, // 아래에서 시작
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: "-50%",
-      transition: { duration: 0.5, delay: index * 0.3, easeInOut }, // 딜레이 추가
-    },
-  });
-
   return (
     <div
       style={{
