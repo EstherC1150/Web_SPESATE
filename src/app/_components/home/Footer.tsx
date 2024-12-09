@@ -22,6 +22,7 @@ const FText = styled.p`
 const FooterBottom = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: end;
 `;
 const FLeft = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const Footer = () => {
     <>
       <FooterSection>
         <FooterTop>
-          <FTitle>a company that meets the needs of its customers</FTitle>
+          <FTitle>A COMPANY THAT MEETS THE NEEDS OF ITS CUSTOMERS</FTitle>
           <FText>최고의 고객은 여러분들입니다</FText>
         </FooterTop>
         <FooterBottom>
