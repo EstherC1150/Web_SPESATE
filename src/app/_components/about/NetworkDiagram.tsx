@@ -165,7 +165,7 @@ const NetworkDiagram = () => {
                   fill="#aaaaaa"
                   textAnchor="middle"
                   alignmentBaseline="central"
-                  fontSize="16px"
+                  fontSize="14px"
                   fontWeight={600}
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
