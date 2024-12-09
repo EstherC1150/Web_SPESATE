@@ -18,7 +18,7 @@ const SQuestionForm = styled(motion.div)`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 30px 26px;
+  padding: 30px 26px 0 26px;
   overflow-y: auto; /* 내부 스크롤 활성화 */
   scrollbar-width: none; /* Firefox에서 스크롤바 숨기기 */
 
@@ -67,6 +67,21 @@ const Content = styled.input`
   padding-right: 4px;
   padding-left: 4px;
   color: #050505;
+`;
+
+const ContentTextArea = styled.textarea`
+  font-weight: 400;
+  font-size: 16px;
+  color: #050505;
+  width: 100%;
+  flex: 1;
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  background-color: #e6e6e6;
+  resize: none;
+  margin-top: 10px;
 `;
 
 // 셀렉트 박스 관련 스타일
@@ -120,7 +135,6 @@ const SendButton = styled.button`
   font-size: 16px;
   text-align: center;
   cursor: pointer;
-  margin-top: 10px;
   flex: 1;
   transition: background-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 효과 */
 
@@ -144,7 +158,6 @@ const PrevButton = styled.button`
   font-size: 16px;
   text-align: center;
   cursor: pointer;
-  margin-top: 10px;
   flex: 1;
   transition: background-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 효과 */
 
@@ -158,7 +171,17 @@ const PrevButton = styled.button`
   }
 `;
 
-const PageContent = styled(motion.div)``;
+const PageContent = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+const QuestionContextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
 
 const slideVariants = {
   hiddenLeft: { x: "-100%", opacity: 0 }, // 왼쪽으로 사라짐
@@ -294,12 +317,12 @@ const QuestionForm = () => {
             </>
           )}
           {step === "문의내용작성" && (
-            <>
+            <QuestionContextWrapper>
               <ColLine>
                 <SubTitle>문의내용</SubTitle>
-                <Content placeholder="korea@xxxxx.com" />
+                <ContentTextArea placeholder="문의내용을 작성해주세요." />
               </ColLine>
-              <RowLine>
+              <RowLine style={{ marginTop: "auto" }}>
                 <PrevButton onClick={() => setStep("개인정보작성")}>
                   이전
                 </PrevButton>
@@ -307,7 +330,7 @@ const QuestionForm = () => {
                   작성
                 </SendButton>
               </RowLine>
-            </>
+            </QuestionContextWrapper>
           )}
         </PageContent>
       </AnimatePresence>

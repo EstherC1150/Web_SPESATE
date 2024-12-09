@@ -15,8 +15,15 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;   
+  }
+
+  textarea {
+    font-family: var(--font-noto-sans-kr); /* Google Font 변수 사용 */
+  }
+
+  input {
+    font-family: var(--font-noto-sans-kr); /* Google Font 변수 사용 */
   }
 
   // 이미지 드래그 방지

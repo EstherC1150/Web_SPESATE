@@ -1,6 +1,8 @@
 "use client";
 
-import Vision from "@/app/sg/page";
+import Timeline from "@/app/_components/about/Timeline";
+import VisionAnimaiton from "@/app/_components/about/VisionAnimaiton";
+
 import React from "react";
 import styled from "styled-components";
 
@@ -36,8 +38,9 @@ const page = () => {
     <Container>
       <ContentContainer>
         <Title>비전</Title>
-        <Vision />
+        <VisionAnimaiton />
         <Title style={{ marginTop: "200px" }}>목표</Title>
+        <Timeline />
       </ContentContainer>
     </Container>
   );

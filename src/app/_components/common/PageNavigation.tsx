@@ -29,13 +29,18 @@ const PageNavigation = ({ size, currentPage, onClickPageNav }: Props) => {
           <div
             key={index}
             style={{
-              height: "12px",
+              height: currentPage === index ? "20px" : "12px",
               width: "12px",
               margin: "10px 12px",
-              borderRadius: "50%",
+              borderRadius: currentPage === index ? "24px" : "50%",
               backgroundColor:
                 currentPage === index ? `${colors.primary.main}` : "gray",
               cursor: "pointer",
+              transition: `
+              width 0.2s cubic-bezier(0.25, 1, 0.5, 1), 
+              height 0.2s cubic-bezier(0.25, 1, 0.5, 1),
+              border-radius 0.2s cubic-bezier(0.25, 1, 0.5, 1),
+              background-color 0.2s ease`,
             }}
             onClick={() => onClickPageNav(index)}
           />

@@ -6,19 +6,14 @@ type TColor = {
   $color: string;
 };
 
-type TBackgroundColor = {
-  $backgroundColor: string;
-};
-
-const ColorCard = styled.div<TBackgroundColor>`
+const ColorCard = styled.div`
   flex: 1;
   padding: 30px 24px 50px 24px;
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  background-color: ${(props) => props.$backgroundColor};
+  border-radius: 16px;
+  border: 1px solid #cecece;
 `;
 
 const ColorPrev = styled.div<TColor>`
@@ -45,12 +40,11 @@ const ColorDescription = styled.p`
 
 type Props = {
   colorPalette: TColorPalette;
-  style?: React.CSSProperties;
 };
 
-const ColorPrevBox = ({ colorPalette, style }: Props) => {
+const ColorPrevBox = ({ colorPalette }: Props) => {
   return (
-    <ColorCard $backgroundColor={colorPalette.backgroundColor} style={style}>
+    <ColorCard>
       <ColorPrev $color={colorPalette.color} />
       <ColorName $color={colorPalette.color}>
         {colorPalette.colorName}

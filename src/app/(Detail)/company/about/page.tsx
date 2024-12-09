@@ -73,6 +73,7 @@ const SubTitle = styled.p`
 
 const ColorContainer = styled(motion.div)`
   display: flex;
+  gap: 8px;
 `;
 
 const ValueContainer = styled.div`
@@ -186,14 +187,8 @@ const CompanyAboutPage = () => {
             />
           </div>
           <ColorContainer>
-            {mainColors.map((color, index) => {
-              return (
-                <ColorPrevBox
-                  key={color.color}
-                  colorPalette={color}
-                  style={{ marginLeft: index !== 0 ? "-10px" : "0" }}
-                />
-              );
+            {mainColors.map((color) => {
+              return <ColorPrevBox key={color.color} colorPalette={color} />;
             })}
           </ColorContainer>
         </ContentBox>
