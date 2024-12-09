@@ -38,7 +38,7 @@ const BusinessItemBox = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 95%;
   /* min-width: 400px; */
   padding: 0px 60px;
   margin-top: 20px;

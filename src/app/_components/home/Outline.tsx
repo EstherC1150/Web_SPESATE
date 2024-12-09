@@ -10,7 +10,6 @@ const Background = styled.section`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 90px;
 `;
 
 const ContentWrapper = styled.div`
@@ -29,6 +28,7 @@ const ContentBox = styled.div`
   margin-top: 70px;
   display: flex;
   justify-content: space-between;
+  align-items: end;
 `;
 const LeftMap = styled.div`
   width: 363px;
@@ -53,6 +53,7 @@ const OutlineContent = styled.p`
   font-size: 20px;
   white-space: pre-wrap;
   line-height: 1.5;
+  margin-bottom: 50px;
 `;
 const MoreBtn = styled.button`
   color: #28aae2;
@@ -82,12 +83,11 @@ const Outline = () => {
 수도권 중심의 컨설팅 시장 속에서 경상도권에 중소·중견기업의
 성장 잠재력을 발굴하고, 고객 맞춤형 컨설팅 서비스를 제공하여
 지역 경제 활성화를 이끌겠습니다.`}</OutlineContent>
-            <MoreBtn>더보기</MoreBtn>
+            <MoreBtn>More</MoreBtn>
           </RightContent>
         </ContentBox>
       </ContentWrapper>
     </Background>
   );
 };
-
 export default Outline;
