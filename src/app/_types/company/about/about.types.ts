@@ -19,3 +19,10 @@ type TCMYK = {
   y: number;
   k: number;
 };
+
+export type TValue = {
+  title: string;
+  content: string;
+  imgUrl: string;
+  alt: string;
+};

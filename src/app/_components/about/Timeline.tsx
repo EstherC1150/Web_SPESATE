@@ -1,30 +1,31 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import colors from "@/app/_constants/colors";
+import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
+
+const milestones = [
+  { year: "2024", text: "- 회사설립\n- 고객사 1개 유지" },
+  {
+    year: "2025",
+    text: "- 고객사 10개 유지\n- 고객사 과제 총 사업비 합산 20억\n- 성능시험 전문기관 연계\n- 벤처기업등록",
+  },
+  {
+    year: "2026",
+    text: "- 고객사 25개 유지\n- 고객사 과제 총 사업비 합산 60억\n- 인증 전문인력 확보\n- 사업 전문가 컨설팅 기업 등록",
+  },
+  {
+    year: "2027",
+    text: "- 고객사 50개 유지\n- 고객사 과제 총 사업비 합산 120억\n- 특허 사무소 연계\n- 고객사 컨소시움 구성",
+  },
+  {
+    year: "2028",
+    text: "- 고객사 100개 유지\n- 고객사 과제 총 사업비 합산 300억\n- 기업부설 연구소 등록\n- 평가기관 심사위원 등록",
+  },
+];
 
 const Timeline = () => {
-  const milestones = [
-    { year: "2024", text: "- 회사설립\n- 고객사 1개 유지" },
-    {
-      year: "2025",
-      text: "- 고객사 10개 유지\n- 고객사 과제 총 사업비 합산 20억\n- 성능시험 전문기관 연계\n- 벤처기업등록",
-    },
-    {
-      year: "2026",
-      text: "- 고객사 25개 유지\n- 고객사 과제 총 사업비 합산 60억\n- 인증 전문인력 확보\n- 사업 전문가 컨설팅 기업 등록",
-    },
-    {
-      year: "2027",
-      text: "- 고객사 50개 유지\n- 고객사 과제 총 사업비 합산 120억\n- 특허 사무소 연계\n- 고객사 컨소시움 구성",
-    },
-    {
-      year: "2028",
-      text: "- 고객사 100개 유지\n- 고객사 과제 총 사업비 합산 300억\n- 기업부설 연구소 등록\n- 평가기관 심사위원 등록",
-    },
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -55,8 +56,7 @@ const Timeline = () => {
   });
 
   // Ref로 감싸서 뷰포트에 들어왔는지 확인
-  const timelineRef = useRef(null);
-  const isInView = useInView(timelineRef, { once: true, margin: "-50%" });
+  const { ref: timelineRef, isInView } = useInViewAnimate();
 
   return (
     <div
@@ -100,7 +100,7 @@ const Timeline = () => {
                 d="M 0 0 L 10 5 L 0 10 Z"
                 fill="#ccc"
                 initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{
                   delay: 1.1,
                   duration: 0.25,
@@ -155,7 +155,7 @@ const Timeline = () => {
                 transform: "translateX(-50%)",
                 width: "2px",
                 height: "150px",
-                zIndex: "1000",
+                zIndex: "100",
                 overflow: "visible",
               }}
             >

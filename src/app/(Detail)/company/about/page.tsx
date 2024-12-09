@@ -5,8 +5,9 @@ import React from "react";
 import styled from "styled-components";
 import { easeInOut, motion } from "framer-motion";
 import NetworkDiagram from "@/app/_components/about/NetworkDiagram";
-import { mainColors } from "@/app/_constants/company/about/about";
+import { mainColors, values } from "@/app/_constants/company/about/about";
 import ColorPrevBox from "@/app/_components/about/ColorPrevBox";
+import CompanyValue from "@/app/_components/about/CompanyValue";
 
 const Container = styled.div`
   display: flex;
@@ -65,7 +66,7 @@ const ImageBox = styled(motion.div)`
   left: 0;
 `;
 
-const SubTitle = styled.p`
+const SubTitle = styled(motion.p)`
   font-size: 34px;
   font-weight: 700;
 `;
@@ -82,21 +83,6 @@ const ValueContainer = styled.div`
   justify-content: space-around;
 `;
 
-const ValueBox = styled.div`
-  width: 40%;
-  margin-bottom: 100px;
-`;
-
-const ValueTitle = styled.p`
-  font-size: 24px;
-  font-weight: 600;
-`;
-
-const ValueContent = styled.p`
-  font-size: 20px;
-  font-weight: 400;
-`;
-
 const CompanyAboutPage = () => {
   return (
     <Container>
@@ -105,7 +91,7 @@ const CompanyAboutPage = () => {
           <CompanyName
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0, ease: easeInOut }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
             viewport={{ once: true }}
           >
             SPESATE
@@ -113,7 +99,7 @@ const CompanyAboutPage = () => {
           <ContentBox
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.07, ease: easeInOut }}
+            transition={{ duration: 0.5, delay: 0.07, ease: easeInOut }}
             viewport={{ once: true }}
           >
             <p>{`중소·중견기업 간의 올바른 협력을 통해 긍정적인 시너지를 창출하고, 
@@ -125,7 +111,7 @@ const CompanyAboutPage = () => {
           <ImageBox
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.14, ease: easeInOut }}
+            transition={{ duration: 0.5, delay: 0.14, ease: easeInOut }}
             viewport={{ once: true }}
           >
             <Image src={"/images/bg-about.png"} alt="" fill objectFit="cover" />
@@ -133,7 +119,12 @@ const CompanyAboutPage = () => {
         </ContentSection>
 
         <ContentSection>
-          <SubTitle>
+          <SubTitle
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
             상호 신뢰와 협력을 바탕으로 가치를 공동 창출하는 네트워크
           </SubTitle>
           <div style={{ display: "flex", alignItems: "center" }}>
@@ -151,7 +142,7 @@ const CompanyAboutPage = () => {
               }}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: easeInOut }}
+              transition={{ duration: 0.5, delay: 0.3, ease: easeInOut }}
               viewport={{ once: true }}
             >
               {`우리 회사는 중소·중견 기업의 성공을 지원하는 `}
@@ -162,15 +153,26 @@ const CompanyAboutPage = () => {
         </ContentSection>
 
         <ContentSection>
-          <SubTitle>CI</SubTitle>
+          <SubTitle
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
+            CI
+          </SubTitle>
           <ContentBox>
-            <div
+            <motion.div
               style={{
                 width: "900px",
                 height: "600px",
                 position: "relative",
                 margin: "0 auto",
               }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.07, ease: easeInOut }}
+              viewport={{ once: true }}
             >
               <Image
                 src={"/images/company/ci-description.png"}
@@ -178,8 +180,13 @@ const CompanyAboutPage = () => {
                 fill
                 objectFit=""
               />
-            </div>
-            <ColorContainer>
+            </motion.div>
+            <ColorContainer
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.14, ease: easeInOut }}
+              viewport={{ once: true }}
+            >
               {mainColors.map((color) => {
                 return <ColorPrevBox key={color.color} colorPalette={color} />;
               })}
@@ -188,168 +195,23 @@ const CompanyAboutPage = () => {
         </ContentSection>
 
         <ContentSection>
-          <SubTitle style={{ marginTop: "80px" }}>핵심가치</SubTitle>
+          <SubTitle
+            style={{ marginTop: "80px" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
+            핵심가치
+          </SubTitle>
           <ValueContainer>
-            <ValueBox>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "relative",
-                    width: "28px",
-                    height: "28px",
-                    marginRight: "8px",
-                  }}
-                >
-                  <Image
-                    src={"/images/company/ic-brainstorm-skill.png"}
-                    alt=""
-                    fill
-                  />
-                </div>
-                <ValueTitle>문제 해결 능력</ValueTitle>
-              </div>
-              <ValueContent>
-                복잡한 문제를 분석하고 최적의 해결책을 제시한다.
-              </ValueContent>
-            </ValueBox>
-            <ValueBox>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "relative",
-                    width: "28px",
-                    height: "28px",
-                    marginRight: "8px",
-                  }}
-                >
-                  <Image src={"/images/company/ic-morale.png"} alt="" fill />
-                </div>
-                <ValueTitle>객관성</ValueTitle>
-              </div>
-              <ValueContent>
-                객관적인 분석을 통해 의사결정을 지원한다.
-              </ValueContent>
-            </ValueBox>
-            <ValueBox>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "relative",
-                    width: "28px",
-                    height: "28px",
-                    marginRight: "8px",
-                  }}
-                >
-                  <Image src={"/images/company/ic-handshake.png"} alt="" fill />
-                </div>
-                <ValueTitle>신뢰성</ValueTitle>
-              </div>
-              <ValueContent>
-                투명한 커뮤니케이션을 통한 신뢰를 구축한다.
-              </ValueContent>
-            </ValueBox>
-            <ValueBox>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "relative",
-                    width: "28px",
-                    height: "28px",
-                    marginRight: "8px",
-                  }}
-                >
-                  <Image
-                    src={"/images/company/ic-performance-macbook.png"}
-                    alt=""
-                    fill
-                  />
-                </div>
-                <ValueTitle>효율성</ValueTitle>
-              </div>
-              <ValueContent>빠르고 정확하게 문제를 해결한다.</ValueContent>
-            </ValueBox>
-            <ValueBox>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "relative",
-                    width: "28px",
-                    height: "28px",
-                    marginRight: "8px",
-                  }}
-                >
-                  <Image src={"/images/company/ic-rocket.png"} alt="" fill />
-                </div>
-                <ValueTitle>미래지향성</ValueTitle>
-              </div>
-              <ValueContent>
-                변화하는 환경에 적응하고 새로운 가치를 창출한다.
-              </ValueContent>
-            </ValueBox>
-            <ValueBox>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    position: "relative",
-                    width: "28px",
-                    height: "28px",
-                    marginRight: "8px",
-                  }}
-                >
-                  <Image
-                    src={"/images/company/ic-purposeful-man.png"}
-                    alt=""
-                    fill
-                  />
-                </div>
-                <ValueTitle>고객중심</ValueTitle>
-              </div>
-              <ValueContent>
-                고객과 함께 성장하는 파트너십을 구축한다.
-              </ValueContent>
-            </ValueBox>
+            {values.map((value, index) => (
+              <CompanyValue
+                key={value.title}
+                value={value}
+                delay={index * 0.07}
+              />
+            ))}
           </ValueContainer>
         </ContentSection>
       </ContentContainer>
