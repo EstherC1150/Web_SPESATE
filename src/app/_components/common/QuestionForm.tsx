@@ -76,12 +76,13 @@ const ContentTextArea = styled.textarea`
   width: 100%;
   flex: 1;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
   border: none;
-  background-color: #e6e6e6;
+  /* background-color: #e6e6e6; */
   resize: none;
   margin-top: 10px;
+  border: 1px solid #d1d1d1;
 `;
 
 // 셀렉트 박스 관련 스타일
