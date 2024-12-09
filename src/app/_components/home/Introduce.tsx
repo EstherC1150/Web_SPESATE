@@ -1,6 +1,8 @@
 import colors from "@/app/_constants/colors";
-import React, { useState, useEffect } from "react";
+
+import React from "react";
 import styled from "styled-components";
+import IntroductionAnimationTest from "./IntroduceTextAnimation";
 
 const SSection = styled.section`
   height: 100vh;
@@ -19,22 +21,6 @@ const STextContainer = styled.div`
   justify-content: center;
   gap: 22px;
   width: 1200px;
-`;
-
-const SText = styled.h4<{ $active?: boolean }>`
-  font-size: 60px;
-  font-weight: 700;
-  color: ${({ $active }) =>
-    $active ? "#fdfdfd" : "#191922"}; /* active 상태에 따라 색상 변경 */
-  text-shadow: ${({ $active }) =>
-    $active
-      ? "none"
-      : "-1px -1px 0 #fdfdfd, 1px -1px 0 #fdfdfd, -1px 1px 0 #fdfdfd, 1px 1px 0 #fdfdfd"};
-
-  text-align: center;
-  transition: all 0.3s ease-in-out; /* 애니메이션 효과 추가 */
-  letter-spacing: 0.03em;
-  white-space: pre-wrap;
 `;
 
 const STitle = styled.h1`
@@ -62,7 +48,7 @@ const STitle = styled.h1`
   }
 
   &::after {
-    content: "SCROLL DOWN";
+    content: "아래로";
     color: #fdfdfd; /* 텍스트 색상 */
     font-size: 0.875rem;
     font-weight: 600;
@@ -96,31 +82,10 @@ const STitle = styled.h1`
 `;
 
 const Introduce = () => {
-  const [activeIndex, setActiveIndex] = useState(0); // 현재 활성화된 텍스트의 인덱스
-
-  const texts = [
-    "중소·중견기업간",
-    "올바른 협력으로",
-    "긍정 시너지 창출",
-    `협력 생태계 구축`,
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length); // 인덱스를 순환
-    }, 1000); // 1.0초 간격
-
-    return () => clearInterval(interval); // 컴포넌트 언마운트 시 인터벌 정리
-  }, [texts.length]);
-
   return (
     <SSection>
       <STextContainer>
-        {texts.map((text, index) => (
-          <SText key={index} $active={index === activeIndex}>
-            {text}
-          </SText>
-        ))}
+        <IntroductionAnimationTest />
       </STextContainer>
       <STitle>
         고객 맞춤형 컨설팅 서비스는 <span>SPESATE</span>
