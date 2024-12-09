@@ -7,6 +7,7 @@ export const menuItems: THeader[] = [
       { label: "회사 개요", href: "/company/about" },
       { label: "비전 및 목표", href: "/company/vision" },
       { label: "연혁", href: "/company/history" },
+      { label: "조직도", href: "/company/organization" },
       { label: "찾아오시는 길", href: "/company/location" },
     ],
   },
