@@ -106,6 +106,7 @@ const Message = styled.div<{ align: "left" | "right"; delay: number }>`
   opacity: 0;
   transform: translateY(20px);
   line-height: 1.2;
+  text-align: left;
 
   // 말풍선 꼬리 추가
   &::after {
