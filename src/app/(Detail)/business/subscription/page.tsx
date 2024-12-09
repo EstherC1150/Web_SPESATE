@@ -40,8 +40,8 @@ const TImg = styled.div`
   position: relative;
   width: 1200px;
   height: 300px;
-  margin: 0 auto;
-  background-image: url("/images/testimg2.png"); /* 이미지 경로 설정 */
+  margin-top: 120px;
+  background-image: url("/images/business/testimg2.png"); /* 이미지 경로 설정 */
   background-size: cover;
   background-position: center;
   border-radius: 15px; /* 모서리를 살짝 둥글게 */
