@@ -20,11 +20,13 @@ const Container = styled.div`
 `;
 
 const ContentSection = styled.section`
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 60px;
 `;
 
 const ContentContainer = styled.div`
@@ -40,6 +42,7 @@ const ContentContainer = styled.div`
 const CompanyName = styled(motion.p)`
   font-size: 34px;
   font-weight: 700;
+  margin-top: 60px;
 `;
 
 const ContentBox = styled(motion.div)`
