@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     // 이메일 전송
     await transporter.sendMail({
       from: `SPEATE 문의 도우미 <${process.env.SMTP_USER}>`,
-      to: "joon1109@spesate.com",
+      to: "ksg2388@naver.com",
       subject: `문의: ${questionType}`,
       html: `
      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px;">
@@ -57,6 +57,10 @@ export async function POST(req: Request) {
         <p>${content}</p>
         <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
           <tbody>
+          <tr>
+              <td style="padding: 10px; background-color: #f8f8f8; border: 1px solid #e0e0e0;">회사명</td>
+               <td style="padding: 10px; border: 1px solid #e0e0e0;">${companyName}</td>
+            </tr>
             <tr>
               <td style="padding: 10px; background-color: #f8f8f8; border: 1px solid #e0e0e0;">부서명</td>
                <td style="padding: 10px; border: 1px solid #e0e0e0;">${department}</td>
