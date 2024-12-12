@@ -2,7 +2,7 @@
 "use client";
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Image from "next/image";
+import MeritBox from "@/app/_components/business/MeritBox";
 
 // 애니메이션 정의
 const fadeIn = keyframes`
@@ -41,7 +41,7 @@ const TImg = styled.div`
   width: 1200px;
   height: 300px;
   margin: 0 auto;
-  background-image: url("/images/business/testimg2.png"); /* 이미지 경로 설정 */
+  background-image: url("/images/business/testimg3.jpg"); /* 이미지 경로 설정 */
   background-size: cover;
   background-position: center;
   border-radius: 15px; /* 모서리를 살짝 둥글게 */
@@ -74,6 +74,19 @@ const NeedTitle = styled.h2`
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 70px;
+`;
+
+const MeritTitle = styled.h2`
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 70px;
+`;
+
+const MeritContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
 `;
 
 // 메시지 컨테이너 스타일
@@ -118,8 +131,8 @@ const Message = styled.div<{ align: "left" | "right"; delay: number }>`
     bottom: 0;
     ${(props) =>
       props.align === "left"
-        ? `left: -6px; border: 8px solid transparent; border-top-color: #dddddd;`
-        : `right: -6px; border: 8px solid transparent; border-top-color: #4ecaff;`}
+        ? `left: -7px; border: 8px solid transparent; border-top-color: #dddddd;`
+        : `right: -7px; border: 8px solid transparent; border-top-color: #4ecaff;`}
   }
 `;
 
@@ -147,6 +160,33 @@ const SubscriptionPage = () => {
     } as const,
   ];
 
+  const merits = [
+    {
+      title: "정확하고 신속한 정보 제공",
+      description:
+        "기업형 맞춤형 정보 제공 시스템을 통해 중소기업이 필요로 하는 정보를 적시에 제공받아 경영 활동에 활용할 수 있습니다.",
+      icon: "/images/business/ic-fasttime.png",
+    },
+    {
+      title: "정기적인 정보 업데이트",
+      description:
+        "변화하는 정책과 시장 동향에 맞춰 시스템 내 정보가 주기적으로 업데이트되어 최신 정보를 항상 확인할 수 있습니다.",
+      icon: "/images/business/ic-update.png",
+    },
+    {
+      title: "맞춤형 상담 서비스",
+      description:
+        "중소기업의 개별 상황과 필요에 맞춘 전문 상담을 통해 맞춤형 솔루션을 제공합니다.",
+      icon: "/images/business/ic-candidate.png",
+    },
+    {
+      title: "변화하는 정책 환경에 대한 빠른 대응 지원",
+      description:
+        "정책 변화에 신속히 대응할 수 있도록 관련 정보를 제공하고, 필요한 경우 추가 지원 방안을 안내합니다.",
+      icon: "/images/business/ic-responsibility.png",
+    },
+  ];
+
   return (
     <Container>
       <ContentContainer>
@@ -166,6 +206,19 @@ const SubscriptionPage = () => {
             </MessageWrapper>
           ))}
         </MessageContainer>
+      </ContentContainer>
+      <ContentContainer>
+        <MeritTitle>정기 지원 컨설팅의 이점</MeritTitle>
+        <MeritContainer>
+          {merits.map((merit, index) => (
+            <MeritBox
+              key={index}
+              title={merit.title}
+              description={merit.description}
+              icon={merit.icon}
+            />
+          ))}
+        </MeritContainer>
       </ContentContainer>
     </Container>
   );
