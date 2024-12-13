@@ -2,7 +2,6 @@
 "use client";
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Image from "next/image";
 
 // 애니메이션 정의
 const fadeIn = keyframes`
