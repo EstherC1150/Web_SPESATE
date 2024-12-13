@@ -73,7 +73,9 @@ export const QuestionIcon = () => {
         </ImageWrapper>
       </SContioner>
 
-      <AnimatePresence>{index === 1 && <QuestionForm />}</AnimatePresence>
+      <AnimatePresence>
+        {index === 1 && <QuestionForm handleClose={handleToggleImage} />}
+      </AnimatePresence>
     </>
   );
 };

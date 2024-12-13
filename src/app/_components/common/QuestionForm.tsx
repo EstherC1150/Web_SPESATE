@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import colors from "@/app/_constants/colors";
+import { useForm } from "react-hook-form";
+import { TForm } from "@/app/_types/question.types";
 
 const SQuestionForm = styled(motion.div)`
   display: flex;
@@ -192,19 +194,67 @@ const slideVariants = {
 
 const options = ["정기관리", "정부과제", "기업 인증", "특허 및 디자인", "기타"];
 
-const QuestionForm = () => {
+type Props = {
+  handleClose: () => void;
+};
+
+const QuestionForm = ({ handleClose }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState("문의 유형을 선택해주세요.");
   const [step, setStep] = useState<"개인정보작성" | "문의내용작성">(
     "개인정보작성"
   );
   const [hasRendered, setHasRendered] = useState(false); // 초기 렌더링 여부
+  const { register, handleSubmit, setValue } = useForm<TForm>({
+    mode: "onSubmit",
+    defaultValues: {
+      questionType: "",
+      companyName: "",
+      department: "",
+      managerName: "",
+      position: "",
+      phoneNumber: "",
+      email: "",
+      content: "",
+    },
+  });
 
   const toggleOptions = () => setIsOpen(!isOpen);
 
   const handleOptionClick = (option: string) => {
     setSelected(option);
     setIsOpen(false);
+    setValue("questionType", option);
+  };
+
+  const onSubmit = async (data: TForm) => {
+    const formData = {
+      questionType: data.questionType,
+      companyName: data.companyName,
+      department: data.department,
+      managerName: data.managerName,
+      position: data.position,
+      phoneNumber: data.phoneNumber,
+      email: data.email,
+      content: data.content,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        alert("문의 신청이 완료되었습니다. 감사합니다.");
+        handleClose();
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // 마운트 후 렌더링 상태를 업데이트
@@ -288,27 +338,63 @@ const QuestionForm = () => {
               </ColLine>
               <ColLine>
                 <SubTitle>회사명</SubTitle>
-                <Content placeholder="OO회사" />
+                <Content
+                  placeholder="OO회사"
+                  type="text"
+                  {...register("companyName", {
+                    required: "회사명을 입력해주세요.",
+                  })}
+                />
               </ColLine>
               <ColLine>
                 <SubTitle>부서명</SubTitle>
-                <Content placeholder="Dx 사업부" />
+                <Content
+                  placeholder="Dx 사업부"
+                  type="text"
+                  {...register("department", {
+                    required: "부서명을 입력해주세요.",
+                  })}
+                />
               </ColLine>
               <ColLine>
                 <SubTitle>담당자명</SubTitle>
-                <Content placeholder="홍길동" />
+                <Content
+                  placeholder="홍길동"
+                  type="text"
+                  {...register("managerName", {
+                    required: "담당자명을 입력해주세요.",
+                  })}
+                />
               </ColLine>
               <ColLine>
                 <SubTitle>직책 / 직급</SubTitle>
-                <Content placeholder="대리" />
+                <Content
+                  placeholder="대리"
+                  type="text"
+                  {...register("position", {
+                    required: "직책 / 직급을 입력해주세요.",
+                  })}
+                />
               </ColLine>
               <ColLine>
                 <SubTitle>연락처</SubTitle>
-                <Content placeholder="010-XXXX-XXXX" />
+                <Content
+                  placeholder="010-XXXX-XXXX"
+                  type="text"
+                  {...register("phoneNumber", {
+                    required: "연락처를 입력해주세요.",
+                  })}
+                />
               </ColLine>
               <ColLine>
                 <SubTitle>이메일</SubTitle>
-                <Content placeholder="korea@xxxxx.com" />
+                <Content
+                  placeholder="korea@xxxxx.com"
+                  type="text"
+                  {...register("email", {
+                    required: "이메일을 입력해주세요.",
+                  })}
+                />
               </ColLine>
               <ColLine>
                 <SendButton onClick={() => setStep("문의내용작성")}>
@@ -321,15 +407,18 @@ const QuestionForm = () => {
             <QuestionContextWrapper>
               <ColLine>
                 <SubTitle>문의내용</SubTitle>
-                <ContentTextArea placeholder="문의내용을 작성해주세요." />
+                <ContentTextArea
+                  placeholder="문의내용을 작성해주세요."
+                  {...register("content", {
+                    required: "문의 내용을 입력해주세요.",
+                  })}
+                />
               </ColLine>
               <RowLine style={{ marginTop: "auto" }}>
                 <PrevButton onClick={() => setStep("개인정보작성")}>
                   이전
                 </PrevButton>
-                <SendButton onClick={() => setStep("문의내용작성")}>
-                  작성
-                </SendButton>
+                <SendButton onClick={handleSubmit(onSubmit)}>작성</SendButton>
               </RowLine>
             </QuestionContextWrapper>
           )}
