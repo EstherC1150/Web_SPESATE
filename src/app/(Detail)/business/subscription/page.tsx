@@ -3,6 +3,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import MeritBox from "@/app/_components/business/MeritBox";
+import MessageItem from "@/app/_components/business/MessageItem";
 
 // 애니메이션 정의
 const fadeIn = keyframes`
@@ -98,44 +99,6 @@ const MessageContainer = styled.div`
   margin: 0 auto;
 `;
 
-// 메시지 박스 스타일
-const MessageWrapper = styled.div<{ align: "left" | "right" }>`
-  display: flex;
-  justify-content: ${(props) =>
-    props.align === "left" ? "flex-start" : "flex-end"};
-  margin-bottom: 30px; /* 왼쪽-오른쪽 메시지 간 추가 간격 */
-  white-space: pre-wrap;
-`;
-
-const Message = styled.div<{ align: "left" | "right"; delay: number }>`
-  background-color: ${(props) =>
-    props.align === "left" ? "#dddddd" : "#4ecaff"};
-  color: #221e1f;
-  font-size: 22px;
-  padding: 15px 20px;
-  border-radius: 15px;
-  max-width: 60%;
-  position: relative;
-  animation: ${fadeIn} 0.5s ease-out forwards;
-  animation-delay: ${(props) => props.delay}s;
-  opacity: 0;
-  transform: translateY(20px);
-  line-height: 150%;
-  text-align: left;
-  font-weight: 500;
-
-  // 말풍선 꼬리 추가
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    ${(props) =>
-      props.align === "left"
-        ? `left: -7px; border: 8px solid transparent; border-top-color: #dddddd;`
-        : `right: -7px; border: 8px solid transparent; border-top-color: #4ecaff;`}
-  }
-`;
-
 const SubscriptionPage = () => {
   const messages = [
     {
@@ -199,11 +162,7 @@ const SubscriptionPage = () => {
         <NeedTitle>정기 지원 컨설팅의 필요성</NeedTitle>
         <MessageContainer>
           {messages.map((msg, index) => (
-            <MessageWrapper key={index} align={msg.align}>
-              <Message align={msg.align} delay={msg.delay}>
-                {msg.text}
-              </Message>
-            </MessageWrapper>
+            <MessageItem key={index} msg={msg} />
           ))}
         </MessageContainer>
       </ContentContainer>
