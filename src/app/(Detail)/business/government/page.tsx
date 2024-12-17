@@ -40,7 +40,7 @@ const TImg = styled.div`
 
 const Title = styled.h2`
   position: absolute;
-  top: 44%; /* 이미지 중앙에 위치 */
+  top: 42%; /* 이미지 중앙에 위치 */
   left: 8%;
   font-size: 40px;
   transform: translate(0, -44%);
@@ -96,51 +96,71 @@ const MessageContainer = styled.div`
 const SubscriptionPage = () => {
   const messages = [
     {
-      text: "최근 정부 지원사업이 많이 늘었는데,\n공고 내용이 너무 복잡하고, 평가 기준이나 신청 절차도 이해하기 어려워요.\n이런 상황에서 어떻게 해야 할까요?",
+      text: "1. 정부 R&D 과제의 복잡성과 불확실성 심화",
       align: "left",
       delay: 0,
     } as const,
     {
-      text: "그렇습니다. 그렇기 때문에 기업들이 필요한 정보를 빠르게 얻기가 어렵습니다.\n이로 인해 많은 중소기업들이 지원사업을 선택하는 데 어려움을 겪고 있습니다.\n그 결과, 적합한 사업을 찾고 성공적으로 수행하는 데 큰 걸림돌이 되고 있죠.",
+      text: "정부R&D 과제는 분야별, 규모별, 지원내용별로 다양하게 구성되어 있으며, 각 과제마다 참여자격, 기술요건, 사업화계획 등 세부적인 수행조건이 상이, 최근에는 대형과제가 증가하면서 중소기업 입장에서는 복잡한 평가기준과 까다로운 행정절차에 어려움을 겪고있음",
       align: "right",
       delay: 0.4,
     } as const,
     {
-      text: "그렇군요.\n그럼 이런 문제를 해결할 수 있는 방법이 있을까요?",
+      text: "2. 중소기업의 자원부족",
       align: "left",
       delay: 0.8,
     } as const,
     {
-      text: "네, 바로 맞춤형 정보 제공 솔루션이 필요합니다.\n저희 솔루션은 기업의 상태와 필요에 맞는 지원사업을 자동으로 추천해주고, 복잡한 절차를 간소화하여 쉽게 이해하고 빠르게 신청할 수 있도록 도와줍니다.\n이를 통해 기업들은 적합한 지원사업을 신속하게 찾아서, 더욱 효과적으로 활용할 수 있습니다.",
+      text: "중소기업은 대기업에 비해 시간, 인력, 정보 등 자원 부족으로 정부 R&D 과제를 효과적으로 수행하기가 어려움",
       align: "right",
       delay: 1.2,
+    } as const,
+    {
+      text: "3. 경쟁 심화",
+      align: "left",
+      delay: 1.6,
+    } as const,
+    {
+      text: "정부 R&D 과제는 기업의 성장을 위한 중요한 기회이므로, 많은 기업들이 참여하여 경쟁이 치열함. 특히 정부의 R&D 투자가 확대되면서 경쟁 강도가 더욱 심화되고 있음",
+      align: "right",
+      delay: 2.0,
+    } as const,
+    {
+      text: "4. 사업화의 어려움",
+      align: "left",
+      delay: 2.4,
+    } as const,
+    {
+      text: "정부 R&D 과제에 성공적으로 참여하더라도, 연구결과를 사업화하는 과정에서 많음 어려움이 있음",
+      align: "right",
+      delay: 2.8,
     } as const,
   ];
 
   const merits = [
     {
-      title: "정확하고 신속한 정보 제공",
+      title: "기업 역량과 목표에 맞는 정부 R&D 과제 발굴",
       description:
-        "기업형 맞춤형 정보 제공 시스템을 통해 중소기업이 필요로 하는 정보를 적시에 제공받아 경영 활동에 활용할 수 있습니다.",
-      icon: "/images/business/ic-fasttime.png",
+        "다양한 정부 R&D 과제 중에서 기업의 기술 역량과 목표에 가장 부합하는 과제를 선별해 지원받을 수 있습니다.",
+      icon: "/images/business/ic-goal.png",
     },
     {
-      title: "정기적인 정보 업데이트",
+      title: "경쟁력 있는 사업계획서 작성 지원",
       description:
-        "변화하는 정책과 시장 동향에 맞춰 시스템 내 정보가 주기적으로 업데이트되어 최신 정보를 항상 확인할 수 있습니다.",
-      icon: "/images/business/ic-update.png",
+        "평가위원의 요구사항을 반영하여 보다 완성도 높고 경쟁력 있는 사업계획서를 작성할 수 있도록 지원합니다.",
+      icon: "/images/business/ic-support.png",
     },
     {
-      title: "맞춤형 상담 서비스",
+      title: "기술적·행정적 문제 해결을 통한 원활한 사업 수행",
       description:
-        "중소기업의 개별 상황과 필요에 맞춘 전문 상담을 통해 맞춤형 솔루션을 제공합니다.",
-      icon: "/images/business/ic-candidate.png",
+        "사업 수행 과정에서 발생하는 기술적, 행정적 문제를 해결하여 프로젝트가 원활하게 진행될 수 있도록 도와줍니다.",
+      icon: "/images/business/ic-solution.png",
     },
     {
-      title: "변화하는 정책 환경에 대한 빠른 대응 지원",
+      title: "최신 기술 동향 파악 및 사업화 자문 제공",
       description:
-        "정책 변화에 신속히 대응할 수 있도록 관련 정보를 제공하고, 필요한 경우 추가 지원 방안을 안내합니다.",
-      icon: "/images/business/ic-responsibility.png",
+        "정부 R&D 과제를 통해 최신 기술 동향을 파악하고, 기술 개발 및 사업화에 필요한 전문적인 자문을 받을 수 있습니다.",
+      icon: "/images/business/ic-provide.png",
     },
   ];
 
@@ -148,12 +168,12 @@ const SubscriptionPage = () => {
     <Container>
       <ContentContainer>
         <TImg>
-          <Title>정부 지원 컨설팅</Title>
+          <Title>정부 관리 컨설팅</Title>
           <TText>정부 과제 A-Z지원(신청, 수행, 종료)</TText>
         </TImg>
       </ContentContainer>
       <ContentContainer>
-        <NeedTitle>정부 지원 컨설팅의 필요성</NeedTitle>
+        <NeedTitle>정부 관리 컨설팅의 필요성</NeedTitle>
         <MessageContainer>
           {messages.map((msg, index) => (
             <MessageItem key={index} msg={msg} />
@@ -161,7 +181,7 @@ const SubscriptionPage = () => {
         </MessageContainer>
       </ContentContainer>
       <ContentContainer>
-        <MeritTitle>정부 지원 컨설팅의 이점</MeritTitle>
+        <MeritTitle>정부 관리 컨설팅의 이점</MeritTitle>
         <MeritContainer>
           {merits.map((merit, index) => (
             <MeritBox

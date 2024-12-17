@@ -40,7 +40,7 @@ const TImg = styled.div`
 
 const Title = styled.h2`
   position: absolute;
-  top: 44%; /* 이미지 중앙에 위치 */
+  top: 42%; /* 이미지 중앙에 위치 */
   left: 8%;
   font-size: 40px;
   transform: translate(0, -44%);
@@ -142,12 +142,12 @@ const SubscriptionPage = () => {
     <Container>
       <ContentContainer>
         <TImg>
-          <Title>정기 지원 컨설팅</Title>
+          <Title>정기 관리 컨설팅</Title>
           <TText>사업공고분석& 매칭/ 고객아이템및자료관리</TText>
         </TImg>
       </ContentContainer>
       <ContentContainer>
-        <NeedTitle>정기 지원 컨설팅의 필요성</NeedTitle>
+        <NeedTitle>정기 관리 컨설팅의 필요성</NeedTitle>
         <MessageContainer>
           {messages.map((msg, index) => (
             <MessageItem key={index} msg={msg} />
@@ -155,7 +155,7 @@ const SubscriptionPage = () => {
         </MessageContainer>
       </ContentContainer>
       <ContentContainer>
-        <MeritTitle>정기 지원 컨설팅의 이점</MeritTitle>
+        <MeritTitle>정기 관리 컨설팅의 이점</MeritTitle>
         <MeritContainer>
           {merits.map((merit, index) => (
             <MeritBox

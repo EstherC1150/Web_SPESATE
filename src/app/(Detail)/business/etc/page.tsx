@@ -41,7 +41,7 @@ const TImg = styled.div`
 
 const Title = styled.h2`
   position: absolute;
-  top: 44%; /* 이미지 중앙에 위치 */
+  top: 42%; /* 이미지 중앙에 위치 */
   left: 8%;
   font-size: 40px;
   transform: translate(0, -44%);

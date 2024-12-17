@@ -15,8 +15,8 @@ export const menuItems: THeader[] = [
     title: "비즈니스",
     subTitle: [
       { label: "정기 관리 컨설팅", href: "/business/subscription" },
-      { label: "정부 과제 컨설팅", href: "/business/government" },
-      { label: "기타 과제 컨설팅", href: "/business/etc" },
+      { label: "정부 관리 컨설팅", href: "/business/government" },
+      { label: "기타 지원 컨설팅", href: "/business/etc" },
     ],
   },
   {
