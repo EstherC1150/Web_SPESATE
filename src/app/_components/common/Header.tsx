@@ -67,16 +67,16 @@ const SubMenuWrapper = styled.div<{ $isVisible: boolean }>`
   z-index: 999;
 `;
 
-const LeftContent = styled.div`
-  display: flex;
-  width: 180px;
-  margin-left: 20px;
-`;
+// const LeftContent = styled.div`
+//   display: flex;
+//   width: 180px;
+//   margin-left: 20px;
+// `;
 
-const RightContent = styled.div`
-  display: flex;
-  flex: 1;
-`;
+// const RightContent = styled.div`
+//   display: flex;
+//   flex: 1;
+// `;
 
 const SubMenu = styled.div`
   display: flex;
@@ -84,6 +84,8 @@ const SubMenu = styled.div`
   justify-content: center;
   gap: 4px;
   padding: 15px 20px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const SubMenuColumn = styled.div`
@@ -106,18 +108,19 @@ const SubMenuItem = styled(Link)`
   }
 `;
 
-const HeaderRight = styled.div`
-  display: flex;
-  gap: 15px;
-  flex: 1;
-`;
+// const HeaderRight = styled.div`
+//   display: flex;
+//   gap: 15px;
+//   flex: 1;
+// `;
 
 const HeaderLeft = styled.div`
   width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+  margin-left: 30px;
+  position: absolute;
 `;
 
 const ImageBox = styled(Link)`
@@ -177,7 +180,7 @@ const Header = () => {
             </NavItem>
           ))}
           <SubMenuWrapper $isVisible={isSubMenuVisible}>
-            <LeftContent />
+            {/* <LeftContent /> */}
             <SubMenu>
               {menuItems.map((menu) => (
                 <SubMenuColumn key={menu.title}>
@@ -189,10 +192,10 @@ const Header = () => {
                 </SubMenuColumn>
               ))}
             </SubMenu>
-            <RightContent />
+            {/* <RightContent /> */}
           </SubMenuWrapper>
         </Nav>
-        <HeaderRight></HeaderRight>
+        {/* <HeaderRight></HeaderRight> */}
       </Inner>
     </HeaderContainer>
   );
