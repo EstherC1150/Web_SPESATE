@@ -30,6 +30,8 @@ const Nav = styled.nav`
   display: flex;
   gap: 4px;
   padding: 15px 20px;
+  margin-left: auto;
+  margin-right: auto;
   flex: 10;
   align-items: center;
   justify-content: center;

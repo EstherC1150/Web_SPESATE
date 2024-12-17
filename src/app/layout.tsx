@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={notoSansKR.variable}>
-      <body className={notoSansKR.className}>
+      <body className={notoSansKR.className} style={{ minWidth: "1200px" }}>
         <Script
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=343acd45a03376f09966f0ec83342f0e&autoload=false"
           strategy="beforeInteractive"

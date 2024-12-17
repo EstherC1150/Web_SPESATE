@@ -36,6 +36,8 @@ const Nav = styled.nav`
   display: flex;
   gap: 4px;
   padding: 15px 20px;
+  margin-left: auto;
+  margin-right: auto;
   flex: 10;
   align-items: center;
   justify-content: center;
@@ -110,18 +112,19 @@ const SubMenuItem = styled(Link)`
   }
 `;
 
-const HeaderRight = styled.div`
-  display: flex;
-  gap: 15px;
-  flex: 1;
-`;
+// const HeaderRight = styled.div`
+//   display: flex;
+//   gap: 15px;
+//   flex: 1;
+// `;
 
 const HeaderLeft = styled.div`
   width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
+  margin-left: 30px;
+  position: absolute;
 `;
 
 const ImageBox = styled(Link)`
@@ -192,7 +195,7 @@ const HomeHeader = () => {
             <RightContent />
           </SubMenuWrapper>
         </Nav>
-        <HeaderRight></HeaderRight>
+        {/* <HeaderRight></HeaderRight> */}
       </Inner>
     </HeaderContainer>
   );

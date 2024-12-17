@@ -11,7 +11,7 @@ const SQuestionForm = styled(motion.div)`
   bottom: 120px;
   right: 40px;
   width: 370px;
-  height: 664px;
+  height: 514px;
   max-height: 80vh; /* 화면 높이의 최대 90% */
   background-color: white;
   border-radius: 8px;
@@ -210,9 +210,7 @@ const QuestionForm = ({ handleClose }: Props) => {
     defaultValues: {
       questionType: "",
       companyName: "",
-      department: "",
       managerName: "",
-      position: "",
       phoneNumber: "",
       email: "",
       content: "",
@@ -231,9 +229,7 @@ const QuestionForm = ({ handleClose }: Props) => {
     const formData = {
       questionType: data.questionType,
       companyName: data.companyName,
-      department: data.department,
       managerName: data.managerName,
-      position: data.position,
       phoneNumber: data.phoneNumber,
       email: data.email,
       content: data.content,
@@ -347,32 +343,12 @@ const QuestionForm = ({ handleClose }: Props) => {
                 />
               </ColLine>
               <ColLine>
-                <SubTitle>부서명</SubTitle>
-                <Content
-                  placeholder="Dx 사업부"
-                  type="text"
-                  {...register("department", {
-                    required: "부서명을 입력해주세요.",
-                  })}
-                />
-              </ColLine>
-              <ColLine>
                 <SubTitle>담당자명</SubTitle>
                 <Content
                   placeholder="홍길동"
                   type="text"
                   {...register("managerName", {
                     required: "담당자명을 입력해주세요.",
-                  })}
-                />
-              </ColLine>
-              <ColLine>
-                <SubTitle>직책 / 직급</SubTitle>
-                <Content
-                  placeholder="대리"
-                  type="text"
-                  {...register("position", {
-                    required: "직책 / 직급을 입력해주세요.",
                   })}
                 />
               </ColLine>
