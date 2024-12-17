@@ -107,6 +107,10 @@ const Location = () => {
                 <InfoSub>Website</InfoSub>
                 <InfoText>www.spesate.com</InfoText>
               </InfoWrap>
+              <InfoWrap>
+                <InfoSub>Blog</InfoSub>
+                <InfoText>blog.naver.com/spesate</InfoText>
+              </InfoWrap>
             </BottomInfo>
           </LeftInfo>
           <RightImg>

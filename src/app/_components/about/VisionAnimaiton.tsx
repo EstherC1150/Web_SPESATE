@@ -148,7 +148,7 @@ const VisionAnimaiton = () => {
                 r="45"
                 fill="#FFFFFF"
                 stroke={circle.color}
-                strokeWidth="7"
+                strokeWidth="3.5"
                 strokeDasharray="283" // 2 * π * r
                 strokeDashoffset="283"
                 initial={{ strokeDashoffset: 283 }}

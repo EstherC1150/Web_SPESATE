@@ -30,7 +30,7 @@ const ContentContainer = styled.div`
 const Title = styled.p`
   font-size: 44px;
   font-weight: 600;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
 `;
 
 const page = () => {

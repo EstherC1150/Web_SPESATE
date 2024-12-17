@@ -3,58 +3,78 @@ import styled from "styled-components";
 import Image from "next/image";
 
 const Background = styled.section`
-  height: 100vh;
   width: 100%;
   background-color: #191922;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 `;
 
 const ContentWrapper = styled.div`
   min-width: 1200px;
-  padding: 20px 70px;
+  height: 100vh;
+  padding-top: 120px;
 `;
 
 const Title = styled.h2`
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 700;
   margin-left: 4px;
   color: white;
+  margin-top: 40px;
 `;
 
 const ContentBox = styled.div`
   margin-top: 70px;
   display: flex;
-  justify-content: space-between;
-  align-items: end;
+  justify-content: space-between; /* 요소들 사이에 공간을 더 자연스럽게 배치 */
+  align-items: flex-start;
+  width: 100%;
+  height: 95%;
 `;
+
 const LeftMap = styled.div`
-  width: 351px;
-  height: 505px;
+  width: 50%; /* 비율로 크기 설정 */
+  height: 66%;
   position: relative;
 `;
-const RightContent = styled.div``;
+
+const ImageStyled = styled(Image)`
+  object-fit: contain; /* 이미지가 크기에 맞게 비율을 유지하면서 포함되도록 설정 */
+`;
+
+const RightContent = styled.div`
+  width: 50%; /* 비율로 크기 설정 */
+  height: 66%; /* 오른쪽 콘텐츠의 높이도 맞춰주기 */
+  padding-left: 20px; /* 왼쪽 맵과 간격을 주기 위해 padding 추가 */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+`;
+
 const STitle = styled.h3`
   color: white;
   font-size: 30px;
   font-weight: 700;
 `;
+
 const BTitle = styled.h2`
   color: #28aae2;
   font-size: 50px;
   font-weight: 700;
-  margin-top: 15px;
-  margin-bottom: 56px;
+  margin-top: -20px;
+  margin-bottom: 15px;
 `;
+
 const OutlineContent = styled.p`
   color: white;
   font-size: 20px;
   white-space: pre-wrap;
   line-height: 1.5;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
+
 const MoreBtn = styled.button`
   color: #28aae2;
   font-size: 18px;
@@ -62,7 +82,10 @@ const MoreBtn = styled.button`
   border-radius: 30px;
   border: solid 1px #28aae2;
   padding: 10px 36px;
-  margin-top: 60px;
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
 `;
 
 const Outline = () => {
@@ -72,7 +95,12 @@ const Outline = () => {
         <Title>회사개요</Title>
         <ContentBox>
           <LeftMap>
-            <Image src={"/images/map.png"} alt="map" fill priority></Image>
+            <ImageStyled
+              src={"/images/map.png"}
+              alt="map"
+              fill
+              priority
+            ></ImageStyled>
           </LeftMap>
           <RightContent>
             <STitle>경상도권 중소·중견기업 전문 컨설팅 기업</STitle>

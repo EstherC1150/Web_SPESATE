@@ -168,7 +168,7 @@ const CompanyAboutPage = () => {
             <motion.div
               style={{
                 width: "900px",
-                height: "600px",
+                height: "480px",
                 position: "relative",
                 margin: "0 auto",
               }}

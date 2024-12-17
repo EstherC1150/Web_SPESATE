@@ -79,6 +79,12 @@ const MeritContainer = styled.div`
   justify-content: space-between;
 `;
 
+const ProcessTitle = styled.h2`
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 70px;
+`;
+
 // 메시지 컨테이너 스타일
 const MessageContainer = styled.div`
   display: flex;
@@ -171,6 +177,7 @@ const SubscriptionPage = () => {
         </MeritContainer>
       </ContentContainer>
       <ContentContainer>
+        <ProcessTitle>기업 인증 프로세스</ProcessTitle>
         <CertificationProcess />
       </ContentContainer>
     </Container>
