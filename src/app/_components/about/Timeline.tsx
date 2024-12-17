@@ -98,7 +98,7 @@ const Timeline = () => {
             >
               <motion.path
                 d="M 0 0 L 10 5 L 0 10 Z"
-                fill="#ccc"
+                fill={`${colors.primary.main}`}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{
@@ -115,8 +115,8 @@ const Timeline = () => {
             y1="25"
             x2="calc(100% - 50px)"
             y2="25"
-            stroke="#ccc"
-            strokeWidth="30"
+            stroke={`${colors.primary.main}`}
+            strokeWidth="10"
             markerEnd="url(#arrow)"
             initial={{ strokeDasharray: "0, 10000" }}
             animate={isInView ? { strokeDasharray: "10000, 0" } : {}}
@@ -137,15 +137,30 @@ const Timeline = () => {
           >
             <motion.div
               style={{
-                width: "16px",
-                height: "16px",
+                width: "32px", // 감싸는 원의 크기 (기존 동그라미보다 큼)
+                height: "32px",
                 borderRadius: "50%",
-                background: ` ${colors.primary.main}`,
+                background: "#fff", // 감싸는 원의 색
                 margin: "0 auto",
+                display: "flex", // 내부 동그라미와 겹치지 않게 배치
+                justifyContent: "center", // 내부 동그라미를 가운데로 배치
+                alignItems: "center",
+                border: "1px solid #d8d8d8",
               }}
               custom={index}
               variants={itemVariants(index)}
-            ></motion.div>
+            >
+              <motion.div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  background: `${colors.primary.main}`, // 기존 동그라미의 색
+                }}
+                custom={index}
+                variants={itemVariants(index)}
+              />
+            </motion.div>
 
             <motion.svg
               style={{
