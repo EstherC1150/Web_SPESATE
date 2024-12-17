@@ -7,9 +7,7 @@ export async function POST(req: Request) {
     const {
       questionType,
       companyName,
-      department,
       managerName,
-      position,
       phoneNumber,
       email,
       content,
@@ -18,9 +16,7 @@ export async function POST(req: Request) {
     if (
       !questionType ||
       !companyName ||
-      !department ||
       !managerName ||
-      !position ||
       !phoneNumber ||
       !email ||
       !content
@@ -50,25 +46,12 @@ export async function POST(req: Request) {
       html: `
      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px;">
       <div style="background-color: ${colors.primary.main}; color: #fff; padding: 20px; text-align: center; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-        <h1 style="margin: 0; font-size: 24px;">SPESATE</h1>
+        <h1 style="margin: 0; font-size: 24px;">${companyName}</h1>
       </div>
       <div style="padding: 20px;">
-        <p>안녕하세요, ${companyName}입니다.</p>
         <p>${content}</p>
         <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
           <tbody>
-          <tr>
-              <td style="padding: 10px; background-color: #f8f8f8; border: 1px solid #e0e0e0;">회사명</td>
-               <td style="padding: 10px; border: 1px solid #e0e0e0;">${companyName}</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px; background-color: #f8f8f8; border: 1px solid #e0e0e0;">부서명</td>
-               <td style="padding: 10px; border: 1px solid #e0e0e0;">${department}</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px; background-color: #f8f8f8; border: 1px solid #e0e0e0;">직책 / 직급</td>
-               <td style="padding: 10px; border: 1px solid #e0e0e0;">${position}</td>
-            </tr>
             <tr>
               <td style="padding: 10px; background-color: #f8f8f8; border: 1px solid #e0e0e0;">담당자</td>
               <td style="padding: 10px; border: 1px solid #e0e0e0;">${managerName}</td>
@@ -83,7 +66,6 @@ export async function POST(req: Request) {
             </tr>
           </tbody>
         </table>
-        <p>고맙습니다.</p>
       </div>
       <footer style="background-color: #f8f8f8; padding: 10px; text-align: center; font-size: 12px; color: #666; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
         <p>본 메일은 발신 전용 메일입니다.</p>
