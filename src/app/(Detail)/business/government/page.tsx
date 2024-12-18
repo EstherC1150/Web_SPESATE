@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import MeritBox from "@/app/_components/business/MeritBox";
 import MessageItem from "@/app/_components/business/MessageItem";
+import GovernmentProcess from "@/app/_components/business/GovernmentProcess";
 
 const Container = styled.div`
   display: flex;
@@ -195,6 +196,7 @@ const SubscriptionPage = () => {
       </ContentContainer>
       <ContentContainer>
         <ProcessTitle>정부 과제 프로세스</ProcessTitle>
+        <GovernmentProcess />
       </ContentContainer>
     </Container>
   );
