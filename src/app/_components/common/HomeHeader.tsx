@@ -29,7 +29,7 @@ const Inner = styled.div<{ $isVisible: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ $isVisible }) => ($isVisible ? "#FFF" : "#191922")};
+  background-color: ${({ $isVisible }) => ($isVisible ? "#FFF" : "#282834")};
 `;
 
 const Nav = styled.nav`

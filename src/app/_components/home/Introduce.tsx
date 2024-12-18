@@ -7,7 +7,7 @@ import IntroductionAnimationTest from "./IntroduceTextAnimation";
 const SSection = styled.section`
   height: 100vh;
   width: 100%;
-  background-color: #191922;
+  background-color: #282834;
   display: flex;
   align-items: center;
   justify-content: center;
