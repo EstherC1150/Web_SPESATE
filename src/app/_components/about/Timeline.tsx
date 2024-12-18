@@ -62,8 +62,8 @@ const Timeline = () => {
     <div
       style={{
         overflow: "hidden",
-        padding: "300px 20px",
-        height: "700px",
+        padding: "200px 20px",
+        height: "430px",
         width: "1200px",
       }}
       ref={timelineRef} // 타임라인 감지할 DOM에 ref 추가
@@ -176,9 +176,9 @@ const Timeline = () => {
             >
               <motion.line
                 x1="0"
-                y1="0"
+                y1="5"
                 x2="0"
-                y2={index % 2 === 0 ? "45" : "-45"}
+                y2={index % 2 === 0 ? "55" : "-45"}
                 stroke={`${colors.primary.main}`}
                 strokeWidth="2"
                 initial={{ strokeDasharray: "0, 150" }}
@@ -195,7 +195,7 @@ const Timeline = () => {
               className="year-text"
               style={{
                 position: "absolute",
-                top: index % 2 === 0 ? "35px" : "-35px",
+                top: index % 2 === 0 ? "45px" : "-35px",
                 left: "50%",
                 transform: "translateX(-50%)",
                 fontSize: "18px",
@@ -219,7 +219,7 @@ const Timeline = () => {
                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
                 whiteSpace: "pre-line",
                 position: "absolute",
-                top: index % 2 === 0 ? "100px" : "-200px",
+                top: index % 2 === 0 ? "110px" : "-200px",
                 left: "50%",
                 transform: "translateX(-50%)",
                 width: "280px",
