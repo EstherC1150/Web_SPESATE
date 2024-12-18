@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Background = styled.section`
   width: 100%;
-  background-color: #191922;
+  background-color: #282834;
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -27,7 +27,7 @@ const ContentContainer = styled.div`
 
 const TImg = styled.div`
   position: relative;
-  width: 1200px;
+  width: 100%;
   height: 300px;
   margin: 0 auto;
   background-image: url("/images/business/testimg3.jpg"); /* 이미지 경로 설정 */
