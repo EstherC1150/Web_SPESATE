@@ -22,6 +22,9 @@ const Title = styled.h2`
   margin-left: 4px;
   color: white;
   margin-top: 40px;
+  width: 50%;
+  margin-right: auto;
+  text-align: center;
 `;
 
 const ContentBox = styled.div`

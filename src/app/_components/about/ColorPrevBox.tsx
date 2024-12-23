@@ -8,8 +8,8 @@ type TColor = {
 
 const ColorCard = styled.div`
   flex: 1;
-  padding: 30px 24px 50px 24px;
-  margin-top: 60px;
+  padding: 26px 24px 30px 24px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   border-radius: 16px;

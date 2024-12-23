@@ -51,7 +51,7 @@ const Title = styled.h2`
 
 const TText = styled.p`
   position: absolute;
-  top: 60%;
+  top: 62%;
   left: 8%;
   transform: translate(0, -60%);
   font-size: 28px;
