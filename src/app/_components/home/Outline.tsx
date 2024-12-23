@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Background = styled.section`
   width: 100%;
@@ -89,9 +92,15 @@ const MoreBtn = styled.button`
   display: flex;
   justify-content: center;
   margin-top: auto;
+  cursor: pointer;
 `;
 
 const Outline = () => {
+  const router = useRouter(); // next/navigation 사용
+
+  const goToAbout = () => {
+    router.push("/company/about"); // 이동할 페이지 경로
+  };
   return (
     <Background>
       <ContentWrapper>
@@ -114,7 +123,7 @@ const Outline = () => {
 수도권 중심의 컨설팅 시장 속에서 경상도권에 중소·중견기업의
 성장 잠재력을 발굴하고, 고객 맞춤형 컨설팅 서비스를 제공하여
 지역 경제 활성화를 이끌겠습니다.`}</OutlineContent>
-            <MoreBtn>More</MoreBtn>
+            <MoreBtn onClick={goToAbout}>More</MoreBtn>
           </RightContent>
         </ContentBox>
       </ContentWrapper>
