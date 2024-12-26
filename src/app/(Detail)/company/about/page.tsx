@@ -76,7 +76,7 @@ const SubTitle = styled(motion.p)`
 
 const ColorContainer = styled(motion.div)`
   display: flex;
-  gap: 8px;
+  gap: 16px;
 `;
 
 const ValueContainer = styled.div`
