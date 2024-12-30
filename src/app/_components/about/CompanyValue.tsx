@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const ValueBox = styled(motion.div)`
   width: 40%;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 `;
 
 const ValueTitle = styled.p`
@@ -15,9 +15,32 @@ const ValueTitle = styled.p`
   font-weight: 600;
 `;
 
-const ValueContent = styled.p`
+const ValueContent = styled.div`
   font-size: 20px;
   font-weight: 400;
+  padding-left: 4px;
+`;
+
+const SubTitle = styled.p`
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 4px;
+
+  &::before {
+    content: "●";
+    margin-right: 8px;
+    display: inline-block;
+    font-size: 6px;
+    vertical-align: middle;
+  }
+`;
+
+const SubContent = styled.p`
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 12px;
+  line-height: 130%;
+  margin-left: 14px;
 `;
 
 type Props = {
@@ -59,7 +82,14 @@ const CompanyValue = ({ value, delay }: Props) => {
         </div>
         <ValueTitle>{value.title}</ValueTitle>
       </div>
-      <ValueContent>{value.content}</ValueContent>
+      <ValueContent>
+        {value.content.map((sub) => (
+          <div key={sub.subTitle}>
+            <SubTitle>{sub.subTitle}</SubTitle>
+            <SubContent>{sub.subContent}</SubContent>
+          </div>
+        ))}
+      </ValueContent>
     </ValueBox>
   );
 };
