@@ -136,22 +136,22 @@ const businesses: TBusiness[] = [
 정확하고 신속하게 제공합니다.`,
     backgroundImage1: "/images/testimage3.jpg",
     backgrpundImage2: "/images/testimage2.png",
-    link: "",
+    link: "/business/subscription",
   },
   {
-    name: "정부 과제 컨설팅",
+    name: "정부 관리 컨설팅",
     content: `정부과제 수주 확률 증대 및 성공적인 사업수행 서비스를 제공합니다.
 기술 개발 및 사업화 성공률 향상에 대한 자문을 제공합니다`,
     backgroundImage1: "/images/testimage4.jpg",
     backgrpundImage2: "/images/testimage1.png",
-    link: "",
+    link: "/business/government",
   },
   {
-    name: "기타 관리 컨설팅",
+    name: "기타 지원 컨설팅",
     content: `중소기업에게 맞춤형 인증 취득에 필요한 서비스를 제공합니다.`,
     backgroundImage1: "/images/testimage5.jpg",
     backgrpundImage2: "/images/testimage6.jpg",
-    link: "",
+    link: "/business/etc",
   },
 ];
 

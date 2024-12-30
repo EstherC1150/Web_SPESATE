@@ -7,13 +7,14 @@ type TColor = {
 };
 
 const ColorCard = styled.div`
-  flex: 1;
-  padding: 26px 24px 30px 24px;
+  /* flex: 1; */
+  padding: 26px 24px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   border-radius: 16px;
   border: 1px solid #cecece;
+  width: 280px;
 `;
 
 const ColorPrev = styled.div<TColor>`

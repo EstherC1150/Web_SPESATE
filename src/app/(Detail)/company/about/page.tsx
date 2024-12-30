@@ -77,6 +77,7 @@ const SubTitle = styled(motion.p)`
 const ColorContainer = styled(motion.div)`
   display: flex;
   gap: 16px;
+  justify-content: center;
 `;
 
 const ValueContainer = styled.div`
@@ -105,11 +106,12 @@ const CompanyAboutPage = () => {
             transition={{ duration: 0.5, delay: 0.07, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            <p>{`중소·중견기업 간의 올바른 협력을 통해 긍정적인 시너지를 창출하고, 
-상호 성장을 위한 협력 생태계를 구축 하는 것을 목표로  2024년 10월 10일에 설립 되었습니다.
+            <p>{`SPEsate는 2024년 10월 10일, 중소·중견기업의 협력을 촉진하여\n새로운 시너지를 창출하고 지속 가능한 성장을 위한 협력 생태계를 구축하고자 설립되었습니다.
 `}</p>
-            <p>{`고객만의 맞춤형 서비스를 통하여 고객의 바램을 충족시키는 기업으로 거듭 나기 위하여 
-항상 최선을 다하는 기업이 되겠습니다.`}</p>
+            <p>{`저희는 고객의 비즈니스 목표 달성을 최우선으로 하며, 맞춤형 솔루션을 통해 고객의 기대를 뛰어넘는 가치를 제공합니다.
+
+다양한 산업 분야에서 축적된 노하우와 전문성을 바탕으로 고객의 고유한 상황을 정확하게 분석하고,\n이를 바탕으로 최적의 솔루션을 제공합니다.
+`}</p>
           </ContentBox>
           <ImageBox
             initial={{ opacity: 0, y: 40 }}
