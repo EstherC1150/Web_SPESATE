@@ -12,7 +12,7 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "경상도 중소·중견기업 전문 컨설팅 - SPESATE",
+  title: "SPESATE",
   description:
     "SPESATE는 경상도 중소기업의 성장을 위한 맞춤형 컨설팅을 제공합니다. 경영, 디지털 전환, 정책 지원까지.",
   keywords: ["중견기업 전문 컨설팅", "스페세이트", "경상도권 컨설팅"],
