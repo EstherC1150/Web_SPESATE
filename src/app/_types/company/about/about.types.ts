@@ -22,7 +22,12 @@ type TCMYK = {
 
 export type TValue = {
   title: string;
-  content: string;
+  content: TSubTitle[];
   imgUrl: string;
   alt: string;
+};
+
+type TSubTitle = {
+  subTitle: string;
+  subContent: string;
 };

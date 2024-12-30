@@ -114,7 +114,7 @@ const HistoryDesc = styled.p`
   line-height: 150%;
 `;
 
-const years = ["2024", "2025"];
+const years = ["2024"];
 
 const HistoryPage = () => {
   const [seletedYear, setSeletedYear] = useState("2024");
@@ -147,20 +147,8 @@ const HistoryPage = () => {
           </YearContainer>
           <ContentContainer>
             <ContentBox>
-              <HistoryDate>2024.03</HistoryDate>
-              <HistoryDesc>안녕하세요 이날 회사 세워짐</HistoryDesc>
-            </ContentBox>
-            <ContentBox>
-              <HistoryDate>2024.03</HistoryDate>
-              <HistoryDesc>안녕하세요 이날 회사 세워짐</HistoryDesc>
-            </ContentBox>
-            <ContentBox>
-              <HistoryDate>2024.03</HistoryDate>
-              <HistoryDesc>안녕하세요 이날 회사 세워짐</HistoryDesc>
-            </ContentBox>
-            <ContentBox>
-              <HistoryDate>2024.03</HistoryDate>
-              <HistoryDesc>안녕하세요 이날 회사 세워짐</HistoryDesc>
+              <HistoryDate>2024.10.10</HistoryDate>
+              <HistoryDesc>SPESATE 설립</HistoryDesc>
             </ContentBox>
           </ContentContainer>
         </HistoryBox>

@@ -83,7 +83,7 @@ const ColorContainer = styled(motion.div)`
 const ValueContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 140px;
+  margin-top: 60px;
   justify-content: space-around;
 `;
 
@@ -106,11 +106,9 @@ const CompanyAboutPage = () => {
             transition={{ duration: 0.5, delay: 0.07, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            <p>{`SPEsate는 2024년 10월 10일, 중소·중견기업의 협력을 촉진하여\n새로운 시너지를 창출하고 지속 가능한 성장을 위한 협력 생태계를 구축하고자 설립되었습니다.
+            <p>{`SPESATE는 중소·중견기업의 성장 잠재력을 극대화하기 위해 설립된 전문 컨설팅 기업입니다.
 `}</p>
-            <p>{`저희는 고객의 비즈니스 목표 달성을 최우선으로 하며, 맞춤형 솔루션을 통해 고객의 기대를 뛰어넘는 가치를 제공합니다.
-
-다양한 산업 분야에서 축적된 노하우와 전문성을 바탕으로 고객의 고유한 상황을 정확하게 분석하고,\n이를 바탕으로 최적의 솔루션을 제공합니다.
+            <p>{`깊이 있는 산업 분석과 데이터 기반의 전략 수립을 통해 고객 맞춤형 솔루션을 제공하며,\n협력 생태계 구축을 통한 시너지 창출을 지원합니다. 저희는 지속 가능한 성장을 위한 최적의 파트너가 되어 드릴 것을 약속드립니다.
 `}</p>
           </ContentBox>
           <ImageBox
