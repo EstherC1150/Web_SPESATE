@@ -1,5 +1,6 @@
 "use client";
 
+import TalentCardList from "@/app/_components/talent/TalentCard";
 import React from "react";
 import styled from "styled-components";
 
@@ -35,6 +36,7 @@ const page = () => {
     <Container>
       <ContentContainer>
         <Title>채용</Title>
+        <TalentCardList />
       </ContentContainer>
     </Container>
   );
