@@ -126,8 +126,7 @@ const cardData = [
     number: "1",
     title: "창의적이고 혁신적인\n" + "문제 해결 능력을 갖춘 인재",
     description:
-      "혁신적인 사고와 새로운 아이디어로\n" +
-      "정부 과제의 한계를 극복하고 발전",
+      "혁신적인 사고와 새로운 아이디어로\n" + "컨설팅의 한계를 극복하고 발전",
     bgColor: "#38bdf8",
     icon: "/images/talent/ic-creative.png",
   },
