@@ -169,12 +169,12 @@ const SubscriptionPage = () => {
     <Container>
       <ContentContainer>
         <TImg>
-          <Title>정부 관리 컨설팅</Title>
-          <TText>정부 과제 A-Z지원(신청, 수행, 종료)</TText>
+          <Title>정부 과제 컨설팅</Title>
+          <TText>정부 과제 A-Z지원(신청-협약-수행-종료-사후관리)</TText>
         </TImg>
       </ContentContainer>
       <ContentContainer>
-        <NeedTitle>정부 관리 컨설팅의 필요성</NeedTitle>
+        <NeedTitle>정부 과제 컨설팅의 필요성</NeedTitle>
         <MessageContainer>
           {messages.map((msg, index) => (
             <MessageItem key={index} msg={msg} />
@@ -182,7 +182,7 @@ const SubscriptionPage = () => {
         </MessageContainer>
       </ContentContainer>
       <ContentContainer>
-        <MeritTitle>정부 관리 컨설팅의 이점</MeritTitle>
+        <MeritTitle>정부 과제 컨설팅의 이점</MeritTitle>
         <MeritContainer>
           {merits.map((merit, index) => (
             <MeritBox

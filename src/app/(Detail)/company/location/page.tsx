@@ -74,13 +74,13 @@ const RightImg = styled.div`
   height: 450px;
   position: relative;
 `;
-const MapContent = styled.div`
+const MapContent = styled(Map)`
   width: 100%;
   height: 700px;
 `;
 
 const Location = () => {
-  const position = { lat: 37.4868314347245, lng: 127.120453991896 };
+  const position = { lat: 35.536963925327356, lng: 129.3308830850424 };
 
   return (
     <Container>
@@ -123,15 +123,30 @@ const Location = () => {
           </RightImg>
         </TextContent>
       </MapWrapper>
-      <MapContent>
-        <Map center={position} id="map" draggable>
-          <MapMarker position={position}></MapMarker>
-          <CustomOverlayMap position={position} yAnchor={3}>
-            <div style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}>
-              <span>서울 송파구 법원로 128</span>
-            </div>
-          </CustomOverlayMap>
-        </Map>
+      <MapContent center={position} id="map" draggable={false}>
+        <MapMarker position={position}></MapMarker>
+        <CustomOverlayMap position={position} yAnchor={2.5}>
+          <div
+            style={{
+              border: "1px solid rgba(0, 0, 0, 0.1)",
+              backgroundColor: "#000000",
+              textAlign: "center",
+              padding: "4px 8px 8px 8px",
+              borderRadius: "6px",
+              position: "relative",
+            }}
+          >
+            <span
+              style={{
+                color: "white",
+                textAlign: "center",
+                paddingBottom: "2px",
+              }}
+            >
+              spesate
+            </span>
+          </div>
+        </CustomOverlayMap>
       </MapContent>
     </Container>
   );
