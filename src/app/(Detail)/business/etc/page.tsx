@@ -1,4 +1,3 @@
-// pages/index.tsx
 "use client";
 import React from "react";
 import styled from "styled-components";
@@ -238,11 +237,9 @@ const ListItem = styled.div`
 `;
 
 const SubscriptionPage = () => {
-  const contentRef1 = useRef(null);
   const contentRef2 = useRef(null);
   const contentRef3 = useRef(null);
   const contentRef4 = useRef(null);
-  const isInView1 = useInView(contentRef1, { once: true });
   const isInView2 = useInView(contentRef2, { once: true });
   const isInView3 = useInView(contentRef3, { once: true });
   const isInView4 = useInView(contentRef4, { once: true });
