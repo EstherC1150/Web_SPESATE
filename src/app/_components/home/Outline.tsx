@@ -79,6 +79,11 @@ const OutlineContent = styled.p`
   white-space: pre-wrap;
   line-height: 1.5;
   margin-bottom: 20px;
+
+  span {
+    color: #28aae2;
+    font-weight: 500;
+  }
 `;
 
 const MoreBtn = styled.button`
@@ -117,12 +122,17 @@ const Outline = () => {
           <RightContent>
             <STitle>경상도권 중소·중견기업 전문 컨설팅 기업</STitle>
             <BTitle>SPESATE</BTitle>
-            <OutlineContent>{`저희 SPESATE는 경상도권 중소·중견기업 전문 컨설팅 기업으로,
-경상도권 지역의 산업 협력 생태계 구축에 기여 하고자 합니다.
+            <OutlineContent>
+              {`SPESATE는 경상도권 기업의 미래를 디자인하고,성장을 가속화하는\n전문 컨설팅 기업입니다.
 
-수도권 중심의 컨설팅 시장 속에서 경상도권에 중소·중견기업의
-성장 잠재력을 발굴하고, 고객 맞춤형 컨설팅 서비스를 제공하여
-지역 경제 활성화를 이끌겠습니다.`}</OutlineContent>
+정부 과제 및 경영 자문, 글로벌 시장 진출까지, 기업의 성장에 필요한\n모든 단계에서 고객 맞춤형 솔루션을 제공합니다. 
+지역 산업 생태계를 선도하며, 혁신을 통해 경상도권 기업의 가치를\n높이고, 지역 경제 발전에 기여합니다. 
+\n`}
+              <span>
+                지금 바로 문의하여 귀사의 성장을 위한 최적의 파트너를
+                만나보세요.
+              </span>
+            </OutlineContent>
             <MoreBtn onClick={goToAbout}>More</MoreBtn>
           </RightContent>
         </ContentBox>

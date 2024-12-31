@@ -49,7 +49,9 @@ const Footer = () => {
       <FooterSection>
         <FooterTop>
           <FTitle>A COMPANY THAT MEETS THE NEEDS OF ITS CUSTOMERS</FTitle>
-          <FText>최고의 고객은 여러분들입니다</FText>
+          <FText>
+            단순한 솔루션 제공을 넘어, 고객의 비즈니스를 변화시킵니다.
+          </FText>
         </FooterTop>
         <FooterBottom>
           <FLeft>
