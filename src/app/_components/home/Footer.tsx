@@ -3,6 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 const FooterSection = styled.section`
   width: 1200px;
@@ -86,13 +87,14 @@ const Footer = () => {
                 width={28}
                 height={22}
               ></Image>
-              <Image
-                src="/images/ic-blog.png"
-                alt="blogIcon"
-                width={30}
-                height={30}
-              ></Image>
-              {/* https://blog.naver.com/spesate */}
+              <Link href="https://blog.naver.com/spesate" target="_blank">
+                <Image
+                  src="/images/ic-blog.png"
+                  alt="blogIcon"
+                  width={30}
+                  height={30}
+                ></Image>
+              </Link>
             </SnsUrl>
           </FRight>
         </FooterBottom>
