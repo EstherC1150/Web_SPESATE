@@ -18,13 +18,13 @@ const ValueTitle = styled.p`
 const ValueContent = styled.div`
   font-size: 20px;
   font-weight: 400;
-  padding-left: 4px;
+  padding-left: 8px;
 `;
 
 const SubTitle = styled.p`
   font-weight: 500;
   font-size: 18px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 
   &::before {
     content: "●";
@@ -35,13 +35,13 @@ const SubTitle = styled.p`
   }
 `;
 
-const SubContent = styled.p`
-  font-weight: 400;
-  font-size: 18px;
-  margin-bottom: 12px;
-  line-height: 130%;
-  margin-left: 14px;
-`;
+// const SubContent = styled.p`
+//   font-weight: 400;
+//   font-size: 18px;
+//   margin-bottom: 12px;
+//   line-height: 130%;
+//   margin-left: 14px;
+// `;
 
 type Props = {
   value: TValue;
@@ -86,7 +86,7 @@ const CompanyValue = ({ value, delay }: Props) => {
         {value.content.map((sub) => (
           <div key={sub.subTitle}>
             <SubTitle>{sub.subTitle}</SubTitle>
-            <SubContent>{sub.subContent}</SubContent>
+            {/* <SubContent>{sub.subContent}</SubContent> */}
           </div>
         ))}
       </ValueContent>
