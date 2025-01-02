@@ -32,7 +32,7 @@ const ImageContainer = styled.div`
   max-width: 900px;
   aspect-ratio: 900 / 440; /* 비율을 유지 */
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 60px;
   overflow: hidden; /* 필요 시 초과 영역 숨김 */
   border-radius: 8px; /* 선택 사항: 둥근 모서리 */
 `;

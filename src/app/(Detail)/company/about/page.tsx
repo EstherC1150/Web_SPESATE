@@ -43,12 +43,13 @@ const CompanyName = styled(motion.p)`
   font-size: 34px;
   font-weight: 700;
   margin-top: 60px;
+  margin-bottom: 36px;
 `;
 
 const ContentBox = styled(motion.div)`
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  margin-top: 8px;
 
   > p {
     white-space: pre-wrap;
@@ -106,9 +107,7 @@ const CompanyAboutPage = () => {
             transition={{ duration: 0.5, delay: 0.07, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            <p>{`SPESATE는 중소·중견기업의 성장 잠재력을 극대화하기 위해 설립된 전문 컨설팅 기업입니다.
-`}</p>
-            <p>{`깊이 있는 산업 분석과 데이터 기반의 전략 수립을 통해 고객 맞춤형 솔루션을 제공하며,\n협력 생태계 구축을 통한 시너지 창출을 지원합니다. 저희는 지속 가능한 성장을 위한 최적의 파트너가 되어 드릴 것을 약속드립니다.
+            <p>{`SPESATE는 고객 맞춤형 솔루션을 제공하며, 협력 생태계 구축을 통한 시너지 창출을 지원합니다.
 `}</p>
           </ContentBox>
           <ImageBox
@@ -148,10 +147,10 @@ const CompanyAboutPage = () => {
               transition={{ duration: 0.5, delay: 0.3, ease: easeInOut }}
               viewport={{ once: true }}
             >
-              {`SPESATE는 중소·중견 기업의 성공을 지원하는 `}
+              {`SPESATE는 중소·중견 기업의 성공을 지원하는\n`}
               <span style={{ fontWeight: "650" }}>원스톱 솔루션</span>
-              {`을 제공합니다.\n\n지역 내 기업, 연구기관, 대학 등 다양한 주체와의 협력을 통해 개방형 혁신을 추구하며, 지역 산업의 경쟁력을 강화합니다.\n\n`}
-              {`각 분야의 전문가들로 구성된 네트워크를 통해 고객에게 최적화된 맞춤형 솔루션을 제시하며, 불필요한 절차를 간소화하여 효율적인 업무 처리가 가능하도록 지원합니다. 이를 통해 고객사의 시간과 비용을 절감할 수 있으며, 다양한 협력 기관들의 지원을 바탕으로 성공적인 사업 추진을 위한 최적의 환경을 조성합니다.`}
+              {`을 제공합니다.\n\n다양한 주체와의 상호 협력을 통해 개방형 혁신을\n추구하며, 지역 산업의 경쟁력을 강화합니다.\n\n`}
+              {`각 분야의 전문가들로 구성된 네트워크를 통해\n고객에게 최적화된 맞춤형 솔루션을 제공하며,\n불필요한 절차를 간소화하고 효율적인 업무\n처리가 가능하도록 지원하여\n이를 통해 고객사의 시간과 비용을 절감할 수 있으며,\n고객들의 성공적인 사업 추진을 위한 최적의 환경을\n조성합니다.`}
             </motion.div>
           </div>
         </ContentSection>

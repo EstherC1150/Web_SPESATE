@@ -27,7 +27,7 @@ const Title = styled.h2`
 `;
 
 const HistoryBox = styled.div`
-  padding: 120px 0 120px 40px;
+  padding: 60px 0 60px 40px;
   display: flex;
   margin-bottom: 140px;
   align-items: flex-start;

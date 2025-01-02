@@ -20,7 +20,7 @@ const MTitle = styled.h2`
   padding-top: 120px;
   font-size: 42px;
   font-weight: 700;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 `;
 const TextContent = styled.div`
   display: flex;
