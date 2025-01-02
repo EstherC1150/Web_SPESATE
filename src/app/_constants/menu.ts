@@ -21,10 +21,13 @@ export const menuItems: THeader[] = [
   },
   {
     title: "소식",
-    subTitle: [{ label: "뉴스", href: "/news/article" }],
+    subTitle: [
+      { label: "뉴스", href: "/news/article" },
+      { label: "파트너 뉴스", href: "/news/partner" },
+    ],
   },
   {
     title: "인재채용",
-    subTitle: [{ label: "채용", href: "/talent/recruit" }],
+    subTitle: [{ label: "인재상", href: "/talent/recruit" }],
   },
 ];

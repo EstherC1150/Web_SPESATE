@@ -35,7 +35,7 @@ const page = () => {
   return (
     <Container>
       <ContentContainer>
-        <Title>채용</Title>
+        <Title>인재상</Title>
         <TalentCardList />
       </ContentContainer>
     </Container>

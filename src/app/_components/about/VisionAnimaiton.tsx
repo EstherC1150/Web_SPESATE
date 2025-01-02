@@ -14,18 +14,18 @@ const circles: CircleData[] = [
   {
     text: "고객 성공 파트너",
     description:
-      "단순한 컨설팅을 넘어, 고객의 비즈니스 성장을 위한 최고의 파트너",
-    color: "#221E1f",
+      "단순한 컨설팅을 넘어,\n고객의 비즈니스 성장을 위한 최고의 파트너",
+    color: "#3b3536",
   },
   {
     text: "미래를 선도하는 기업",
-    description: "미래 지향성을 바탕으로 끊임없이 새로운 지식 습득",
+    description: "미래 지향성을 바탕으로\n끊임없이 새로운 지식 습득",
     color: "#D1D3D5",
   },
   {
     text: "지속 가능한 성장",
     description:
-      "단순히 이익 추구를 넘어, 고객 중심의 가치창출을 통해 지속 가능한 성장",
+      "단순히 이익 추구를 넘어,\n고객 중심의 가치창출을 통해 지속 가능한 성장",
     color: "#28AAE2",
   },
 ];
@@ -68,6 +68,7 @@ const TextBox = styled(motion.div)<{ color?: string }>`
   width: 90%;
   margin-top: 30px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
 
   h3 {
     font-size: 1.2rem;
@@ -82,6 +83,8 @@ const TextBox = styled(motion.div)<{ color?: string }>`
     margin: 0;
     line-height: 1.2;
     font-weight: 400;
+    text-align: center;
+    white-space: pre-wrap;
   }
 `;
 
@@ -115,8 +118,8 @@ const VisionAnimaiton = () => {
   return (
     <Layout>
       <PlusBoxOne
-        initial={{ opacity: 0, y: 50, x: "-33.2%" }}
-        animate={{ opacity: 1, y: "-30%", x: "-33.2%" }}
+        initial={{ opacity: 0, y: 0, x: "-33.2%" }}
+        animate={{ opacity: 1, y: "-70%", x: "-33.2%" }}
         transition={{
           delay: 0.3,
           duration: 0.5,
@@ -126,8 +129,8 @@ const VisionAnimaiton = () => {
         +
       </PlusBoxOne>
       <PlusBoxTwo
-        initial={{ opacity: 0, y: 50, x: "-67%" }}
-        animate={{ opacity: 1, y: "-30%", x: "-67%" }}
+        initial={{ opacity: 0, y: 0, x: "-67%" }}
+        animate={{ opacity: 1, y: "-70%", x: "-67%" }}
         transition={{
           delay: 1,
           duration: 0.5,
