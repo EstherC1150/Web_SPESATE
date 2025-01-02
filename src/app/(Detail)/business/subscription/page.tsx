@@ -62,13 +62,13 @@ const TText = styled.p`
 const NeedTitle = styled.h2`
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 `;
 
 const MeritTitle = styled.h2`
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 `;
 
 const MeritContainer = styled.div`

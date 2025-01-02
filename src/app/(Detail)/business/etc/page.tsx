@@ -73,13 +73,13 @@ const TText = styled.p`
 const NeedTitle = styled(motion.h2)`
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 `;
 
 const ProcessTitle = styled(motion.h2)`
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 `;
 
 const GridContainer = styled(motion.div)`
