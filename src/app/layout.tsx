@@ -15,6 +15,16 @@ export const metadata: Metadata = {
   title: "SPESATE",
   description: "경상도권 중소·중견기업 전문 컨설팅 기업 SPESATE입니다.",
   keywords: ["중견기업 전문 컨설팅", "스페세이트", "경상도권 컨설팅"],
+  robots: {
+    index: true, // 검색엔진이 페이지를 색인하도록 허용
+    follow: true, // 검색엔진이 페이지의 링크를 따라가도록 허용
+    nocache: true, // 검색엔진이 페이지를 캐시하지 않도록 설정
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false, // 이미지 색인 허용
+    },
+  },
 };
 
 export default function RootLayout({

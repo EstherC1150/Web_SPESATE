@@ -43,20 +43,18 @@ const CompanyName = styled(motion.p)`
   font-size: 34px;
   font-weight: 700;
   margin-top: 60px;
-  margin-bottom: 36px;
+  margin-bottom: 60px;
 `;
 
 const ContentBox = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  margin-top: 8px;
 
   > p {
     white-space: pre-wrap;
     line-height: 1.4;
     font-size: 20px;
     font-weight: 500;
-    margin-top: 24px;
   }
 `;
 
@@ -136,21 +134,44 @@ const CompanyAboutPage = () => {
             <motion.div
               style={{
                 width: "40%",
+                wordBreak: "keep-all",
+                wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
                 fontSize: "20px",
                 fontWeight: "500",
-                lineHeight: 1.4,
+                lineHeight: "140%",
                 marginLeft: "8px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
               }}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3, ease: easeInOut }}
               viewport={{ once: true }}
             >
-              {`SPESATE는 중소·중견 기업의 성공을 지원하는\n`}
-              <span style={{ fontWeight: "650" }}>원스톱 솔루션</span>
-              {`을 제공합니다.\n\n다양한 주체와의 상호 협력을 통해 개방형 혁신을\n추구하며, 지역 산업의 경쟁력을 강화합니다.\n\n`}
-              {`각 분야의 전문가들로 구성된 네트워크를 통해\n고객에게 최적화된 맞춤형 솔루션을 제공하며,\n불필요한 절차를 간소화하고 효율적인 업무\n처리가 가능하도록 지원하여\n이를 통해 고객사의 시간과 비용을 절감할 수 있으며,\n고객들의 성공적인 사업 추진을 위한 최적의 환경을\n조성합니다.`}
+              <p>
+                SPESATE는 중소·중견 기업의 성공을 지원하는
+                <span style={{ fontWeight: "650" }}> 원스톱 솔루션</span>을
+                제공합니다.
+              </p>
+
+              <p>
+                • 다양한 주체와의 상호 협력을 통해 개방형 혁신을 추구하며, 지역
+                산업의 경쟁력을 강화
+              </p>
+
+              <p>
+                • 각 분야의 전문가들로 구성된 네트워크를 통해 고객에게 최적화된
+                맞춤형 솔루션을 제공
+              </p>
+
+              <p>
+                • 모든 절차를 간소화하여 효율적인 업무 처리가 가능하도록 지원,
+                고객의 시간과 비용을 절감
+              </p>
+
+              <p>• 고객들의 성공적인 사업 추진을 위한 최적의 환경을 조성</p>
             </motion.div>
           </div>
         </ContentSection>

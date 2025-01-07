@@ -19,22 +19,11 @@ const ContentWrapper = styled.div`
   padding-top: 120px;
 `;
 
-const Title = styled.h2`
-  font-size: 36px;
-  font-weight: 700;
-  margin-left: 4px;
-  color: white;
-  margin-top: 40px;
-  width: 36%;
-  margin-right: auto;
-  text-align: center;
-`;
-
 const ContentBox = styled.div`
-  margin-top: 70px;
+  margin-top: auto;
   display: flex;
   justify-content: space-between; /* 요소들 사이에 공간을 더 자연스럽게 배치 */
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   height: 95%;
 `;
@@ -110,7 +99,7 @@ const Outline = () => {
   return (
     <Background>
       <ContentWrapper>
-        <Title>회사개요</Title>
+        {/* <Title>회사개요</Title> */}
         <ContentBox>
           <LeftMap>
             <ImageStyled
