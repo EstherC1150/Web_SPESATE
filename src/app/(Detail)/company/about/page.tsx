@@ -171,7 +171,7 @@ const CompanyAboutPage = () => {
                 고객의 시간과 비용을 절감
               </p>
 
-              <p>• 고객들의 성공적인 사업 추진을 위한 최적의 환경을 조성</p>
+              <p>• 고객들의 사업 추진을 위한 최적의 환경을 조성</p>
             </motion.div>
           </div>
         </ContentSection>
