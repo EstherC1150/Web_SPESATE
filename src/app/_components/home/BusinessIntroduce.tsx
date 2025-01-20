@@ -139,7 +139,7 @@ const businesses: TBusiness[] = [
     link: "/business/subscription",
   },
   {
-    name: "정부 관리 컨설팅",
+    name: "정부 과제 컨설팅",
     content: `정부과제 수주 확률 증대 및 성공적인 사업수행 서비스를 제공합니다.
 기술 개발 및 사업화 성공률 향상에 대한 자문을 제공합니다`,
     backgroundImage1: "/images/testimage4.jpg",
