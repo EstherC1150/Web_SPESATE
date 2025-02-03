@@ -4,10 +4,29 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const FooterSection = styled.section`
+interface FooterProps {
+  isSpecialPage?: boolean;
+}
+
+const FooterSection = styled.section<{
+  $isSpecialPage?: boolean;
+  $isHome?: boolean;
+}>`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ $isSpecialPage }) => ($isSpecialPage ? "black" : "white")};
+  background-color: ${({ $isHome }) => ($isHome ? "#282834" : "inherit")};
+`;
+
+const ContentWrapper = styled.div`
   width: 1200px;
 `;
+
 const FooterTop = styled.div`
   margin-top: 70px;
   margin-bottom: 340px;
@@ -34,20 +53,28 @@ const FRight = styled.div``;
 const Info = styled.p``;
 const Address = styled.p``;
 const BusinessNo = styled.p``;
-const CopyRight = styled.p`
+const CopyRight = styled.p<{ $isSpecialPage?: boolean }>`
   margin-top: 30px;
-  color: #272727;
+  color: ${({ $isSpecialPage }) => ($isSpecialPage ? "#272727" : "#afafaf")};
 `;
-const SnsUrl = styled.div`
+const SnsUrl = styled.div<{ $isSpecialPage?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 300px;
+
+  img {
+    filter: ${({ $isSpecialPage }) => ($isSpecialPage ? "none" : "invert(1)")};
+  }
 `;
-const Footer = () => {
+
+const Footer = ({ isSpecialPage }: FooterProps) => {
+  const router = usePathname();
+  const isHome = router === "/";
+
   return (
-    <>
-      <FooterSection>
+    <FooterSection $isSpecialPage={!isHome} $isHome={isHome}>
+      <ContentWrapper>
         <FooterTop>
           <FTitle>A COMPANY THAT MEETS THE NEEDS OF ITS CUSTOMERS</FTitle>
           <FText>
@@ -63,12 +90,12 @@ const Footer = () => {
             <Info>
               T. 010-5727-3864&nbsp;&nbsp;&nbsp;E. joon1109@spesate.com
             </Info>
-            <CopyRight>
+            <CopyRight $isSpecialPage={!isHome}>
               Copyright ©Kim&Choi Inc Co., Ltd. All rights reserved.
             </CopyRight>
           </FLeft>
           <FRight>
-            <SnsUrl>
+            <SnsUrl $isSpecialPage={!isHome}>
               <Image
                 src="/images/ic-instagram.png"
                 alt="instagramIcon"
@@ -98,8 +125,8 @@ const Footer = () => {
             </SnsUrl>
           </FRight>
         </FooterBottom>
-      </FooterSection>
-    </>
+      </ContentWrapper>
+    </FooterSection>
   );
 };
 

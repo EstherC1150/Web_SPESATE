@@ -192,7 +192,16 @@ const slideVariants = {
   visible: { x: 0, opacity: 1 }, // 화면에 보이는 상태
 };
 
-const options = ["정기관리", "정부과제", "기업 인증", "특허 및 디자인", "기타"];
+const options = [
+  "정기관리",
+  "정부과제",
+  "기업인증",
+  "특허",
+  "디자인",
+  "협업클러스터",
+  "파트너사 모집",
+  "기타",
+];
 
 type Props = {
   handleClose: () => void;

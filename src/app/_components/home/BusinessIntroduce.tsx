@@ -59,7 +59,7 @@ const BusinessImageBox = styled(motion.div)`
 const BusinessImage = styled(Image)`
   width: 100%;
   height: 100%;
-  opacity: 70%;
+  opacity: 35%;
 `;
 
 const BusinessBox = styled.div`
@@ -69,13 +69,13 @@ const BusinessBox = styled.div`
 `;
 
 const BusinessName = styled(motion.p)`
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 700;
   color: ${colors.white};
 `;
 
 const BusinessContent = styled(motion.p)`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: ${colors.white};
   white-space: pre-wrap;
@@ -92,7 +92,7 @@ const NextBox = styled(motion.div)`
 `;
 
 const NextText = styled(Link)`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   color: ${colors.white};
   text-decoration: none;
@@ -132,24 +132,28 @@ const AnimatedBorder = styled(motion.div)`
 const businesses: TBusiness[] = [
   {
     name: "정기 관리 컨설팅",
-    content: `기업 맞춤형 정보 제공 시스템을 통해 중소기업이 필요로 하는 정보를 
-정확하고 신속하게 제공합니다.`,
-    backgroundImage1: "/images/testimage3.jpg",
+    content: `기업의 강점과 가능성을 분석하여 최적의 정부 과제를 찾고, 성공적인 수주와 실행을 위한 전략을 수립합니다.
+또한, 기업이 겪는 다양한 문제를 정확히 진단하고, 맞춤형 컨설팅을 통해 실질적인 해결책과 성장 방향을 제시합니다.
+`,
+    backgroundImage1: "/images/testimage3.png",
     backgrpundImage2: "/images/testimage2.png",
     link: "/business/subscription",
   },
   {
     name: "정부 과제 컨설팅",
-    content: `정부과제 수주 확률 증대 및 성공적인 사업수행 서비스를 제공합니다.
-기술 개발 및 사업화 성공률 향상에 대한 자문을 제공합니다`,
-    backgroundImage1: "/images/testimage4.jpg",
+    content: `사업 계획서 작성 지원, 평가 준비 지원, 사후 관리지원 까지 전문 컨설팅을 통해 모든 과정을 체계적으로 지원합니다.
+정부 평가 기준을 반영한 전략적 사업 계획서 작성 지원, 전문가 멘토링을 통한 완성도 향상으로 수주 성공률을 극대화합니다.
+`,
+    backgroundImage1: "/images/testimage4.png",
     backgrpundImage2: "/images/testimage1.png",
     link: "/business/government",
   },
   {
     name: "기타 지원 컨설팅",
-    content: `중소기업에게 맞춤형 인증 취득에 필요한 서비스를 제공합니다.`,
-    backgroundImage1: "/images/testimage5.jpg",
+    content: `기업이 필요한 인증을 전략적으로 획득하여 시장 경쟁력을 높이고, 브랜드 가치를 강화할 수 있도록 지원합니다.
+특허 출원·등록, 기술자료 보호, 지식재산권 활용 전략을 수립하여 핵심 기술을 보호하고, 이를 수익 창출로 연결합니다.            
+`,
+    backgroundImage1: "/images/testimage5.png",
     backgrpundImage2: "/images/testimage6.jpg",
     link: "/business/etc",
   },

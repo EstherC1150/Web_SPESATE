@@ -6,22 +6,25 @@ import colors from "@/app/_constants/colors";
 import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
-  { label: "인증분석", text: "고객 맞춤 인증분석" },
   {
-    label: "접수",
-    text: "서류작성 지원\n(계획서, 신청서)\n행정절차 지원",
+    label: "인증 필요성 분석 및 전략 수립",
+    text: "- 인증 분석 지원\n- 인증 취득시 기업이 받을 수 있는 혜택 검토 지원",
   },
   {
-    label: "평가",
-    text: "현장조사 지원",
+    label: "서류준비 및 인증 신청",
+    text: "- 서류 준비 및 기업 실정에 맞게 자료 정리 지원\n- 계획서 및 신청서 작성지원",
   },
   {
-    label: "심의",
-    text: "보안서류 작성 지원",
+    label: "현장 심사 및 평가",
+    text: "- 보완 요청 대응 지원",
   },
   {
-    label: "발급",
-    text: "사후 관리",
+    label: "최종심사",
+    text: "- 보완 요청 대응 지원\n- 최종심사 대응지원",
+  },
+  {
+    label: "인증 유지 및 사후관리",
+    text: "- 인증 사후관리 지원",
   },
 ];
 
@@ -202,7 +205,7 @@ const CertificationProcess = () => {
                 fontWeight: "bold",
                 color: "#221E1F",
                 opacity: 0,
-                width: "100px",
+                width: "220px",
               }}
               custom={index}
               variants={textVariants(index)}
@@ -225,7 +228,6 @@ const CertificationProcess = () => {
                 transform: "translateX(-50%)",
                 width: "280px",
                 height: "100px",
-                textAlign: "left",
                 display: "flex",
                 alignItems: "center",
                 border: `2px solid ${colors.primary.main}`,
@@ -236,7 +238,7 @@ const CertificationProcess = () => {
               <p
                 style={{
                   lineHeight: "1.2",
-                  textAlign: "center",
+                  textAlign: "left",
                   width: "100%",
                 }}
               >

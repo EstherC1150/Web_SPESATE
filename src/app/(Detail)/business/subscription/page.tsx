@@ -90,22 +90,22 @@ const MessageContainer = styled.div`
 const SubscriptionPage = () => {
   const messages = [
     {
-      text: "최근 정부 지원사업이 많이 늘었는데,\n공고 내용이 너무 복잡하고, 평가 기준이나 신청 절차도 이해하기 어려워요.\n이런 상황에서 어떻게 해야 할까요?",
+      text: "1번: 정부 지원 사업이 너무 복잡해요!\n정부 지원 사업이 많지만, 맞는 걸 찾기 어렵고 공고도 복잡해요.",
       align: "left",
       delay: 0,
     } as const,
     {
-      text: "그렇습니다. 그렇기 때문에 기업들이 필요한 정보를 빠르게 얻기가 어렵습니다.\n이로 인해 많은 중소기업들이 지원사업을 선택하는 데 어려움을 겪고 있습니다.\n그 결과, 적합한 사업을 찾고 성공적으로 수행하는 데 큰 걸림돌이 되고 있죠.",
+      text: "정부 지원 사업은 점점 세분화되고 있어요.\n• 기업 규모, 사업 단계에 따라 신청 요건이 다름\n• 기존 지원 이력에 따라 중복 지원 여부 고려\n• 평가 기준(기술력, 재무 건전성 등)에 맞춰 전략 필요\n\n🔹SPESATE에서는 맞춤 분석을 통해\n✅ 최적의 지원 사업 추천\n✅ 신청부터 선정, 사후 관리까지 지원",
       align: "right",
       delay: 0.4,
     } as const,
     {
-      text: "그렇군요.\n그럼 이런 문제를 해결할 수 있는 방법이 있을까요?",
+      text: "2번: 우리 회사에 맞는 지원 사업이 뭔가요?\n지원 사업이 많지만, 우리에게 맞는 걸 찾기 어려워요.",
       align: "left",
       delay: 0.8,
     } as const,
     {
-      text: "네, 바로 맞춤형 정보 제공 솔루션이 필요합니다.\n저희 솔루션은 기업의 상태와 필요에 맞는 지원사업을 자동으로 추천해주고, 복잡한 절차를 간소화하여 쉽게 이해하고 빠르게 신청할 수 있도록 도와줍니다.\n이를 통해 기업들은 적합한 지원사업을 신속하게 찾아서, 더욱 효과적으로 활용할 수 있습니다.",
+      text: "업종, 매출만으로는 부족합니다!",
       align: "right",
       delay: 1.2,
     } as const,
@@ -147,7 +147,7 @@ const SubscriptionPage = () => {
         </TImg>
       </ContentContainer>
       <ContentContainer>
-        <NeedTitle>정기 관리 컨설팅의 필요성</NeedTitle>
+        <NeedTitle>정기 관리 컨설팅이 왜 필요할까?</NeedTitle>
         <MessageContainer>
           {messages.map((msg, index) => (
             <MessageItem key={index} msg={msg} />

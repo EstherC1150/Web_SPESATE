@@ -23,7 +23,8 @@ export const menuItems: THeader[] = [
     title: "소식",
     subTitle: [
       { label: "뉴스", href: "/news/article" },
-      { label: "파트너 뉴스", href: "/news/partner" },
+      { label: "파트너십 현황", href: "/partner/status" },
+      { label: "협업 클러스트", href: "/partner/cluste" },
     ],
   },
   {

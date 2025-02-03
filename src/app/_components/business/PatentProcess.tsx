@@ -2,30 +2,32 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import colors from "@/app/_constants/colors";
 import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
-  { year: "2024", text: "- SPESATE설립\n- 고객사 1개 유치" },
   {
-    year: "2025",
-    text: "- 고객사 5개 유치\n- 고객사 과제 총 사업비 합산 5억\n- 성능시험 전문기관 연계",
+    label: "특허 가능성 분석",
+    text: "- 선행 특허조사 지원\n- 특허 등록 가능성 분석",
   },
   {
-    year: "2026",
-    text: "- 고객사 10개 유치\n- 고객사 과제 총 사업비 합산 10억\n- 특허사무소 연계",
+    label: "특허 명세서 작성 및 서류 준비",
+    text: "- 특허 명세서 작성지원\n- 출원서류 준비 지원",
   },
   {
-    year: "2027",
-    text: "- 고객사 20개 유치\n- 고객사 과제 총 사업비 합산 30억\n- 고객사 컨소시움 구성",
+    label: "특허출원(특허청 제출)",
+    text: "- 특허출원 진행 지원",
   },
   {
-    year: "2028",
-    text: "- 고객사 50개 유치\n- 고객사 과제 총 사업비 합산 100억\n- 평가기관 심사위원 등록",
+    label: "특허 심사 및 보완",
+    text: "- 의견 제출통지서 대응지원",
+  },
+  {
+    label: "특허 등록 및 유지관리",
+    text: "- 특허권 유지관리 지원",
   },
 ];
 
-const Timeline = () => {
+const PatentProcess = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -88,7 +90,7 @@ const Timeline = () => {
         >
           <defs>
             <marker
-              id="arrow"
+              id="arrow2"
               viewBox="7 0 11 10"
               markerWidth="6"
               markerHeight="6"
@@ -98,7 +100,7 @@ const Timeline = () => {
             >
               <motion.path
                 d="M 0 0 L 10 5 L 0 10 Z"
-                fill={`${colors.primary.main}`}
+                fill="#006793"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{
@@ -115,9 +117,9 @@ const Timeline = () => {
             y1="25"
             x2="calc(100% - 50px)"
             y2="25"
-            stroke={`${colors.primary.main}`}
+            stroke="#006793"
             strokeWidth="10"
-            markerEnd="url(#arrow)"
+            markerEnd="url(#arrow2)"
             initial={{ strokeDasharray: "0, 10000" }}
             animate={isInView ? { strokeDasharray: "10000, 0" } : {}}
             transition={{ duration: 12, ease: "linear" }}
@@ -155,7 +157,7 @@ const Timeline = () => {
                   width: "20px",
                   height: "20px",
                   borderRadius: "50%",
-                  background: `${colors.primary.main}`, // 기존 동그라미의 색
+                  background: "#006793", // 기존 동그라미의 색
                 }}
                 custom={index}
                 variants={itemVariants(index)}
@@ -179,7 +181,7 @@ const Timeline = () => {
                 y1="5"
                 x2="0"
                 y2={index % 2 === 0 ? "55" : "-45"}
-                stroke={`${colors.primary.main}`}
+                stroke="#006793"
                 strokeWidth="2"
                 initial={{ strokeDasharray: "0, 150" }}
                 animate={isInView ? { strokeDasharray: "150, 0" } : {}}
@@ -202,11 +204,12 @@ const Timeline = () => {
                 fontWeight: "bold",
                 color: "#221E1F",
                 opacity: 0,
+                width: "220px",
               }}
               custom={index}
               variants={textVariants(index)}
             >
-              {milestone.year}
+              {milestone.label}
             </motion.div>
 
             <motion.div
@@ -224,10 +227,9 @@ const Timeline = () => {
                 transform: "translateX(-50%)",
                 width: "280px",
                 height: "100px",
-                textAlign: "left",
                 display: "flex",
                 alignItems: "center",
-                border: `2px solid ${colors.primary.main}`,
+                border: `2px solid #006793`,
               }}
               custom={index}
               variants={textVariants(index)}
@@ -235,6 +237,8 @@ const Timeline = () => {
               <p
                 style={{
                   lineHeight: "1.2",
+                  textAlign: "left",
+                  width: "100%",
                 }}
               >
                 {milestone.text}
@@ -247,4 +251,4 @@ const Timeline = () => {
   );
 };
 
-export default Timeline;
+export default PatentProcess;

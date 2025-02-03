@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import CertificationProcess from "@/app/_components/business/CertificationProcess";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import PatentProcess from "@/app/_components/business/PatentProcess";
 
 const Container = styled.div`
   display: flex;
@@ -240,9 +241,11 @@ const SubscriptionPage = () => {
   const contentRef2 = useRef(null);
   const contentRef3 = useRef(null);
   const contentRef4 = useRef(null);
+  const contentRef5 = useRef(null);
   const isInView2 = useInView(contentRef2, { once: true });
   const isInView3 = useInView(contentRef3, { once: true });
   const isInView4 = useInView(contentRef4, { once: true });
+  const isInView5 = useInView(contentRef5, { once: true });
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -364,6 +367,15 @@ const SubscriptionPage = () => {
       >
         <ProcessTitle>기업 인증 프로세스</ProcessTitle>
         <CertificationProcess />
+      </ContentContainer>
+      <ContentContainer
+        ref={contentRef5}
+        initial="hidden"
+        animate={isInView5 ? "visible" : "hidden"}
+        variants={fadeInUpVariants}
+      >
+        <ProcessTitle>기업 특허 프로세스</ProcessTitle>
+        <PatentProcess />
       </ContentContainer>
     </Container>
   );

@@ -114,7 +114,12 @@ const CompanyAboutPage = () => {
             transition={{ duration: 0.5, delay: 0.14, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            <Image src={"/images/bg-about.png"} alt="" fill objectFit="cover" />
+            <Image
+              src={"/images/bg-about3.jpg"}
+              alt="bg-about"
+              fill
+              objectFit="cover"
+            />
           </ImageBox>
         </ContentSection>
 
@@ -127,20 +132,25 @@ const CompanyAboutPage = () => {
           >
             상호 신뢰와 협력을 바탕으로 가치를 공동 창출하는 네트워크
           </SubTitle>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div style={{ width: "60%" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "50%" }}>
               <NetworkDiagram />
             </div>
             <motion.div
               style={{
-                width: "40%",
+                width: "50%",
                 wordBreak: "keep-all",
                 wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
-                fontSize: "20px",
+                fontSize: "18px",
                 fontWeight: "500",
                 lineHeight: "140%",
-                marginLeft: "8px",
+                marginLeft: "40px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
@@ -150,28 +160,29 @@ const CompanyAboutPage = () => {
               transition={{ duration: 0.5, delay: 0.3, ease: easeInOut }}
               viewport={{ once: true }}
             >
+              <p style={{ fontSize: "20px" }}>
+                {`SPESATE는 중소·중견기업의 지속적인 성장을 지원하는\n전문 컨설팅 기업입니다.
+                
+기업 운영의 다양한 과제를 해결하고 협력 생태계를 구축하여, 고객이 더욱 빠르게 성장할 수 있도록 돕습니다.\n`}
+              </p>
+              <p
+                style={{ fontSize: "20px", fontWeight: "700" }}
+              >{`\nSPESATE가 제공하는 솔루션\n`}</p>
+
+              <p>{`✔  기업 맞춤형 컨설팅`}</p>
+
               <p>
-                SPESATE는 중소·중견 기업의 성공을 지원하는
-                <span style={{ fontWeight: "650" }}> 원스톱 솔루션</span>을
-                제공합니다.
+                {`✔ 신뢰와 협력을 바탕으로 한 네트워크 구축
+`}
               </p>
 
               <p>
-                • 다양한 주체와의 상호 협력을 통해 개방형 혁신을 추구하며, 지역
-                산업의 경쟁력을 강화
+                {`✔ 절차 간소화 & 업무 효율성 증대
+`}
               </p>
 
-              <p>
-                • 각 분야의 전문가들로 구성된 네트워크를 통해 고객에게 최적화된
-                맞춤형 솔루션을 제공
-              </p>
-
-              <p>
-                • 모든 절차를 간소화하여 효율적인 업무 처리가 가능하도록 지원,
-                고객의 시간과 비용을 절감
-              </p>
-
-              <p>• 고객들의 사업 추진을 위한 최적의 환경을 조성</p>
+              <p>{`✔ 고객 중심의 맞춤형 지원
+`}</p>
             </motion.div>
           </div>
         </ContentSection>
