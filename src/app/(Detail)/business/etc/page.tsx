@@ -3,9 +3,9 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import CertificationProcess from "@/app/_components/business/CertificationProcess";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import PatentProcess from "@/app/_components/business/PatentProcess";
+import MessageItem from "@/app/_components/business/MessageItem";
+import MeritBox from "@/app/_components/business/MeritBox";
 
 const Container = styled.div`
   display: flex;
@@ -83,184 +83,77 @@ const ProcessTitle = styled(motion.h2)`
   margin-bottom: 50px;
 `;
 
-const GridContainer = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width: 100%;
-`;
-
-const InfoBox = styled.div`
-  border-radius: 8px;
-  overflow: hidden;
-`;
-
-const InfoTitle = styled.div`
-  background-color: #282834;
-  padding: 15px 20px;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-`;
-
-const InfoContent = styled.div`
-  background-color: #f4f4f4;
-  padding: 25px 24px;
-`;
-
-const InfoItem = styled.div`
-  position: relative;
-  padding-left: 15px;
-  margin-bottom: 15px;
-  color: #333;
-  font-size: 18px;
-  line-height: 1.5;
-
-  &:before {
-    content: "·";
-    position: absolute;
-    left: 0;
-    color: #666;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-interface CircleHalfProps {
-  $isLeft?: boolean;
-}
-
-const ConsultingWrapper = styled(motion.div)`
-  position: relative;
-  width: 100%;
-  padding: 20px;
-  height: 580px;
+const MessageContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const CenterCircle = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  z-index: 10;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-`;
-
-const CircleHalf = styled.div<CircleHalfProps>`
-  width: 50%;
-  height: 100%;
-  background-color: ${(props) => (props.$isLeft ? "#059dde" : "#006793")};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-`;
-
-const CircleText = styled.div`
-  color: white;
-  font-size: 24px;
-  font-weight: 700;
-  text-align: center;
-`;
-
-const GridLayout = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 510px);
-  grid-template-rows: repeat(2, 240px);
-  column-gap: 100px;
-  row-gap: 80px;
-  max-width: 1200px;
+  flex-direction: column;
+  gap: 15px; /* 각 메시지 간 기본 간격 */
+  width: 95%;
   margin: 0 auto;
 `;
 
-const ConsultingBox = styled(motion.div)`
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 30px;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-`;
-
-const BoxTitle = styled.div`
-  font-size: 22px;
+const MeritTitle = styled.h2`
+  font-size: 36px;
   font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 14px;
+  margin-bottom: 60px;
 `;
 
-const BoxSubtitle = styled.div`
-  font-size: 17px;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 30px;
-`;
-
-const ListItem = styled.div`
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 14px;
-  font-size: 16px;
-  color: #4b5563;
-  line-height: 1.6;
-
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #28aae2;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+const MeritContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
 `;
 
 const SubscriptionPage = () => {
-  const contentRef2 = useRef(null);
-  const contentRef3 = useRef(null);
-  const contentRef4 = useRef(null);
-  const contentRef5 = useRef(null);
-  const isInView2 = useInView(contentRef2, { once: true });
-  const isInView3 = useInView(contentRef3, { once: true });
-  const isInView4 = useInView(contentRef4, { once: true });
-  const isInView5 = useInView(contentRef5, { once: true });
+  const messages = [
+    {
+      text: "질문7: 우리 회사에 맞는 인증은 어떻게 파악해야 할까요?\n인증이 중요하다고 들었는데, 종류가 많아서 어떤 걸 받아야 할지 모르겠어요.",
+      align: "left",
+      delay: 0,
+    } as const,
+    {
+      text: "기업 인증은 업종, 사업 목표, 거래처 요구사항에 따라 전략적으로 취득해야 합니다.\n▪️ ISO 9001 → 품질경영 시스템 (제품·서비스 품질 보장)\n▪️ ISO 14001 → 환경경영 시스템 (친환경 경영 필수 기업)\n▪️ 벤처기업 인증 → R&D 중심 기업의 투자 및 세제 혜택\n이노비즈/메인비즈 인증 → 기술·경영 혁신 기업의 정부 지원 우대\n기업부설연구소 인증 → 연구개발(R&D) 기업의 세제 혜택 및 정부 과제 신청 유리\n\n🔹SPESATE에서는\n☑️ 기업에 필요한 인증을 분석하여 추천\n☑️ 인증 취득 과정의 원활한 진행을 지원",
+      align: "right",
+      delay: 0.4,
+    } as const,
+    {
+      text: "질문8: 특허를 출원하려면 어떻게 준비해야 할까요?\n특허를 내고 싶은데, 아이디어는 있지만 어떻게 정리해야 할지 모르겠어요.",
+      align: "left",
+      delay: 0.8,
+    } as const,
+    {
+      text: "특허 출원은 단순한 아이디어 등록이 아니라, 기술 보호와 사업화 전략이 중요합니다.\n▪️ 기술 명세서 작성 → 특허 핵심 기술을 구체적으로 설명\n▪️ 선행 특허 조사 → 기존 특허와 차별성 분석\n▪️ 권리 범위 설정 → 경쟁사 대비 유리한 포지셔닝 전략\n▪️ 기술 보강 & 사업화 전략 → 특허를 실질적으로 활용할 수 있도록 기획\n\n🔹SPESATE에서는\n☑️ 기업의 핵심 기술 분석 & 특허 가능성 검토\n☑️ 명확한 특허 전략 수립 & 기술 보강 지원",
+      align: "right",
+      delay: 1.2,
+    } as const,
+  ];
 
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const staggerContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+  const merits = [
+    {
+      title: "기업 맞춤형 인증 취득 지원",
+      description:
+        "✔ 업종과 목표에 맞는 필수 인증을 분석하고 최적의 취득 전략 수립\n✔ 인증 기준에 맞춰 철저한 사전 준비를 위한 컨설팅 제공",
+      icon: "/images/business/ic-social.png",
     },
-  };
+    {
+      title: "경쟁력 있는 특허 출원 및 전략 수립",
+      description:
+        "✔ 선행 특허 조사와 경쟁사 분석으로 차별성 확보와 사업화 극대화\n✔ 보유 기술 분석으로 특허 가능성 검토와 권리 범위 최적화",
+      icon: "/images/business/ic-rating.png",
+    },
+    {
+      title: "인증 및 특허 취득 과정에서 발생하는 문제 해결",
+      description:
+        "✔ 정부 및 심사기관과의 소통 전략 제공\n✔ 행정 절차와 심사 보완 요청에 따른 기술 보강 및 자료 준비 지원",
+      icon: "/images/business/ic-solution2.png",
+    },
+    {
+      title: "인증 및 특허의 실질적 활용 및 사업화 전략 제공",
+      description:
+        "✔ 인증 취득 후 공공조달 및 정부 지원 사업 활용 방안 제공\n ",
+      icon: "/images/business/ic-strategy.png",
+    },
+  ];
 
   return (
     <Container>
@@ -272,108 +165,32 @@ const SubscriptionPage = () => {
           </TText>
         </TImg>
       </StaticContentContainer>
-      <ContentContainer
-        ref={contentRef2}
-        initial="hidden"
-        animate={isInView2 ? "visible" : "hidden"}
-        variants={staggerContainerVariants}
-      >
-        <NeedTitle variants={fadeInUpVariants}>
-          기타 지원 컨설팅의 필요성
-        </NeedTitle>
-        <GridContainer variants={fadeInUpVariants}>
-          <InfoBox>
-            <InfoTitle>기타관리(인증) 컨설팅</InfoTitle>
-            <InfoContent>
-              <InfoItem>
-                중소기업 인증에서 어떤 인증을 받아야 혜택이 있는지 판단 어려움
-              </InfoItem>
-              <InfoItem>
-                각 인증마다 요구하는 서류와 심사 기준이 달라 과정이 복잡함
-              </InfoItem>
-              <InfoItem>인증 절차에서 시간이 많이 소요됨</InfoItem>
-            </InfoContent>
-          </InfoBox>
-          <InfoBox>
-            <InfoTitle>기타관리(특허) 컨설팅</InfoTitle>
-            <InfoContent>
-              <InfoItem>중소기업 특허 출원 및 등록이 어려움</InfoItem>
-              <InfoItem>
-                기업에 맞는 R&D 과제 지원 및 사업 수행 문제 해결
-              </InfoItem>
-              <InfoItem>
-                기술 개발 및 사업화 성공률 향상을 위한 자문 제공
-              </InfoItem>
-            </InfoContent>
-          </InfoBox>
-        </GridContainer>
+      <ContentContainer>
+        <NeedTitle>기타 지원 컨설팅이 왜 필요할까?</NeedTitle>
+        <MessageContainer>
+          {messages.map((msg, index) => (
+            <MessageItem key={index} msg={msg} />
+          ))}
+        </MessageContainer>
       </ContentContainer>
-      <ContentContainer
-        ref={contentRef3}
-        initial="hidden"
-        animate={isInView3 ? "visible" : "hidden"}
-        variants={staggerContainerVariants}
-      >
-        <NeedTitle variants={fadeInUpVariants}>
-          기타 지원 컨설팅의 이점
-        </NeedTitle>
-        <ConsultingWrapper variants={fadeInUpVariants}>
-          <CenterCircle>
-            <CircleHalf $isLeft>
-              <CircleText>인증</CircleText>
-            </CircleHalf>
-            <CircleHalf>
-              <CircleText>특허</CircleText>
-            </CircleHalf>
-          </CenterCircle>
-          <GridLayout>
-            {[1, 2, 3, 4].map((_, index) => (
-              <ConsultingBox
-                key={index}
-                variants={fadeInUpVariants}
-                custom={index}
-              >
-                <BoxTitle>
-                  {index === 0 && "Tailored Support"}
-                  {index === 1 && "Documentation Support"}
-                  {index === 2 && "Technical Support"}
-                  {index === 3 && "On-site Evaluation"}
-                </BoxTitle>
-                <BoxSubtitle>
-                  {index === 0 && "중소기업 맞춤형 인증 지원"}
-                  {index === 1 && "서류 작성 지원"}
-                  {index === 2 && "기술 자료 작성 지원"}
-                  {index === 3 && "현장 평가 지원"}
-                </BoxSubtitle>
-                <ListItem>
-                  {index === 0 &&
-                    "기업의 특성에 맞는 최적의 인증을 추천받을 수 있음"}
-                  {index === 1 &&
-                    "인증 취득에 필요한 서류를 작성하는 지원을 받음"}
-                  {index === 2 && "인증에 필요한 기술 자료 작성 지원을 받음"}
-                  {index === 3 &&
-                    "인증 취득을 위한 현장 평가를 지원받을 수 있음"}
-                </ListItem>
-              </ConsultingBox>
-            ))}
-          </GridLayout>
-        </ConsultingWrapper>
+      <ContentContainer>
+        <MeritTitle>기타 지원 컨설팅의 핵심 이점</MeritTitle>
+        <MeritContainer>
+          {merits.map((merit, index) => (
+            <MeritBox
+              key={index}
+              title={merit.title}
+              description={merit.description}
+              icon={merit.icon}
+            />
+          ))}
+        </MeritContainer>
       </ContentContainer>
-      <ContentContainer
-        ref={contentRef4}
-        initial="hidden"
-        animate={isInView4 ? "visible" : "hidden"}
-        variants={fadeInUpVariants}
-      >
+      <ContentContainer>
         <ProcessTitle>기업 인증 프로세스</ProcessTitle>
         <CertificationProcess />
       </ContentContainer>
-      <ContentContainer
-        ref={contentRef5}
-        initial="hidden"
-        animate={isInView5 ? "visible" : "hidden"}
-        variants={fadeInUpVariants}
-      >
+      <ContentContainer>
         <ProcessTitle>기업 특허 프로세스</ProcessTitle>
         <PatentProcess />
       </ContentContainer>

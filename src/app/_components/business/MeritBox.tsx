@@ -31,7 +31,8 @@ const Description = styled.p`
   margin-top: 20px;
   margin-bottom: 50px;
   font-weight: 500;
-  line-height: 140%;
+  line-height: 150%;
+  white-space: pre-wrap;
 `;
 
 interface MeritBoxProps {

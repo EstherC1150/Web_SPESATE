@@ -226,7 +226,7 @@ const CertificationProcess = () => {
                 top: index % 2 === 0 ? "110px" : "-200px",
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "280px",
+                width: "348px",
                 height: "100px",
                 display: "flex",
                 alignItems: "center",
