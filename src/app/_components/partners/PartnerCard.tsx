@@ -45,7 +45,7 @@ const CompanyName = styled.h2`
   margin-bottom: 10px;
 `;
 
-const PartnerCard = ({ id, name, logo, url }: PartnerCardProps) => {
+const PartnerCard = ({ name, logo, url }: PartnerCardProps) => {
   return (
     <CardWrapper href={url} target="_blank" rel="noopener noreferrer">
       <ImageContainer>
