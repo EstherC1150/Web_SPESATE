@@ -87,35 +87,6 @@ const MessageContainer = styled.div`
   margin: 0 auto;
 `;
 
-const ConsultButton = styled.button`
-  background: #006793;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  align-self: flex-end;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    background: #00557a;
-    transform: scale(1.05);
-  }
-
-  &::after {
-    content: "클릭";
-    font-size: 12px;
-    color: #fff;
-    margin-left: 8px;
-  }
-`;
-
 const SubscriptionPage = () => {
   const messages = [
     {
@@ -124,7 +95,7 @@ const SubscriptionPage = () => {
       delay: 0,
     } as const,
     {
-      text: "정부 지원 사업은 점점 세분화되고 있어요.\n▪️ 기업 규모, 사업 단계에 따라 신청 요건이 다름\n▪️ 기존 지원 이력에 따라 중복 지원 여부 고려\n▪️ 평가 기준(기술력, 재무 건전성 등)에 맞춰 전략 필요\n\n🔹SPESATE에서는 맞춤 분석을 통해\n☑️ 최적의 지원 사업 추천\n☑️신청부터 선정, 사후 관리까지 지원",
+      text: "정부 지원 사업은 점점 세분화되고 있어요.\n▪️ 기업 규모, 사업 단계에 따라 신청 요건이 다름\n▪️ 기존 지원 이력에 따라 중복 지원 여부 고려\n▪️ 평가 기준(기술력, 재무 건전성 등)에 맞춰 전략 필요\n\n🔹SPESATE에서는 맞춤 분석을 통해\n☑️ 최적의 지원 사업 추천\n☑️ 신청부터 선정, 사후 관리까지 지원",
       align: "right",
       delay: 0.4,
     } as const,
@@ -134,7 +105,7 @@ const SubscriptionPage = () => {
       delay: 0.8,
     } as const,
     {
-      text: "업종, 매출만으로는 부족합니다!\n▪️ 제조업 → 스마트 공장 지원 (자동화 구축)\n▪️ IT 기업 → AI·SW 개발 지원 (연구개발비)\n▪️ 바이오·헬스케어 → 첨단기술 R&D 지원 (기술 개발)\n▪️ 수출 기업 → 수출 바우처 지원 (해외 시장 개척)\n\n🔹SPESATE에서는 기업 특성을 분석해\n☑️ 신청 가능성이 높은 지원 사업을 추천\n☑️정부가 원하는 방향에 맞춰 사업계획서 작성 지원",
+      text: "업종, 매출만으로는 부족합니다!\n▪️ 제조업 → 스마트 공장 지원 (자동화 구축)\n▪️ IT 기업 → AI·SW 개발 지원 (연구개발비)\n▪️ 바이오·헬스케어 → 첨단기술 R&D 지원 (기술 개발)\n▪️ 수출 기업 → 수출 바우처 지원 (해외 시장 개척)\n\n🔹SPESATE에서는 기업 특성을 분석해\n☑️ 신청 가능성이 높은 지원 사업을 추천\n☑️ 정부가 원하는 방향에 맞춰 사업계획서 작성 지원",
       align: "right",
       delay: 1.2,
     } as const,
@@ -144,7 +115,7 @@ const SubscriptionPage = () => {
       delay: 1.6,
     } as const,
     {
-      text: "중소기업이 자주 겪는 어려움, 이렇게 해결하세요!\n▪️ 운영 자금 부족 → 저금리 정책 자금 & 투자 연계\n▪️ 전문 인력 부족 → R&D·청년 채용 지원\n▪️ 신청 부담 → 전담 컨설팅 & 사후 관리\n▪️ 지원금 활용 어려움 → 정산 교육 & 전문가 컨설팅\n\n🔹SPESATE에서는 기업 상황을 분석해\n☑️ 자금 조달 & 투자 유치 전략 수립\n☑️정부 지원 사업 활용 & 운영 최적화 지원",
+      text: "중소기업이 자주 겪는 어려움, 이렇게 해결하세요!\n▪️ 운영 자금 부족 → 저금리 정책 자금 & 투자 연계\n▪️ 전문 인력 부족 → R&D·청년 채용 지원\n▪️ 신청 부담 → 전담 컨설팅 & 사후 관리\n▪️ 지원금 활용 어려움 → 정산 교육 & 전문가 컨설팅\n\n🔹SPESATE에서는 기업 상황을 분석해\n☑️ 자금 조달 & 투자 유치 전략 수립\n☑️ 정부 지원 사업 활용 & 운영 최적화 지원",
       align: "right",
       delay: 2.0,
     } as const,
@@ -191,7 +162,6 @@ const SubscriptionPage = () => {
           {messages.map((msg, index) => (
             <MessageItem key={index} msg={msg} />
           ))}
-          <ConsultButton>📌 기업 맞춤 지원 사업 컨설팅 신청하기</ConsultButton>
         </MessageContainer>
       </ContentContainer>
       <ContentContainer>

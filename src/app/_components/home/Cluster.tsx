@@ -92,7 +92,7 @@ const Cluster = () => {
 SPESATE와 함께 기업 지원 생태계를 구축하고, 기술·연구개발·사업 확장을 함께할 도전적인 파트너 여러분을 기다립니다.               
 `}
           </TextContent>
-          <NextText href="/">{`바로가기 >`}</NextText>
+          <NextText href="/partners">{`바로가기 >`}</NextText>
         </TextContainer>
       </ContentBox>
     </Section>

@@ -50,7 +50,7 @@ const RightContent = styled.div`
 
 const STitle = styled.h3`
   color: white;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
 `;
 
@@ -68,7 +68,7 @@ const OutlineContent = styled.p`
   white-space: pre-wrap;
   line-height: 1.5;
   margin-bottom: 20px;
-  padding-right: 20px;
+  padding-right: 70px;
 
   span {
     color: #28aae2;
@@ -110,18 +110,15 @@ const Outline = () => {
             ></ImageStyled>
           </LeftMap>
           <RightContent>
-            <STitle>
-              경상도권 중소·중견기업의 성장을 위한 최고의 컨설팅 파트너!
-            </STitle>
+            <STitle>경상도권 중소·중견기업의 성장을 위한 최고의 파트너</STitle>
             <BTitle>SPESATE</BTitle>
             <OutlineContent>
-              {`SPESATE는 경상도권 기업이 더 빠르게 성장하고,\n더 멀리 나아갈 수 있도록 돕는 전문 컨설팅 기업입니다.
-
-정부 지원사업, 경영 자문, 기업 인증, 문제 해결까지!\n기업이 필요로 하는 맞춤형 솔루션을 제공합니다.
-혁신을 통해 경상도권 기업의 가치를 높이고,\n지역 경제 발전을 함께 만들어갑니다.
-\n`}
+              {`SPESATE는 경상도권 기업들이 빠르게 성장하고, 시장에서 지속 가능한 성장을 이룰 수 있도록 전문적인 컨설팅 서비스를 제공합니다.
+정부 지원 사업 분석, 경영 자문, 기업 인증, 문제 해결 등 다양한 분야에서 종합적인 맞춤형 솔루션을 제공합니다.
+우리는 지역 경제 활성화와 기업의 경쟁력 강화를 목표로, 혁신적인 방법을 통해 경상도권 기업들의 가치를 높이고, 함께 지역 경제 발전을 이끌어갑니다.
+\nSPESATE와 함께 기업 성장의 새로운 기회를 만들어가세요.\n`}
               <span>
-                지금 문의하세요! 귀사의 성장을 위한 최적의 파트너를 만나보세요.
+                지금 문의하여 귀사의 성장을 위한 최고의 파트너를 만나보세요!
               </span>
             </OutlineContent>
             <MoreBtn onClick={goToAbout}>More</MoreBtn>
