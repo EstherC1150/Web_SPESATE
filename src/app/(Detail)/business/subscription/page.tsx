@@ -100,7 +100,7 @@ const SubscriptionPage = () => {
       delay: 0.4,
     } as const,
     {
-      text: "질문2: 우리 회사에 맞는 지원 사업이 뭔가요?\n지원 사업이 많지만, 우리에게 맞는 걸 찾기 어려워요.",
+      text: "질문2: 우리 회사에 맞는 지원 사업이 뭔가요?\n         지원 사업이 많지만, 우리에게 맞는 걸 찾기 어려워요.",
       align: "left",
       delay: 0.8,
     } as const,

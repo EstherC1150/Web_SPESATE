@@ -97,7 +97,7 @@ const MessageContainer = styled.div`
 const SubscriptionPage = () => {
   const messages = [
     {
-      text: "질문4: 정부 R&D 과제를 찾기가 너무 어려워요!\n정부 R&D 과제가 많지만, 우리 회사에 맞는 걸 찾기 어렵고 공고도 복잡해요.",
+      text: "질문1: 정부 R&D 과제를 찾기가 너무 어려워요!\n정부 R&D 과제가 많지만, 우리 회사에 맞는 걸 찾기 어렵고 공고도 복잡해요.",
       align: "left",
       delay: 0,
     } as const,
@@ -107,7 +107,7 @@ const SubscriptionPage = () => {
       delay: 0.4,
     } as const,
     {
-      text: "질문5: 정부 과제를 수주하려면 사업계획서를 어떻게 준비해야 하나요?\n정부 과제를 신청하려는데, 사업계획서를 어떻게 작성해야 할지 모르겠어요.",
+      text: "질문2: 정부 과제를 수주하려면 사업계획서를 어떻게 준비해야 하나요?\n정부 과제를 신청하려는데, 사업계획서를 어떻게 작성해야 할지 모르겠어요.",
       align: "left",
       delay: 0.8,
     } as const,
@@ -117,7 +117,7 @@ const SubscriptionPage = () => {
       delay: 1.2,
     } as const,
     {
-      text: "질문6: 정부 과제 수행 중 일정 관리와 사후 관리는 어떻게 해야 하나요?\n정부 과제에 선정됐지만 일정 관리와 보고서 작성이 어렵습니다.",
+      text: "질문3: 정부 과제 수행 중 일정 관리와 사후 관리는 어떻게 해야 하나요?\n정부 과제에 선정됐지만 일정 관리와 보고서 작성이 어렵습니다.",
       align: "left",
       delay: 1.6,
     } as const,

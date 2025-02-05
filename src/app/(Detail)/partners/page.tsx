@@ -12,65 +12,10 @@ const partners = [
     logo: "/images/partners/logo-chungwoo.png",
     url: "/",
   },
-  {
-    id: 2,
-    name: "대구광역시",
-    logo: "/images/partners/logo-daegu.png",
-    url: "https://www.ncsoft.com",
-  },
-  {
-    id: 3,
-    name: "경상남도",
-    logo: "/images/partners/logo-kn.svg",
-    url: "https://www.netmarble.com",
-  },
-  {
-    id: 4,
-    name: "블랄블라",
-    logo: "/images/logo-black.png",
-    url: "https://www.kakaogames.com",
-  },
-  {
-    id: 5,
-    name: "블랄블라",
-    logo: "/images/logo-black.png",
-    url: "https://www.smilegate.com",
-  },
-  {
-    id: 6,
-    name: "블랄블라",
-    logo: "/images/logo-black.png",
-    url: "https://www.pearlabyss.com",
-  },
-  {
-    id: 7,
-    name: "블랄블라",
-    logo: "/images/logo-black.png",
-    url: "https://www.com2us.com",
-  },
-  {
-    id: 8,
-    name: "블랄블라",
-    logo: "/images/logo-black.png",
-    url: "https://www.neowiz.com",
-  },
-  {
-    id: 9,
-    name: "블랄블라",
-    logo: "/images/logo-black.png",
-    url: "https://www.webzen.com",
-  },
-  {
-    id: 10,
-    name: "블랄블라",
-    logo: "/images/logo-black.png",
-    url: "https://www.wemade.com",
-  },
 ];
 
 const Container = styled.div`
   height: fit-content;
-  min-height: 100vh;
   padding-top: 120px;
   display: flex;
   width: 100%;
@@ -86,6 +31,7 @@ const ContentContainer = styled.div`
   width: 100%;
   margin: 40px;
   margin-top: 100px;
+  margin-bottom: 160px; // 우선 파트너사 늘어나면 조정요망
   flex-direction: column;
 `;
 
@@ -116,6 +62,31 @@ const SpanText = styled.span`
   font-size: 20px;
   font-weight: 600;
   color: #28aae2;
+`;
+
+const StyledRoleContainer = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 60px;
+`;
+
+const RoleNumber = styled.div`
+  font-size: 36px;
+  font-weight: 700;
+  color: #ccc;
+  margin-bottom: 20px;
+`;
+
+const RoleTitle = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+`;
+
+const RoleDescription = styled.div`
+  font-size: 16px;
+  line-height: 1.5;
 `;
 
 const PartnerPage = () => {
@@ -202,62 +173,58 @@ const PartnerPage = () => {
           >
             협업 클러스터의 역할
           </Title>
-          <TextContent
+          <StyledRoleContainer
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            1. 통합적 기업 지원 시스템 구축
-            <br />
-            협업 클러스터는 개별 기업이 혼자 해결하기 어려운 다양한 문제를
-            전문가 네트워크를 통해 신속하고 효과적으로 해결할 수 있도록
-            돕습니다.
-            <br />
-            1) 정부 지원 사업 컨설팅
-            <br />
-            2) 기업 인증 및 규제 대응
-            <br />
-            3) 지식재산권 및 특허 전략 수립
-            <br />
-            4) 경영, 법률, 세무, 회계 컨설팅
-            <br />
-            5) 신사업 개발 및 비즈니스 매칭
-          </TextContent>
-          <TextContent
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
-            viewport={{ once: true }}
-          >
-            2. 최신 정보와 트렌드 공유
-            <br />각 분야의 전문가 및 기관들과의 협력을 통해 정부 정책, 산업
-            동향, 지원 사업, 기술 개발 등 최신 정보를 신속하게 제공하여 기업이
-            변화에 빠르게 대응할 수 있도록 합니다.
-          </TextContent>
-          <TextContent
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
-            viewport={{ once: true }}
-          >
-            3. 맞춤형 솔루션 제공
-            <br />
-            기업마다 필요한 지원이 다르므로, 협업 클러스터는 개별 기업의 특성과
-            목표에 맞는 전략적 컨설팅과 최적의 협업 파트너 연결을 지원합니다.
-          </TextContent>
-          <TextContent
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
-            viewport={{ once: true }}
-          >
-            4. 지속적인 네트워킹 및 공동 성장
-            <br />
-            기업과 기관들이 서로 연결되고 협력하여 단순한 1회성 협업을 넘어
-            장기적인 파트너십을 구축하며, 이를 통해 상호 성장하는 파트너십 성장
-            모델을 실현합니다.
-          </TextContent>
+            <div>
+              <RoleNumber>01</RoleNumber>
+              <RoleTitle>통합적 기업 지원 시스템 구축</RoleTitle>
+              <RoleDescription>
+                협업 클러스터는 개별 기업이 혼자 해결하기 어려운 다양한 문제를
+                전문가 네트워크를 통해 신속하고 효과적으로 해결할 수 있도록
+                돕습니다.
+                <br />
+                <ul style={{ paddingLeft: "20px", marginTop: "10px" }}>
+                  <li>정부 지원 사업 컨설팅</li>
+                  <li>기업 인증 및 규제 대응</li>
+                  <li>지식재산권 및 특허 전략 수립</li>
+                  <li>경영, 법률, 세무, 회계 컨설팅</li>
+                  <li>신사업 개발 및 비즈니스 매칭</li>
+                </ul>
+              </RoleDescription>
+            </div>
+            <div>
+              <RoleNumber>02</RoleNumber>
+              <RoleTitle>최신 정보와 트렌드 공유</RoleTitle>
+              <RoleDescription>
+                각 분야의 전문가 및 기관들과의 협력을 통해 정부 정책, 산업 동향,
+                지원 사업, 기술 개발 등 최신 정보를 신속하게 제공하여 기업이
+                변화에 빠르게 대응할 수 있도록 합니다.
+              </RoleDescription>
+            </div>
+            <div>
+              <RoleNumber>03</RoleNumber>
+              <RoleTitle>맞춤형 솔루션 제공</RoleTitle>
+              <RoleDescription>
+                기업마다 필요한 지원이 다르므로, 협업 클러스터는 개별 기업의
+                특성과 목표에 맞는 전략적 컨설팅과 최적의 협업 파트너 연결을
+                지원합니다.
+              </RoleDescription>
+            </div>
+            <div>
+              <RoleNumber>04</RoleNumber>
+              <RoleTitle>지속적인 네트워킹 및 공동 성장</RoleTitle>
+              <RoleDescription>
+                기업과 기관들이 서로 연결되고 협력하여 단순한 1회성 협업을 넘어
+                장기적인 파트너십을 구축하며, 이를 통해 상호 성장하는 파트너십
+                성장 모델을 실현합니다.
+              </RoleDescription>
+            </div>
+          </StyledRoleContainer>
+
           <Title
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
