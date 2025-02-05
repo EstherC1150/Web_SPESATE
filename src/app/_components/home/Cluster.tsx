@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
 
 const Section = styled.div`
   height: 100vh;

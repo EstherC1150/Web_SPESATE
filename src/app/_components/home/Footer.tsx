@@ -31,32 +31,34 @@ const FooterTop = styled.div`
   margin-top: 70px;
   margin-bottom: 340px;
 `;
+
 const FTitle = styled.h2`
   font-size: 42px;
   font-weight: 700;
 `;
+
 const FText = styled.p`
   font-size: 30px;
   padding-top: 20px;
 `;
+
 const FooterBottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: end;
 `;
+
 const FLeft = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
-const FRight = styled.div``;
-const Info = styled.p``;
-const Address = styled.p``;
-const BusinessNo = styled.p``;
+
 const CopyRight = styled.p<{ $isSpecialPage?: boolean }>`
   margin-top: 30px;
   color: ${({ $isSpecialPage }) => ($isSpecialPage ? "#272727" : "#afafaf")};
 `;
+
 const SnsUrl = styled.div<{ $isSpecialPage?: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -68,7 +70,7 @@ const SnsUrl = styled.div<{ $isSpecialPage?: boolean }>`
   }
 `;
 
-const Footer = ({ isSpecialPage }: FooterProps) => {
+const Footer = ({}: FooterProps) => {
   const router = usePathname();
   const isHome = router === "/";
 
@@ -83,47 +85,43 @@ const Footer = ({ isSpecialPage }: FooterProps) => {
         </FooterTop>
         <FooterBottom>
           <FLeft>
-            <BusinessNo>사업자번호: 245-06-03067</BusinessNo>
-            <Address>
-              울산 광역시 남구 번영로 124번길 21 3층 301-7호(달동)
-            </Address>
-            <Info>
-              T. 010-5727-3864&nbsp;&nbsp;&nbsp;E. joon1109@spesate.com
-            </Info>
+            <p>사업자번호: 245-06-03067</p>
+            <p>울산 광역시 남구 번영로 124번길 21 3층 301-7호(달동)</p>
+            <p>T. 010-5727-3864&nbsp;&nbsp;&nbsp;E. joon1109@spesate.com</p>
             <CopyRight $isSpecialPage={!isHome}>
               Copyright ©Kim&Choi Inc Co., Ltd. All rights reserved.
             </CopyRight>
           </FLeft>
-          <FRight>
+          <div>
             <SnsUrl $isSpecialPage={!isHome}>
               <Image
                 src="/images/ic-instagram.png"
                 alt="instagramIcon"
                 width={26}
                 height={26}
-              ></Image>
+              />
               <Image
                 src="/images/ic-facebook.png"
                 alt="facebookIcon"
                 width={14}
                 height={24}
-              ></Image>
+              />
               <Image
                 src="/images/ic-youtube.png"
                 alt="youtubeIcon"
                 width={28}
                 height={22}
-              ></Image>
+              />
               <Link href="https://blog.naver.com/spesate" target="_blank">
                 <Image
                   src="/images/ic-blog.png"
                   alt="blogIcon"
                   width={30}
                   height={30}
-                ></Image>
+                />
               </Link>
             </SnsUrl>
-          </FRight>
+          </div>
         </FooterBottom>
       </ContentWrapper>
     </FooterSection>
