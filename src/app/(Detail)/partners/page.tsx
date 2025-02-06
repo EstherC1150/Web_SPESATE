@@ -138,7 +138,6 @@ const BenefitsFlexContainer = styled(motion.div)`
 
 const StyledBox = styled(motion.div)`
   text-align: center;
-  width: 50%;
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
@@ -491,7 +490,12 @@ const PartnerPage = () => {
                 </StyledBoxContent>
               </StyledBox>
             </BenefitsFlexContainer>
-            <ArrowDown />
+            <ArrowDown
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
+              viewport={{ once: true }}
+            />
             <RecruitmentContainer
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
