@@ -71,7 +71,7 @@ const Cluster = () => {
         transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
         viewport={{ once: true }}
       >
-        상호 신뢰와 협력을 바탕으로 가치를 공동 창출하는 협업클러스터
+        상호 신뢰와 협력을 바탕으로 가치를 공동 창출하는 협업 클러스터
       </Title>
       <ContentBox>
         <ImageStyled
