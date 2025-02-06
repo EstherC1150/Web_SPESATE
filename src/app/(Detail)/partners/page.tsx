@@ -136,7 +136,7 @@ const BenefitsFlexContainer = styled(motion.div)`
   }
 `;
 
-const StyledBox = styled.div`
+const StyledBox = styled(motion.div)`
   text-align: center;
   width: 50%;
   display: inline-block;
@@ -180,7 +180,7 @@ const StyledBoxContent = styled.div`
   }
 `;
 
-const RecruitmentContainer = styled.div`
+const RecruitmentContainer = styled(motion.div)`
   margin-top: 60px;
   padding: 40px;
   width: 100%;
@@ -492,7 +492,12 @@ const PartnerPage = () => {
               </StyledBox>
             </BenefitsFlexContainer>
             <ArrowDown />
-            <RecruitmentContainer>
+            <RecruitmentContainer
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
+              viewport={{ once: true }}
+            >
               <RecruitmentTitle>
                 <PinIcon>📌</PinIcon>
                 함께할 준비가 되셨나요?
