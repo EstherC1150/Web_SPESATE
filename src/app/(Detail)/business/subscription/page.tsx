@@ -90,7 +90,7 @@ const MessageContainer = styled.div`
 const SubscriptionPage = () => {
   const messages = [
     {
-      text: "질문1: 정부 지원 사업이 너무 복잡해요!\n정부 지원 사업이 많지만, 맞는 걸 찾기 어렵고 공고도 복잡해요.",
+      text: "질문1 : 정부 지원 사업이 너무 복잡해요!\n              정부 지원 사업이 많지만, 맞는 걸 찾기 어렵고 공고도 복잡해요.",
       align: "left",
       delay: 0,
     } as const,
@@ -100,7 +100,7 @@ const SubscriptionPage = () => {
       delay: 0.4,
     } as const,
     {
-      text: "질문2: 우리 회사에 맞는 지원 사업이 뭔가요?\n         지원 사업이 많지만, 우리에게 맞는 걸 찾기 어려워요.",
+      text: "질문2 : 우리 회사에 맞는 지원 사업이 뭔가요?\n              지원 사업이 많지만, 우리에게 맞는 걸 찾기 어려워요.",
       align: "left",
       delay: 0.8,
     } as const,
@@ -110,7 +110,7 @@ const SubscriptionPage = () => {
       delay: 1.2,
     } as const,
     {
-      text: "질문3: 중소기업이 겪는 애로사항, 해결할 수 있을까요?\n인력 부족, 자금 조달, 경영 관리… 해결 방법이 있을까요?",
+      text: "질문3 : 중소기업이 겪는 애로사항, 해결할 수 있을까요?\n              인력 부족, 자금 조달, 경영 관리… 해결 방법이 있을까요?",
       align: "left",
       delay: 1.6,
     } as const,

@@ -107,7 +107,7 @@ const MeritContainer = styled.div`
 const SubscriptionPage = () => {
   const messages = [
     {
-      text: "질문1: 우리 회사에 맞는 인증은 어떻게 파악해야 할까요?\n인증이 중요하다고 들었는데, 종류가 많아서 어떤 걸 받아야 할지 모르겠어요.",
+      text: "질문1 : 우리 회사에 맞는 인증은 어떻게 파악해야 할까요?\n              인증이 중요하다고 들었는데, 종류가 많아서 어떤 걸 받아야 할지 모르겠어요.",
       align: "left",
       delay: 0,
     } as const,
@@ -117,7 +117,7 @@ const SubscriptionPage = () => {
       delay: 0.4,
     } as const,
     {
-      text: "질문2: 특허를 출원하려면 어떻게 준비해야 할까요?\n특허를 내고 싶은데, 아이디어는 있지만 어떻게 정리해야 할지 모르겠어요.",
+      text: "질문2 : 특허를 출원하려면 어떻게 준비해야 할까요?\n              특허를 내고 싶은데, 아이디어는 있지만 어떻게 정리해야 할지 모르겠어요.",
       align: "left",
       delay: 0.8,
     } as const,
