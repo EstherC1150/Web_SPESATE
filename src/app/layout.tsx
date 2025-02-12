@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/logo-black.png",
+        url: "/images/logo-black-kakao.png",
         width: 800,
         height: 400,
       },
