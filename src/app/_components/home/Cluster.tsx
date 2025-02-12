@@ -76,7 +76,7 @@ const Cluster = () => {
       </Title>
       <ContentBox>
         <ImageStyled
-          src={"/images/cluster.jpg"}
+          src={"/images/cluster.png"}
           alt="cluster img"
           width={500}
           height={500}
