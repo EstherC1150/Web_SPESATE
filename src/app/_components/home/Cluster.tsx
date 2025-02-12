@@ -32,7 +32,8 @@ const ContentBox = styled.div`
 `;
 
 const ImageStyled = styled(Image)`
-  width: fit-content;
+  width: 500px;
+  height: 500px;
   object-fit: contain;
 `;
 
@@ -75,7 +76,7 @@ const Cluster = () => {
       </Title>
       <ContentBox>
         <ImageStyled
-          src={"/images/cluster.png"}
+          src={"/images/cluster.jpg"}
           alt="cluster img"
           width={500}
           height={500}

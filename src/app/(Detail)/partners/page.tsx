@@ -93,6 +93,8 @@ const FlexItemHalf = styled.div`
   flex: 0 1 45%;
   display: flex;
   justify-content: space-between;
+  width: 540px;
+  height: 358px;
 `;
 
 const FlexItemHalfPadded = styled.div`
@@ -251,6 +253,20 @@ const partners = [
   },
 ];
 
+const cluster = [
+  {
+    id: 1,
+    name: "(주)청우아이앤에스",
+    logo: "/images/partners/logo-chungwoo.png",
+    url: "/",
+  },
+  {
+    id: 2,
+    name: "GAON",
+    logo: "/images/partners/logo-gaon.png",
+    url: "/",
+  },
+];
 const roles = [
   {
     id: 1,
@@ -285,7 +301,7 @@ const roles = [
         </List>
       </>
     ),
-    image: "/images/testimage5.jpg",
+    image: "/images/partners/partner1.jpg",
   },
   {
     id: 2,
@@ -298,7 +314,7 @@ const roles = [
         대응할 수 있도록 합니다.
       </>
     ),
-    image: "/images/testimage5.jpg",
+    image: "/images/partners/partner2.jpg",
   },
   {
     id: 3,
@@ -310,7 +326,7 @@ const roles = [
         목표에 맞는 전략적 컨설팅과 최적의 협업 파트너 연결을 지원합니다.
       </>
     ),
-    image: "/images/testimage5.jpg",
+    image: "/images/partners/partner3.jpg",
   },
   {
     id: 4,
@@ -323,7 +339,7 @@ const roles = [
         실현합니다.
       </>
     ),
-    image: "/images/testimage5.jpg",
+    image: "/images/partners/partner4.jpg",
   },
 ];
 
@@ -358,8 +374,8 @@ const PartnerPage = () => {
             클러스터
           </Title>
           <Grid>
-            {partners.map((partner) => (
-              <PartnerCard key={partner.id} {...partner} />
+            {cluster.map((cluster) => (
+              <PartnerCard key={cluster.id} {...cluster} />
             ))}
           </Grid>
         </ContentContainer>
