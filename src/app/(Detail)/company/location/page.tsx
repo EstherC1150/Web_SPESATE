@@ -73,6 +73,8 @@ const RightImg = styled.div`
   width: 450px;
   height: 450px;
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 const MapContent = styled(Map)`
   width: 100%;
@@ -116,7 +118,7 @@ const Location = () => {
           <RightImg>
             <Image
               alt="빌딩사진"
-              src="/images/building1.png"
+              src="/images/building1.jpg"
               fill
               objectFit="cover"
             ></Image>

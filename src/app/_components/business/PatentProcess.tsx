@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import colors from "@/app/_constants/colors";
 import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
@@ -100,7 +101,7 @@ const PatentProcess = () => {
             >
               <motion.path
                 d="M 0 0 L 10 5 L 0 10 Z"
-                fill="#006793"
+                fill={`${colors.primary.main}`}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{
@@ -117,7 +118,7 @@ const PatentProcess = () => {
             y1="25"
             x2="calc(100% - 50px)"
             y2="25"
-            stroke="#006793"
+            stroke={`${colors.primary.main}`}
             strokeWidth="10"
             markerEnd="url(#arrow2)"
             initial={{ strokeDasharray: "0, 10000" }}
@@ -157,7 +158,7 @@ const PatentProcess = () => {
                   width: "20px",
                   height: "20px",
                   borderRadius: "50%",
-                  background: "#006793", // 기존 동그라미의 색
+                  background: `${colors.primary.main}`, // 기존 동그라미의 색
                 }}
                 custom={index}
                 variants={itemVariants(index)}
@@ -181,7 +182,7 @@ const PatentProcess = () => {
                 y1="5"
                 x2="0"
                 y2={index % 2 === 0 ? "55" : "-45"}
-                stroke="#006793"
+                stroke={`${colors.primary.main}`}
                 strokeWidth="2"
                 initial={{ strokeDasharray: "0, 150" }}
                 animate={isInView ? { strokeDasharray: "150, 0" } : {}}
@@ -229,7 +230,7 @@ const PatentProcess = () => {
                 height: "100px",
                 display: "flex",
                 alignItems: "center",
-                border: `2px solid #006793`,
+                border: `2px solid ${colors.primary.main}`,
               }}
               custom={index}
               variants={textVariants(index)}
