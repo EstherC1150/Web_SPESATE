@@ -7,32 +7,32 @@ import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
   {
-    label: "공고분석",
-    text: "사업 공고 분석\n기업 맞춤형 과제 매칭\n과제별 아이템 분석",
+    label: "사업 공고분석",
+    text: "- 사업공고 분석 지원\n- 기업 맞춤형 과제 매칭",
   },
   {
-    label: "과제기획",
-    text: "과제 작성 요령 공유\n과제 작성 지원",
+    label: "사업 기획",
+    text: "- 사업계획서 작성 지원\n- 시장성 분석지원",
   },
   {
-    label: "대면평가",
-    text: "발표 자료 작성 지원\n대면평가 리허설",
+    label: "평가",
+    text: "- 발표 자료 작성 지원\n- 평가 지원",
   },
   {
-    label: "과제협약",
-    text: "행정절차지원",
+    label: "협약",
+    text: "- 행정절차지원",
   },
   {
-    label: "과제수행",
-    text: "일정 및 비용 관리\n연구노트 작성 지원\n성능목표 관련 지원",
+    label: "연구개발 수행",
+    text: "-사업 일정 및 비용 관리 지원\n- 연구노트 작성 지원",
   },
   {
-    label: "결과보고",
-    text: "연구노트 작성 지원\n보고서 작성 지원\n과제수행 결과 분석",
+    label: "최종보고",
+    text: "- 결과보고서 작성지원\n- 과제 수행결과 분석",
   },
   {
-    label: "과제종료",
-    text: "사후관리",
+    label: "사후관리",
+    text: "- 사후관리 지원",
   },
 ];
 
@@ -213,7 +213,7 @@ const GovernmentProcess = () => {
                 fontWeight: "bold",
                 color: "#221E1F",
                 opacity: 0,
-                width: "100px",
+                width: "180px",
               }}
               custom={index}
               variants={textVariants(index)}
@@ -247,7 +247,6 @@ const GovernmentProcess = () => {
               <p
                 style={{
                   lineHeight: "1.2",
-                  textAlign: "center",
                   width: "100%",
                 }}
               >

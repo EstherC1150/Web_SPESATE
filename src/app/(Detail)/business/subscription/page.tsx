@@ -90,51 +90,61 @@ const MessageContainer = styled.div`
 const SubscriptionPage = () => {
   const messages = [
     {
-      text: "최근 정부 지원사업이 많이 늘었는데,\n공고 내용이 너무 복잡하고, 평가 기준이나 신청 절차도 이해하기 어려워요.\n이런 상황에서 어떻게 해야 할까요?",
+      text: "질문1 : 정부 지원 사업이 너무 복잡해요!\n              정부 지원 사업이 많지만, 맞는 걸 찾기 어렵고 공고도 복잡해요.",
       align: "left",
       delay: 0,
     } as const,
     {
-      text: "그렇습니다. 그렇기 때문에 기업들이 필요한 정보를 빠르게 얻기가 어렵습니다.\n이로 인해 많은 중소기업들이 지원사업을 선택하는 데 어려움을 겪고 있습니다.\n그 결과, 적합한 사업을 찾고 성공적으로 수행하는 데 큰 걸림돌이 되고 있죠.",
+      text: "정부 지원 사업은 점점 세분화되고 있어요.\n▪️ 기업 규모, 사업 단계에 따라 신청 요건이 다름\n▪️ 기존 지원 이력에 따라 중복 지원 여부 고려\n▪️ 평가 기준(기술력, 재무 건전성 등)에 맞춰 전략 필요\n\n🔹SPESATE에서는 맞춤 분석을 통해\n☑️ 최적의 지원 사업을 추천합니다.\n☑️ 신청부터 선정, 사후 관리까지 지원합니다.",
       align: "right",
       delay: 0.4,
     } as const,
     {
-      text: "그렇군요.\n그럼 이런 문제를 해결할 수 있는 방법이 있을까요?",
+      text: "질문2 : 우리 회사에 맞는 지원 사업이 뭔가요?\n              지원 사업이 많지만, 우리에게 맞는 걸 찾기 어려워요.",
       align: "left",
       delay: 0.8,
     } as const,
     {
-      text: "네, 바로 맞춤형 정보 제공 솔루션이 필요합니다.\n저희 솔루션은 기업의 상태와 필요에 맞는 지원사업을 자동으로 추천해주고, 복잡한 절차를 간소화하여 쉽게 이해하고 빠르게 신청할 수 있도록 도와줍니다.\n이를 통해 기업들은 적합한 지원사업을 신속하게 찾아서, 더욱 효과적으로 활용할 수 있습니다.",
+      text: "업종, 매출만으로는 부족합니다!\n▪️ 제조업 → 스마트 공장 지원 (자동화 구축)\n▪️ IT 기업 → AI·SW 개발 지원 (연구개발비)\n▪️ 바이오·헬스케어 → 첨단기술 R&D 지원 (기술 개발)\n▪️ 수출 기업 → 수출 바우처 지원 (해외 시장 개척)\n\n🔹SPESATE에서는 기업 특성을 분석해\n☑️ 신청 가능성이 높은 지원 사업을 추천합니다.\n☑️ 정부가 원하는 방향에 맞춰 사업계획서 작성을 지원합니다.",
       align: "right",
       delay: 1.2,
+    } as const,
+    {
+      text: "질문3 : 중소기업이 겪는 애로사항, 해결할 수 있을까요?\n              인력 부족, 자금 조달, 경영 관리… 해결 방법이 있을까요?",
+      align: "left",
+      delay: 1.6,
+    } as const,
+    {
+      text: "중소기업이 자주 겪는 어려움, 이렇게 해결하세요!\n▪️ 운영 자금 부족 → 저금리 정책 자금 & 투자 연계\n▪️ 전문 인력 부족 → R&D·청년 채용 지원\n▪️ 신청 부담 → 전담 컨설팅 & 사후 관리\n▪️ 지원금 활용 어려움 → 정산 교육 & 전문가 컨설팅\n\n🔹SPESATE에서는 기업 상황을 분석해\n☑️ 자금 조달 & 투자 유치 전략을 수립합니다.\n☑️ 정부 지원 사업 활용 & 운영 최적화를 지원합니다.",
+      align: "right",
+      delay: 2.0,
     } as const,
   ];
 
   const merits = [
     {
-      title: "정확하고 신속한 정보 제공",
+      title: "우리기업에 맞는 정부 지원 사업 분석",
       description:
-        "기업형 맞춤형 정보 제공 시스템을 통해 중소기업이 필요로 하는 정보를 적시에 제공받아 경영 활동에 활용할 수 있습니다.",
-      icon: "/images/business/ic-fasttime.png",
-    },
-    {
-      title: "정기적인 정보 업데이트",
-      description:
-        "변화하는 정책과 시장 동향에 맞춰 시스템 내 정보가 주기적으로 업데이트되어 최신 정보를 항상 확인할 수 있습니다.",
-      icon: "/images/business/ic-update.png",
-    },
-    {
-      title: "맞춤형 상담 서비스",
-      description:
-        "중소기업의 개별 상황과 필요에 맞춘 전문 상담을 통해 맞춤형 솔루션을 제공합니다.",
+        "✔ 정부 지원 사업을 체계적으로 정리하여 기업 맞춤형 정보를 제공\n✔ 성공 확률을 높일 수 있도록 지원 과제를 분석 및 전략을 수립",
       icon: "/images/business/ic-candidate.png",
     },
     {
-      title: "변화하는 정책 환경에 대한 빠른 대응 지원",
+      title: "기업 운영의 애로사항 해결",
       description:
-        "정책 변화에 신속히 대응할 수 있도록 관련 정보를 제공하고, 필요한 경우 추가 지원 방안을 안내합니다.",
+        "✔ 자금 조달, 연구 인력 확보, 정책 변화 대응 등 맞춤형 컨설팅을 제공\n✔ 기업의 특성을 고려한 전략적 해결 방안을 제시",
       icon: "/images/business/ic-responsibility.png",
+    },
+    {
+      title: "기업 운영 및 경영 개선 지원",
+      description:
+        "✔ 기업별 맞춤 분석을 통해 재무, 마케팅, 조직 운영 개선 전략을 제공\n✔ 지속 성장 위한 디지털 전환, 자동화, 신규 시장 전략 수립",
+      icon: "/images/business/ic-update.png",
+    },
+    {
+      title: "정책 변화에 대한 신속한 대응 지원",
+      description:
+        "✔ 정부 정책 변화 및 지원 사업 정보를 실시간 분석 제공\n✔ 기업이 최적의 지원을 받도록 컨설팅 진행",
+      icon: "/images/business/ic-fasttime.png",
     },
   ];
 
@@ -147,7 +157,7 @@ const SubscriptionPage = () => {
         </TImg>
       </ContentContainer>
       <ContentContainer>
-        <NeedTitle>정기 관리 컨설팅의 필요성</NeedTitle>
+        <NeedTitle>정기 관리 컨설팅이 왜 필요할까?</NeedTitle>
         <MessageContainer>
           {messages.map((msg, index) => (
             <MessageItem key={index} msg={msg} />
@@ -155,7 +165,7 @@ const SubscriptionPage = () => {
         </MessageContainer>
       </ContentContainer>
       <ContentContainer>
-        <MeritTitle>정기 관리 컨설팅의 이점</MeritTitle>
+        <MeritTitle>정기 관리 컨설팅의 핵심 이점</MeritTitle>
         <MeritContainer>
           {merits.map((merit, index) => (
             <MeritBox

@@ -147,8 +147,14 @@ const HistoryPage = () => {
           </YearContainer>
           <ContentContainer>
             <ContentBox>
+              <HistoryDate>2024.10.01</HistoryDate>
+              <HistoryDesc>
+                첫 파트너사와 시범 협업 진행 및 협업 클러스터 참여
+              </HistoryDesc>
+            </ContentBox>
+            <ContentBox>
               <HistoryDate>2024.10.10</HistoryDate>
-              <HistoryDesc>SPESATE 설립</HistoryDesc>
+              <HistoryDesc>SPESATE 공식 출범 및 본격 운영 시작</HistoryDesc>
             </ContentBox>
           </ContentContainer>
         </HistoryBox>

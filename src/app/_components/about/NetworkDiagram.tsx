@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const SVGContainer = styled.div`
   width: 100%;
-  height: 700px; /* 높이를 충분히 확보 */
+  height: 600px; /* 높이를 충분히 확보 */
   position: relative;
 `;
 
@@ -54,7 +54,7 @@ const NetworkDiagram = () => {
   return (
     <Container>
       <SVGContainer ref={containerRef}>
-        <svg width="100%" height="100%" viewBox="0 0 600 600">
+        <svg width="100%" height="100%" viewBox="50 50 500 500">
           {/* 모든 선을 먼저 렌더링 */}
           {positionedLabels.map((label, index) => {
             if (index === labels.length - 1) return;

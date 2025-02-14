@@ -11,12 +11,14 @@ import useSettingStore from "./_store/settingStore";
 import { QuestionIcon } from "./_components/common/QuestionIcon";
 import Footer from "./_components/home/Footer";
 import HomeHeader from "./_components/common/HomeHeader";
+import Cluster from "./_components/home/Cluster";
+import styled from "styled-components";
 
 export default function Home() {
   const controls = useAnimation();
   const [currentPage, setCurrentPage] = useState(0); // 현재 페이지
   const [delay, setDelay] = useState(600);
-  const totalPages = 4; // 총 페이지 수
+  const totalPages = 5; // 총 페이지 수
   const isScrolling = useRef(false); // 스크롤 제한 플래그
   const { handleHeaderType } = useSettingStore();
   const isLastPage = currentPage === totalPages - 1;
@@ -86,6 +88,12 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, [currentPage, delay, handleHeaderType]);
 
+  const StyledFooter = styled(Footer)<{ $isSpecialPage?: boolean }>`
+    background-color: ${({ $isSpecialPage }) =>
+      $isSpecialPage ? "black" : "white"};
+    color: ${({ $isSpecialPage }) => ($isSpecialPage ? "black" : "white")};
+  `;
+
   return (
     <>
       <HomeHeader />
@@ -126,8 +134,12 @@ export default function Home() {
           <ContentContainer>
             <Outline />
           </ContentContainer>
+          {/* Page 4 */}
           <ContentContainer>
-            <Footer />
+            <Cluster />
+          </ContentContainer>
+          <ContentContainer>
+            <StyledFooter $isSpecialPage={currentPage % 2 === 0} />
           </ContentContainer>
         </motion.div>
       </div>

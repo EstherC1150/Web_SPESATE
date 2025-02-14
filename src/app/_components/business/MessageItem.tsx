@@ -23,7 +23,7 @@ const Message = styled(motion.div)<{
   font-size: 22px;
   padding: 15px 20px;
   border-radius: 15px;
-  max-width: 60%;
+  max-width: 80%;
   position: relative;
   opacity: 0;
   transform: translateY(20px);

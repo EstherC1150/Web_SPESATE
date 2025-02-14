@@ -97,70 +97,60 @@ const MessageContainer = styled.div`
 const SubscriptionPage = () => {
   const messages = [
     {
-      text: "1. 정부 R&D 과제의 복잡성과 불확실성 심화",
+      text: "질문1 : 정부 R&D 과제를 찾기가 너무 어려워요!\n              정부 R&D 과제가 많지만, 우리 회사에 맞는 걸 찾기 어렵고 공고도 복잡해요.",
       align: "left",
       delay: 0,
     } as const,
     {
-      text: "정부R&D 과제는 분야별, 규모별, 지원내용별로 다양하게 구성되어 있으며, 각 과제마다 참여자격, 기술요건, 사업화계획 등 세부적인 수행조건이 상이, 최근에는 대형과제가 증가하면서 중소기업 입장에서는 복잡한 평가기준과 까다로운 행정절차에 어려움을 겪고있음",
+      text: "정부 R&D 과제는 매년 정책과 지원 대상이 바뀌어 직접 찾기 어렵습니다!\n▪️ 지원 기관마다 (산업부, 중기부, 과기부 등) 목표와 방식이 다름\n▪️ 연구개발 단계별 과제 (기초 연구, 시제품 개발, 상용화)\n▪️ 업종별 맞춤 지원 (스마트 제조, AI·SW, 바이오·의료, 수출 기업)\n\n🔹SPESATE에서는 기업 맞춤 분석을 통해\n☑️ 최적의 R&D 과제를 추천합니다.\n☑️ 선정 가능성을 높이는 전략을 지원합니다.",
       align: "right",
       delay: 0.4,
     } as const,
     {
-      text: "2. 중소기업의 자원부족",
+      text: "질문2 : 정부 과제를 수주하려면 사업계획서를 어떻게 준비해야 하나요?\n              정부 과제를 신청하려는데, 사업계획서를 어떻게 작성해야 할지 모르겠어요.",
       align: "left",
       delay: 0.8,
     } as const,
     {
-      text: "중소기업은 대기업에 비해 시간, 인력, 정보 등 자원 부족으로 정부 R&D 과제를 효과적으로 수행하기가 어려움",
+      text: "사업계획서는 정부 과제 선정의 핵심입니다!\n▪️ 기술력과 차별성 → 우리 기업만의 강점 강조\n▪️ 시장 분석 & 사업화 전략 → 실현 가능성 증명\n▪️ 정부 정책과 연계성 → 지원 필요성 명확화\n▪️ 구체적인 연구개발 일정 → 실행 가능성 확보\n\n🔹SPESATE에서는\n☑️ 정부 과제 평가 기준에 맞춘 사업계획서 작성을 지원합니다.\n☑️ 기업의 강점을 극대화하는 전략을 수립합니다.",
       align: "right",
       delay: 1.2,
     } as const,
     {
-      text: "3. 경쟁 심화",
+      text: "질문3 : 정부 과제 수행 중 일정 관리와 사후 관리는 어떻게 해야 하나요?\n              정부 과제에 선정됐지만 일정 관리와 보고서 작성이 어렵습니다.",
       align: "left",
       delay: 1.6,
     } as const,
     {
-      text: "정부 R&D 과제는 기업의 성장을 위한 중요한 기회이므로, 많은 기업들이 참여하여 경쟁이 치열함. 특히 정부의 R&D 투자가 확대되면서 경쟁 강도가 더욱 심화되고 있음",
+      text: "정부 과제는 선정 후에도 철저한 관리가 필요합니다!\n▪️ 연구 일정 준수 & 성과 관리 → 프로젝트 진행 체계화\n▪️ 과제 중간 점검 & 방향 조정 → 목표 달성률 향상\n▪️ 지원금 정산 & 최종 보고서 제출 → 불이익 방지\n\n🔹SPESATE에서는\n☑️ 과제 일정과 연구개발 진행을 체계적으로 관리합니다.\n☑️ 과제 종료 후 정산 및 평가까지 철저히 지원합니다.",
       align: "right",
       delay: 2.0,
-    } as const,
-    {
-      text: "4. 사업화의 어려움",
-      align: "left",
-      delay: 2.4,
-    } as const,
-    {
-      text: "정부 R&D 과제에 성공적으로 참여하더라도, 연구결과를 사업화하는 과정에서 많음 어려움이 있음",
-      align: "right",
-      delay: 2.8,
     } as const,
   ];
 
   const merits = [
     {
-      title: "기업 역량과 목표에 맞는 정부 R&D 과제 발굴",
+      title: "정부 과제 신청 절차 및 필수 요건 점검",
       description:
-        "다양한 정부 R&D 과제 중에서 기업의 기술 역량과 목표에 가장 부합하는 과제를 선별해 지원받을 수 있습니다.",
+        "✔ 정부 평가 기준(기술력, 재무 건전성, 사업성)에 맞춘 사전 준비 지원\n✔ 신청 과정의 행정 절차와 필수 서류를 정리해 효율적 준비 지원",
       icon: "/images/business/ic-goal.png",
     },
     {
-      title: "경쟁력 있는 사업계획서 작성 지원",
+      title: "성공적인 과제 수행을 위한 사업계획서 작성 지원",
       description:
-        "평가위원의 요구사항을 반영하여 보다 완성도 높고 경쟁력 있는 사업계획서를 작성할 수 있도록 지원합니다.",
+        "✔ 평가 핵심 요소를 반영하여 계획서 작성 지원\n✔ 기술력, 사업성, 정책 부합도를 고려하여 과제 선정 확률을 높임",
       icon: "/images/business/ic-support.png",
     },
     {
-      title: "기술적·행정적 문제 해결을 통한 원활한 사업 수행",
+      title: "정부 과제 수행 중 발생하는 문제 해결 지원",
       description:
-        "사업 수행 과정에서 발생하는 기술적, 행정적 문제를 해결하여 프로젝트가 원활하게 진행될 수 있도록 도와줍니다.",
+        "✔ 연구개발 일정과 주요 마일스톤을 설정, 체계적인 일정 관리를 지원\n✔ 과제 수행 중 발생하는 행정 절차 및 기술적 문제 해결 컨설팅을 제공",
       icon: "/images/business/ic-solution.png",
     },
     {
-      title: "최신 기술 동향 파악 및 사업화 자문 제공",
+      title: "최신 기술 동향 분석 및 사업화 전략 수립 지원",
       description:
-        "정부 R&D 과제를 통해 최신 기술 동향을 파악하고, 기술 개발 및 사업화에 필요한 전문적인 자문을 받을 수 있습니다.",
+        "✔ 연구개발 이후 사업화를 고려한 전략적 방향성을 제시\n✔ 기업의 핵심 기술과 시장 동향을 반영한 맞춤형 컨설팅을 제공",
       icon: "/images/business/ic-provide.png",
     },
   ];
@@ -174,7 +164,7 @@ const SubscriptionPage = () => {
         </TImg>
       </ContentContainer>
       <ContentContainer>
-        <NeedTitle>정부 과제 컨설팅의 필요성</NeedTitle>
+        <NeedTitle>정부 과제 컨설팅이 왜 필요할까?</NeedTitle>
         <MessageContainer>
           {messages.map((msg, index) => (
             <MessageItem key={index} msg={msg} />
@@ -182,7 +172,7 @@ const SubscriptionPage = () => {
         </MessageContainer>
       </ContentContainer>
       <ContentContainer>
-        <MeritTitle>정부 과제 컨설팅의 이점</MeritTitle>
+        <MeritTitle>정부 과제 컨설팅의 핵심 이점</MeritTitle>
         <MeritContainer>
           {merits.map((merit, index) => (
             <MeritBox

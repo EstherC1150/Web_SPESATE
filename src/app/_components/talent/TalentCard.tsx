@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 interface TalentCardProps {
   number: string;
   title: string;
-  description: string;
+  description: string | string[];
   bgColor: string;
   icon: string;
 }
@@ -115,7 +115,11 @@ function TalentCard({
         <img src={icon} alt="icon" />
         <h1>0{number}</h1>
         <h2>{title}</h2>
-        <p>{description}</p>
+        {Array.isArray(description) ? (
+          description.map((desc, index) => <p key={index}>{desc}</p>)
+        ) : (
+          <p>{description}</p>
+        )}
       </Card>
     </CardWrapper>
   );

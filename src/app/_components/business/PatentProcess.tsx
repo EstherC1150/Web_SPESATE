@@ -7,28 +7,28 @@ import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
   {
-    label: "인증 필요성 분석 및 전략 수립",
-    text: "- 인증 분석 지원\n- 인증 취득시 기업이 받을 수 있는 혜택 검토 지원",
+    label: "특허 가능성 분석",
+    text: "- 선행 특허조사 지원\n- 특허 등록 가능성 분석",
   },
   {
-    label: "서류준비 및 인증 신청",
-    text: "- 서류 준비 및 기업 실정에 맞게 자료 정리 지원\n- 계획서 및 신청서 작성지원",
+    label: "특허 명세서 작성 및 서류 준비",
+    text: "- 특허 명세서 작성지원\n- 출원서류 준비 지원",
   },
   {
-    label: "현장 심사 및 평가",
-    text: "- 보완 요청 대응 지원",
+    label: "특허출원(특허청 제출)",
+    text: "- 특허출원 진행 지원",
   },
   {
-    label: "최종심사",
-    text: "- 보완 요청 대응 지원\n- 최종심사 대응지원",
+    label: "특허 심사 및 보완",
+    text: "- 의견 제출통지서 대응지원",
   },
   {
-    label: "인증 유지 및 사후관리",
-    text: "- 인증 사후관리 지원",
+    label: "특허 등록 및 유지관리",
+    text: "- 특허권 유지관리 지원",
   },
 ];
 
-const CertificationProcess = () => {
+const PatentProcess = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -91,7 +91,7 @@ const CertificationProcess = () => {
         >
           <defs>
             <marker
-              id="arrow"
+              id="arrow2"
               viewBox="7 0 11 10"
               markerWidth="6"
               markerHeight="6"
@@ -120,7 +120,7 @@ const CertificationProcess = () => {
             y2="25"
             stroke={`${colors.primary.main}`}
             strokeWidth="10"
-            markerEnd="url(#arrow)"
+            markerEnd="url(#arrow2)"
             initial={{ strokeDasharray: "0, 10000" }}
             animate={isInView ? { strokeDasharray: "10000, 0" } : {}}
             transition={{ duration: 12, ease: "linear" }}
@@ -226,7 +226,7 @@ const CertificationProcess = () => {
                 top: index % 2 === 0 ? "110px" : "-200px",
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "348px",
+                width: "280px",
                 height: "100px",
                 display: "flex",
                 alignItems: "center",
@@ -252,4 +252,4 @@ const CertificationProcess = () => {
   );
 };
 
-export default CertificationProcess;
+export default PatentProcess;
