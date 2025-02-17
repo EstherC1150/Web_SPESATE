@@ -13,6 +13,7 @@ import Footer from "./_components/home/Footer";
 import HomeHeader from "./_components/common/HomeHeader";
 import Cluster from "./_components/home/Cluster";
 import styled from "styled-components";
+import KakaoIcon from "./_components/common/KakaoIcon";
 
 export default function Home() {
   const controls = useAnimation();
@@ -143,6 +144,7 @@ export default function Home() {
           </ContentContainer>
         </motion.div>
       </div>
+      {!isLastPage && <KakaoIcon />}
       {!isLastPage && <QuestionIcon />}
     </>
   );

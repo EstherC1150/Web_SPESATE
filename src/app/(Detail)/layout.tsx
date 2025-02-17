@@ -1,4 +1,5 @@
 import Header from "../_components/common/Header";
+import KakaoIcon from "../_components/common/KakaoIcon";
 import { QuestionIcon } from "../_components/common/QuestionIcon";
 import Footer from "../_components/home/Footer";
 
@@ -10,6 +11,7 @@ const Testlayout = ({ children }: Prosp) => {
   return (
     <>
       <Header />
+      <KakaoIcon />
       <QuestionIcon />
       {children}
       <div
