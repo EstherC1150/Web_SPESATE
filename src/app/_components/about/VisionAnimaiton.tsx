@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 interface CircleData {
   text: string;
@@ -25,7 +26,7 @@ const circles: CircleData[] = [
   {
     text: "지속 가능한 성장",
     description:
-      "단순히 이익 추구를 넘어,\n고객 중심의 가치창출을 통해 지속 가능한 성장",
+      "단순히 이익 추구를 넘어,\n고객 중심의 가치창출로 지속 가능한 성장",
     color: "#28AAE2",
   },
 ];
@@ -34,9 +35,10 @@ const Layout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1200px;
+  width: 1120px;
   margin: 0 auto;
   position: relative;
+  margin-top: 60px;
 `;
 
 const CircleContainer = styled.div`
@@ -115,11 +117,13 @@ const imageUrl = [
 const text = ["고객 성공 파트너", "미래를 선도하는 기업", "지속 가능한 성장"];
 
 const VisionAnimaiton = () => {
+  const { ref: containerRef, isInView } = useInViewAnimate();
+
   return (
     <Layout>
       <PlusBoxOne
         initial={{ opacity: 0, y: 0, x: "-33.2%" }}
-        animate={{ opacity: 1, y: "-70%", x: "-33.2%" }}
+        animate={isInView ? { opacity: 1, y: "-70%", x: "-33.2%" } : {}}
         transition={{
           delay: 0.3,
           duration: 0.5,
@@ -130,7 +134,7 @@ const VisionAnimaiton = () => {
       </PlusBoxOne>
       <PlusBoxTwo
         initial={{ opacity: 0, y: 0, x: "-67%" }}
-        animate={{ opacity: 1, y: "-70%", x: "-67%" }}
+        animate={isInView ? { opacity: 1, y: "-70%", x: "-67%" } : {}}
         transition={{
           delay: 1,
           duration: 0.5,
@@ -140,7 +144,7 @@ const VisionAnimaiton = () => {
         +
       </PlusBoxTwo>
       {/* 원과 텍스트를 함께 배치 */}
-      <CircleContainer>
+      <CircleContainer ref={containerRef}>
         {circles.map((circle, index) => (
           <CircleWrapper key={index}>
             {/* 원 애니메이션 */}
@@ -155,7 +159,9 @@ const VisionAnimaiton = () => {
                 strokeDasharray="283" // 2 * π * r
                 strokeDashoffset="283"
                 initial={{ strokeDashoffset: 283 }}
-                animate={{ strokeDashoffset: 0 }}
+                animate={
+                  isInView ? { strokeDashoffset: 0 } : { strokeDashoffset: 283 }
+                }
                 transition={{
                   delay: index * 0.5,
                   duration: 1,
@@ -173,7 +179,7 @@ const VisionAnimaiton = () => {
                 width="32" // 아이콘 크기
                 height="32"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{
                   delay: index * 0.5 + 0.5,
                   duration: 0.5,
@@ -189,7 +195,7 @@ const VisionAnimaiton = () => {
                 fontSize="7px"
                 fontWeight="700"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{
                   delay: index * 0.5 + 0.5,
                   duration: 0.5,
@@ -203,7 +209,7 @@ const VisionAnimaiton = () => {
             {/* 텍스트 애니메이션 */}
             <TextBox
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ delay: index * 0.5 + 0.5, duration: 0.5 }}
               color={circle.color === "#D1D3D5" ? "#6e6e6e" : circle.color}
             >

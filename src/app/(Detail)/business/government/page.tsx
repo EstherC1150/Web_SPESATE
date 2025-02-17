@@ -14,7 +14,6 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: #fff;
-  overflow-y: auto; /* 수직 스크롤 활성화 */
 `;
 
 const ContentContainer = styled.div`
@@ -103,7 +102,7 @@ const Support = styled.div`
 `;
 
 const SupportBox = styled.div`
-  width: 4%;
+  width: 66px;
   height: 24px;
   border: 2px solid ${colors.primary.main};
   border-radius: 4px;

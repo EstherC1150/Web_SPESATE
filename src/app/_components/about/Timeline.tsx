@@ -65,9 +65,10 @@ const Timeline = () => {
     <div
       style={{
         overflow: "hidden",
-        padding: "200px 20px",
+        padding: "200px 0",
         height: "430px",
-        width: "1200px",
+        width: "1120px",
+        marginTop: "60px",
       }}
       ref={timelineRef} // 타임라인 감지할 DOM에 ref 추가
     >
@@ -81,7 +82,7 @@ const Timeline = () => {
         {/* SVG로 선과 화살표를 나타냄 */}
         <svg
           style={{
-            width: "100%",
+            width: "1120px",
             height: "50px",
             position: "absolute",
             top: "50%",
@@ -93,7 +94,7 @@ const Timeline = () => {
             <marker
               id="arrow"
               viewBox="7 0 11 10"
-              markerWidth="6"
+              markerWidth="8"
               markerHeight="6"
               refX="7"
               refY="5"
@@ -116,7 +117,7 @@ const Timeline = () => {
           <motion.line
             x1="0"
             y1="25"
-            x2="calc(100% - 50px)"
+            x2="calc(100% - 20px)"
             y2="25"
             stroke={`${colors.primary.main}`}
             strokeWidth="10"
@@ -225,7 +226,7 @@ const Timeline = () => {
                 top: index % 2 === 0 ? "110px" : "-200px",
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "300px",
+                width: "290px",
                 height: "100px",
                 textAlign: "left",
                 display: "flex",
