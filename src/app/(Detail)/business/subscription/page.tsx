@@ -153,7 +153,10 @@ const SubscriptionPage = () => {
       <ContentContainer>
         <TImg>
           <Title>정기 관리 컨설팅</Title>
-          <TText>사업공고분석& 매칭/ 고객아이템및자료관리</TText>
+          <TText>
+            사업공고 분석 & 매칭 / 고객 아이템 및 자료 관리 / 기업 에로사항
+            해결을 위한 지원
+          </TText>
         </TImg>
       </ContentContainer>
       <ContentContainer>

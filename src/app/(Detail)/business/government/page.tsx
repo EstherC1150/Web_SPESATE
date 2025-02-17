@@ -5,6 +5,7 @@ import styled from "styled-components";
 import MeritBox from "@/app/_components/business/MeritBox";
 import MessageItem from "@/app/_components/business/MessageItem";
 import GovernmentProcess from "@/app/_components/business/GovernmentProcess";
+import colors from "@/app/_constants/colors";
 
 const Container = styled.div`
   display: flex;
@@ -31,9 +32,9 @@ const TImg = styled.div`
   width: 100%;
   height: 300px;
   margin: 0 auto;
-  background-image: url("/images/business/testimg4.jpg"); /* 이미지 경로 설정 */
+  background-image: url("/images/business/testimg4.png"); /* 이미지 경로 설정 */
   background-size: cover;
-  background-position: center;
+  background-position: center 54%;
   border-radius: 15px; /* 모서리를 살짝 둥글게 */
   overflow: hidden;
   margin-top: 120px;
@@ -92,6 +93,24 @@ const MessageContainer = styled.div`
   gap: 15px; /* 각 메시지 간 기본 간격 */
   width: 95%;
   margin: 0 auto;
+`;
+
+const Support = styled.div`
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
+const SupportBox = styled.div`
+  width: 4%;
+  height: 24px;
+  border: 2px solid ${colors.primary.main};
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  margin-right: 4px;
+  box-sizing: border-box;
 `;
 
 const SubscriptionPage = () => {
@@ -160,7 +179,7 @@ const SubscriptionPage = () => {
       <ContentContainer>
         <TImg>
           <Title>정부 과제 컨설팅</Title>
-          <TText>정부 과제 A-Z지원(신청-협약-수행-종료-사후관리)</TText>
+          <TText>정부과제 전 과정 지원(신청부터 사후 관리까지)</TText>
         </TImg>
       </ContentContainer>
       <ContentContainer>
@@ -186,6 +205,9 @@ const SubscriptionPage = () => {
       </ContentContainer>
       <ContentContainer>
         <ProcessTitle>정부 과제 프로세스</ProcessTitle>
+        <Support>
+          <SupportBox /> : 지원항목
+        </Support>
         <GovernmentProcess />
       </ContentContainer>
     </Container>

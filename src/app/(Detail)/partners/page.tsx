@@ -112,7 +112,6 @@ const Image = styled.img`
 `;
 
 const List = styled.ul`
-  padding-left: 20px;
   margin-top: 10px;
 `;
 
@@ -371,7 +370,7 @@ const PartnerPage = () => {
             transition={{ duration: 0.7, delay: 0.25, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            클러스터
+            협업 클러스터
           </Title>
           <Grid>
             {cluster.map((cluster) => (
@@ -499,10 +498,12 @@ const PartnerPage = () => {
               </StyledBox>
               <StyledBox>
                 <StyledBoxTitle>
-                  정부 지원금 및 사업 연계를 통한 실질적 성과 창출
+                  정부지원사업 연계 및 기업 간의 사업 연계를 통한 실질적 성과
+                  창출
                 </StyledBoxTitle>
                 <StyledBoxContent>
-                  정부 지원 사업과의 연계를 통해 장기적인 성장 가능
+                  정부지원 사업 연계 및 기업간의 사업 연계를 통해 장기적인
+                  성장가능
                 </StyledBoxContent>
               </StyledBox>
             </BenefitsFlexContainer>

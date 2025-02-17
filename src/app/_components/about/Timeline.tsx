@@ -6,22 +6,25 @@ import colors from "@/app/_constants/colors";
 import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
-  { year: "2024", text: "- SPESATE설립\n- 파트너 1개 유치" },
+  {
+    year: "2024",
+    text: "- 파트너사 1개 확보\n- 협업 클러스터 첫 단계 개시\n- 스페세이트(SPESATE)설립",
+  },
   {
     year: "2025",
-    text: "- 파트너 5개 유치\n- 파트너 과제 총 사업비 합산 5억\n- 성능시험 전문기관 연계",
+    text: "- 파트너사 5개 확보\n- 협업 클러스터 확장(5개회사 참여)\n- 파트너사와의 협업으로 총 5억원의\n   사업비 확보",
   },
   {
     year: "2026",
-    text: "- 파트너 10개 유치\n- 파트너 과제 총 사업비 합산 10억\n- 특허사무소 연계",
+    text: "- 파트너사 10개 확보\n- 협업 클러스터 확장(20개회사 참여)\n- 파트너사와의 협업으로 총 15억원의\n   사업비 확보",
   },
   {
     year: "2027",
-    text: "- 파트너 20개 유치\n- 파트너 과제 총 사업비 합산 30억\n- 파트너 컨소시움 구성",
+    text: "- 파트너사 15개 확보\n- 협업 클러스터 확장(30개 회사 참여)\n- 파트너사와의 협업으로 총 30억원의\n   사업비 확보",
   },
   {
     year: "2028",
-    text: "- 파트너 50개 유치\n- 파트너 과제 총 사업비 합산 100억\n- 평가기관 심사위원 등록",
+    text: "- 파트너사 30개 확보\n- 협업 클러스터 확장(100개 회사 참여)\n- 파트너사와의 협업으로 총 100억원의\n   사업비 확보",
   },
 ];
 
@@ -222,7 +225,7 @@ const Timeline = () => {
                 top: index % 2 === 0 ? "110px" : "-200px",
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "280px",
+                width: "300px",
                 height: "100px",
                 textAlign: "left",
                 display: "flex",
@@ -235,6 +238,7 @@ const Timeline = () => {
               <p
                 style={{
                   lineHeight: "1.2",
+                  whiteSpace: "pre-wrap",
                 }}
               >
                 {milestone.text}

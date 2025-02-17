@@ -28,7 +28,7 @@ const IntroductionAnimationTest = () => {
   const [line2Cursor, setLine2Cursor] = useState(false);
 
   const line1 = "중소·중견기업간 올바른 협력으로";
-  const line2 = "긍정 시너지 창출 및 협력 생태계 구축";
+  const line2 = "긍정 시너지 창출 및 협업 클러스터 구축";
 
   // 첫 번째 줄 애니메이션 후 커서 제거
   useEffect(() => {

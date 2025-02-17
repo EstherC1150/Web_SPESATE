@@ -105,7 +105,7 @@ const CompanyAboutPage = () => {
             transition={{ duration: 0.5, delay: 0.07, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            <p>{`SPESATE는 고객 맞춤형 솔루션을 제공하며, 협력 생태계 구축을 통한 시너지 창출을 지원합니다.
+            <p>{`SPESATE는 고객 맞춤형 솔루션을 제공하며, 협업 글러스터 구축을 통한 시너지 창출을 지원합니다.
 `}</p>
           </ContentBox>
           <ImageBox
@@ -130,7 +130,7 @@ const CompanyAboutPage = () => {
             transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            상호 신뢰와 협력을 바탕으로 가치를 공동 창출하는 네트워크
+            상호 신뢰와 협력을 바탕으로 가치를 공동 창출하는 협업 클러스터
           </SubTitle>
           <div
             style={{
@@ -163,25 +163,25 @@ const CompanyAboutPage = () => {
               <p style={{ fontSize: "20px" }}>
                 {`SPESATE는 중소·중견기업의 지속적인 성장을 지원하는\n전문 컨설팅 기업입니다.
                 
-기업 운영의 다양한 과제를 해결하고 협력 생태계를 구축하여, 고객이 더욱 빠르게 성장할 수 있도록 돕습니다.\n`}
+협업 클러스터를 통해 다양한 분야의 기업들과 협력하며,\n각 분야의 전문가들이 모여 기업 맞춤형 솔루션을 제공합니다.\n`}
               </p>
               <p
                 style={{ fontSize: "20px", fontWeight: "700" }}
               >{`\nSPESATE가 제공하는 솔루션\n`}</p>
 
-              <p>{`✔  기업 맞춤형 컨설팅`}</p>
+              <p>{`✔ 기업 맞춤형 컨설팅`}</p>
 
               <p>
-                {`✔ 신뢰와 협력을 바탕으로 한 협업 네트워크 구축
+                {`✔ 협업 클러스터를 통한 상호 지원 네트워크 구축
 `}
               </p>
 
               <p>
-                {`✔ 절차 간소화 & 업무 효율성 증대
+                {`✔ 사업 효율화 및 공동 성장을 위한 전략 제시
 `}
               </p>
 
-              <p>{`✔ 고객 중심의 맞춤형 지원
+              <p>{`✔ 다양한 분야의 전문기관과의 연계를 통한 문제 해결
 `}</p>
             </motion.div>
           </div>

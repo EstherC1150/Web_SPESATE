@@ -114,10 +114,43 @@ const HistoryDesc = styled.p`
   line-height: 150%;
 `;
 
-const years = ["2024"];
+const years = ["2024", "2025"].reverse();
+
+interface HistoryItem {
+  date: string;
+  description: string;
+}
+
+interface HistoryData {
+  [key: string]: HistoryItem[];
+}
+
+const historyData: HistoryData = {
+  "2024": [
+    {
+      date: "2024.10.01",
+      description: "첫파트너사와 시범 협업 시작 및 협업 클러스터 첫 단계 개시",
+    },
+    {
+      date: "2024.10.10",
+      description: "스페세이트(SPESATE) 공식 출범 및 운영 시작",
+    },
+    {
+      date: "2024.10.10",
+      description: "창업기업 확인서 발급",
+    },
+  ],
+  "2025": [
+    {
+      date: "2025.01.02",
+      description: "협업클러스터 확장- 총2개 회사 참여",
+    },
+  ],
+};
 
 const HistoryPage = () => {
-  const [seletedYear, setSeletedYear] = useState("2024");
+  const [seletedYear, setSeletedYear] =
+    useState<keyof typeof historyData>("2025");
 
   return (
     <Container>
@@ -146,16 +179,12 @@ const HistoryPage = () => {
             ))}
           </YearContainer>
           <ContentContainer>
-            <ContentBox>
-              <HistoryDate>2024.10.01</HistoryDate>
-              <HistoryDesc>
-                첫 파트너사와 시범 협업 진행 및 협업 클러스터 참여
-              </HistoryDesc>
-            </ContentBox>
-            <ContentBox>
-              <HistoryDate>2024.10.10</HistoryDate>
-              <HistoryDesc>SPESATE 공식 출범 및 본격 운영 시작</HistoryDesc>
-            </ContentBox>
+            {historyData[seletedYear].map((item, index) => (
+              <ContentBox key={index}>
+                <HistoryDate>{item.date}</HistoryDate>
+                <HistoryDesc>{item.description}</HistoryDesc>
+              </ContentBox>
+            ))}
           </ContentContainer>
         </HistoryBox>
       </ContentSection>
