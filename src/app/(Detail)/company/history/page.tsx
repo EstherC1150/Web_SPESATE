@@ -133,11 +133,11 @@ const historyData: HistoryData = {
     },
     {
       date: "2024.10.10",
-      description: "스페세이트(SPESATE) 공식 출범 및 운영 시작",
+      description: "창업기업 확인서 발급",
     },
     {
       date: "2024.10.10",
-      description: "창업기업 확인서 발급",
+      description: "스페세이트(SPESATE) 공식 출범 및 운영 시작",
     },
   ],
   "2025": [
@@ -179,12 +179,17 @@ const HistoryPage = () => {
             ))}
           </YearContainer>
           <ContentContainer>
-            {historyData[seletedYear].map((item, index) => (
-              <ContentBox key={index}>
-                <HistoryDate>{item.date}</HistoryDate>
-                <HistoryDesc>{item.description}</HistoryDesc>
-              </ContentBox>
-            ))}
+            {historyData[seletedYear]
+              .sort(
+                (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime()
+              )
+              .map((item, index) => (
+                <ContentBox key={index}>
+                  <HistoryDate>{item.date}</HistoryDate>
+                  <HistoryDesc>{item.description}</HistoryDesc>
+                </ContentBox>
+              ))}
           </ContentContainer>
         </HistoryBox>
       </ContentSection>
