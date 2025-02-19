@@ -133,7 +133,7 @@ const historyData: HistoryData = {
     },
     {
       date: "2024.10.10",
-      description: "창업기업 확인서 발급",
+      description: "중소기업 확인서 발급",
     },
     {
       date: "2024.10.10",
