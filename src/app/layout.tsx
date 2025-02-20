@@ -29,8 +29,7 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "https://www.spesate.com/favicon.ico",
-    shortcut: "https://www.spesate.com/favicon.ico",
+    icon: { url: "https://www.spesate.com/favicon.ico", type: "image/x-icon" },
   },
   robots: {
     index: true, // 검색엔진이 페이지를 색인하도록 허용
