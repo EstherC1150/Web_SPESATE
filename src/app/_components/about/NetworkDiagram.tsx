@@ -124,7 +124,7 @@ const NetworkDiagram = () => {
             animate={isInView ? { scale: 1 } : { scale: 0 }}
             transition={{ duration: 0.5 }}
           >
-            협력 생태계
+            협업 클러스터
           </motion.text>
 
           {/* 바깥 원과 텍스트 */}
