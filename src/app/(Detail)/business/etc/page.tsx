@@ -6,6 +6,7 @@ import CertificationProcess from "@/app/_components/business/CertificationProces
 import PatentProcess from "@/app/_components/business/PatentProcess";
 import MessageItem from "@/app/_components/business/MessageItem";
 import MeritBox from "@/app/_components/business/MeritBox";
+import colors from "@/app/_constants/colors";
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +15,6 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: #fff;
-  overflow-y: auto;
 `;
 
 const ContentContainer = styled(motion.div)`
@@ -104,6 +104,24 @@ const MeritContainer = styled.div`
   justify-content: space-between;
 `;
 
+const Support = styled.div`
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-bottom: 40px;
+`;
+
+const SupportBox = styled.div`
+  width: 66px;
+  height: 24px;
+  border: 2px solid ${colors.primary.main};
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  margin-right: 4px;
+  box-sizing: border-box;
+`;
+
 const SubscriptionPage = () => {
   const messages = [
     {
@@ -188,10 +206,16 @@ const SubscriptionPage = () => {
       </ContentContainer>
       <ContentContainer>
         <ProcessTitle>기업 인증 프로세스</ProcessTitle>
+        <Support>
+          <SupportBox /> : 지원항목
+        </Support>
         <CertificationProcess />
       </ContentContainer>
       <ContentContainer>
         <ProcessTitle>기업 특허 프로세스</ProcessTitle>
+        <Support>
+          <SupportBox /> : 지원항목
+        </Support>
         <PatentProcess />
       </ContentContainer>
     </Container>

@@ -65,9 +65,9 @@ const PatentProcess = () => {
     <div
       style={{
         overflow: "hidden",
-        padding: "200px 20px",
+        padding: "200px 0",
         height: "430px",
-        width: "1200px",
+        width: "1120px",
       }}
       ref={timelineRef} // 타임라인 감지할 DOM에 ref 추가
     >
@@ -93,7 +93,7 @@ const PatentProcess = () => {
             <marker
               id="arrow2"
               viewBox="7 0 11 10"
-              markerWidth="6"
+              markerWidth="8"
               markerHeight="6"
               refX="7"
               refY="5"
@@ -116,7 +116,7 @@ const PatentProcess = () => {
           <motion.line
             x1="0"
             y1="25"
-            x2="calc(100% - 50px)"
+            x2="calc(100% - 20px)"
             y2="25"
             stroke={`${colors.primary.main}`}
             strokeWidth="10"

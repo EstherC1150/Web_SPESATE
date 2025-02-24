@@ -8,6 +8,9 @@ import NetworkDiagram from "@/app/_components/about/NetworkDiagram";
 import { mainColors, values } from "@/app/_constants/company/about/about";
 import ColorPrevBox from "@/app/_components/about/ColorPrevBox";
 import CompanyValue from "@/app/_components/about/CompanyValue";
+import VisionAnimaiton from "@/app/_components/about/VisionAnimaiton";
+import Timeline from "@/app/_components/about/Timeline";
+import Authorization from "@/app/_components/company/Authorization";
 
 const Container = styled.div`
   display: flex;
@@ -86,6 +89,17 @@ const ValueContainer = styled.div`
   justify-content: space-around;
 `;
 
+const ImageContainer = styled(motion.div)`
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 900 / 440; /* 비율을 유지 */
+  margin: 0 auto;
+  margin-top: 60px;
+  overflow: hidden; /* 필요 시 초과 영역 숨김 */
+  border-radius: 8px; /* 선택 사항: 둥근 모서리 */
+`;
+
 const CompanyAboutPage = () => {
   return (
     <Container>
@@ -150,7 +164,7 @@ const CompanyAboutPage = () => {
                 fontSize: "18px",
                 fontWeight: "500",
                 lineHeight: "140%",
-                marginLeft: "40px",
+                marginLeft: "60px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
@@ -185,6 +199,73 @@ const CompanyAboutPage = () => {
 `}</p>
             </motion.div>
           </div>
+        </ContentSection>
+
+        <ContentSection>
+          <SubTitle
+            style={{ marginTop: "80px" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
+            비전
+          </SubTitle>
+          <VisionAnimaiton />
+        </ContentSection>
+
+        <ContentSection>
+          <SubTitle
+            style={{ marginTop: "80px" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
+            핵심가치
+          </SubTitle>
+          <ValueContainer>
+            {values.map((value, index) => (
+              <CompanyValue
+                key={value.title}
+                value={value}
+                delay={index * 0.07}
+              />
+            ))}
+          </ValueContainer>
+        </ContentSection>
+
+        <ContentSection>
+          <SubTitle
+            style={{ marginTop: "80px" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
+            조직도
+          </SubTitle>
+          <ImageContainer
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
+            <Image src={"/images/company/organization.png"} alt="" fill />
+          </ImageContainer>
+        </ContentSection>
+
+        <ContentSection>
+          <SubTitle
+            style={{ marginTop: "80px" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
+            viewport={{ once: true }}
+          >
+            인증
+          </SubTitle>
+          <Authorization />
         </ContentSection>
 
         <ContentSection>
@@ -237,17 +318,9 @@ const CompanyAboutPage = () => {
             transition={{ duration: 0.5, delay: 0, ease: easeInOut }}
             viewport={{ once: true }}
           >
-            핵심가치
+            목표
           </SubTitle>
-          <ValueContainer>
-            {values.map((value, index) => (
-              <CompanyValue
-                key={value.title}
-                value={value}
-                delay={index * 0.07}
-              />
-            ))}
-          </ValueContainer>
+          <Timeline />
         </ContentSection>
       </ContentContainer>
     </Container>
