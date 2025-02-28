@@ -7,24 +7,24 @@ import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
   {
-    label: "인증 필요성 분석 및 전략 수립",
-    text: "- 인증 분석 지원\n- 인증 취득시 기업 혜택 검토 지원",
+    label: "인증 분석 및 전략 수립",
+    text: "- 인증 분석 지원\n- 기업 혜택 검토 지원",
   },
   {
     label: "서류 준비 및 인증 신청",
-    text: "- 서류 준비 및 자료 정리 지원\n- 계획서 및 신청서 작성지원",
+    text: "- 서류 준비 및 자료 정리지원\n- 계획서 및 신청서 작성지원",
   },
   {
     label: "현장 심사 및 평가",
-    text: "- 보완 요청 대응 지원",
+    text: "- 보완 요청 대응지원",
   },
   {
     label: "최종심사",
-    text: "- 보완 요청 대응 지원\n- 최종심사 대응지원",
+    text: "- 최종심사 대응지원",
   },
   {
     label: "인증 유지 및 사후관리",
-    text: "- 인증 사후관리 지원",
+    text: "- 인증 유지 및 사후관리 지원",
   },
 ];
 

@@ -205,14 +205,14 @@ const SubscriptionPage = () => {
         </MeritContainer>
       </ContentContainer>
       <ContentContainer>
-        <ProcessTitle>기업 인증 프로세스</ProcessTitle>
+        <ProcessTitle>기업인증 프로세스</ProcessTitle>
         <Support>
           <SupportBox /> : 지원항목
         </Support>
         <CertificationProcess />
       </ContentContainer>
       <ContentContainer>
-        <ProcessTitle>기업 특허 프로세스</ProcessTitle>
+        <ProcessTitle>특허 및 디자인 프로세스</ProcessTitle>
         <Support>
           <SupportBox /> : 지원항목
         </Support>

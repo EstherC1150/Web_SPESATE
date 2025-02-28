@@ -7,24 +7,24 @@ import useInViewAnimate from "@/app/_hooks/useInViewAnimate";
 
 const milestones = [
   {
-    label: "특허 가능성 분석",
-    text: "- 선행 특허조사 지원\n- 특허 등록 가능성 분석",
+    label: "특허 및 디자인 분석",
+    text: "- 특허 및 디자인 가능성 분석\n- 특허 및 디자인 조사 지원",
   },
   {
-    label: "특허 명세서 작성 및 서류 준비",
-    text: "- 특허 명세서 작성지원\n- 출원서류 준비 지원",
+    label: "서류 작성 및 준비비",
+    text: "- 명세서 작성지원\n- 출원 서류 준비 지원",
   },
   {
-    label: "특허출원(특허청 제출)",
-    text: "- 특허출원 진행 지원",
+    label: "출원",
+    text: "- 특허 및 디자인 출원 지원",
   },
   {
-    label: "특허 심사 및 보완",
-    text: "- 의견 제출통지서 대응지원",
+    label: "최종심사",
+    text: "- 의견 제출 통지서 대응 지원",
   },
   {
-    label: "특허 등록 및 유지관리",
-    text: "- 특허권 유지관리 지원",
+    label: "등록 및 유지관리",
+    text: "- 유지관리 지원",
   },
 ];
 

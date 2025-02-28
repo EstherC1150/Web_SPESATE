@@ -102,8 +102,8 @@ const Support = styled.div`
 `;
 
 const SupportBox = styled.div`
-  width: 66px;
-  height: 24px;
+  width: 36px;
+  height: 20px;
   border: 2px solid ${colors.primary.main};
   border-radius: 4px;
   background-color: #fff;
